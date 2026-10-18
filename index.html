@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Duvva Sai Vivek | AI & Data Science Student | Portfolio</title>
+  
+  <!-- Meta & OpenGraph -->
+  <meta name="description" content="Portfolio of Duvva Sai Vivek — B.Tech Artificial Intelligence & Data Science student at IIITDM Kurnool. Building machine learning projects, GenAI apps, and participating in hackathons.">
+  <meta name="author" content="Duvva Sai Vivek">
+  <meta property="og:title" content="Duvva Sai Vivek | Portfolio">
+  <meta property="og:description" content="B.Tech AI & Data Science student at IIITDM Kurnool. Machine learning, Generative AI, and software projects.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="./Images/vivek_hero.jpg">
+  
+  <!-- Typography: Plus Jakarta Sans & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+  <!-- WebGL 3D Canvas Layer -->
+  <div id="three-canvas-container" aria-hidden="true"></div>
+
+  <!-- ===================================================================
+       HEADER & NAVIGATION BAR
+       =================================================================== -->
+  <header class="header">
+    <div class="container nav-container">
+      <!-- Desktop Nav -->
+      <nav class="nav-menu" id="navMenu">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#focus" class="nav-link">What I Do</a>
+        <a href="#about" class="nav-link">About me</a>
+        <a href="#experience" class="nav-link">Internships</a>
+        <a href="#portfolio" class="nav-link">Projects</a>
+        <a href="#hackathons" class="nav-link">Hackathons</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Actions -->
+      <div class="nav-actions">
+        <!-- 2D / 3D Mode Toggle -->
+        <button type="button" class="mode-toggle-btn" id="modeToggleBtn" title="Toggle 2D / 3D Background">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+          </svg>
+          <span class="mode-badge">2D ACTIVE</span>
+        </button>
+
+        <a href="#contact" class="btn btn-primary btn-pill">Get In Touch</a>
+
+        <button type="button" class="mobile-nav-toggle" aria-label="Toggle navigation">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===================================================================
+         HERO SECTION (STUDENT PORTFOLIO AESTHETIC MATCHING MOCKUP)
+         =================================================================== -->
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <!-- Hero Content Left -->
+        <div class="hero-content">
+          <span class="hero-greeting">Hi, I am</span>
+          <h1 class="hero-name">Duvva Sai Vivek</h1>
+          
+          <div class="hero-role-wrapper">
+            <h2 class="hero-role">AI & ML Enthusiast</h2>
+          </div>
+
+          <p class="hero-desc">
+            B.Tech student in Artificial Intelligence and Data Science at IIITDM Kurnool. Passionate about machine learning, generative AI, and building real-world projects that solve genuine problems.
+          </p>
+
+          <!-- Social Icons (Clean circular buttons matching mockup) -->
+          <div class="hero-socials">
+            <a href="https://linkedin.com/in/duvvasaivivek" target="_blank" rel="noopener noreferrer" class="social-circle-btn" aria-label="LinkedIn" title="LinkedIn">
+              <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+            <a href="https://github.com/duvvasaivivek" target="_blank" rel="noopener noreferrer" class="social-circle-btn" aria-label="GitHub" title="GitHub">
+              <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            </a>
+            <a href="mailto:duvvasaivivek@gmail.com" class="social-circle-btn" aria-label="Email" title="Email: duvvasaivivek@gmail.com">
+              <svg viewBox="0 0 24 24"><path d="M12 12.713l-11.985-8.713h23.97l-11.985 8.713zm0 2.574l-12-8.725v13.438h24v-13.438l-12 8.725z"/></svg>
+            </a>
+            <a href="tel:+918019792969" class="social-circle-btn" aria-label="Phone" title="Phone: +91 8019792969">
+              <svg viewBox="0 0 24 24"><path d="M20 22.621l-3.521-6.795c-.429-.83-.099-1.854.743-2.285l1.455-.745c-.888-2.528-2.91-4.551-5.438-5.439l-.745 1.455c-.431.842-1.455 1.172-2.285.743l-6.795-3.521c-.83-.43-1.16-1.454-.73-2.284l1.628-3.141c.404-.781 1.277-1.22 2.158-1.077 7.781 1.267 13.914 7.4 15.181 15.181.144.881-.295 1.754-1.076 2.158l-3.141 1.628c-.83.431-1.855.101-2.286-.743z"/></svg>
+            </a>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary btn-pill">
+              Get In Touch
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+            <a href="./Resumes/Duvva Sai Vivek's Resume.pdf" download="Duvva_Sai_Vivek_Resume.pdf" class="btn btn-outline btn-pill">
+              Download CV
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            </a>
+          </div>
+
+          <!-- Hero Bottom Floating Stats Card (Exact format matching reference mockup) -->
+          <div class="hero-stats-card">
+            <div class="stat-item">
+              <span class="stat-number">3</span>
+              <span class="stat-label">Internships</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-number">8+</span>
+              <span class="stat-label">Projects Built</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-number">Top 6</span>
+              <span class="stat-label">Out of 240+ Teams</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-number">5</span>
+              <span class="stat-label">Hackathons Competed</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Visual Right (Full-Size Portrait with Cool Border Animation) -->
+        <div class="hero-visual">
+          <div class="hero-portrait-card">
+            <div class="hero-portrait-glow" aria-hidden="true"></div>
+            <div class="hero-portrait-inner">
+              <img src="./Images/vivek_portrait.jpg" alt="Duvva Sai Vivek" loading="eager" width="420" height="530">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         WHAT I DO / INTERESTS & FOCUS AREAS
+         =================================================================== -->
+    <section class="section" id="focus">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Focus Areas</span>
+          <h2 class="section-title">What I <span>Work On</span></h2>
+          <p class="section-subtitle">
+            Here are the technical areas I actively spend my time exploring, building projects in, and learning about.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <!-- Card 1 -->
+          <div class="service-card">
+            <div class="service-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z"></path></svg>
+            </div>
+            <h3 class="service-title">Generative AI & LLMs</h3>
+            <p class="service-desc">
+              Experimenting with Retrieval-Augmented Generation (RAG), prompt engineering, LLM caching, and integrating models like Gemini Flash and Claude into apps.
+            </p>
+            <div class="service-tech-tags">
+              <span class="tech-tag">RAG</span>
+              <span class="tech-tag">Gemini API</span>
+              <span class="tech-tag">Prompt Caching</span>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="service-card">
+            <div class="service-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+            </div>
+            <h3 class="service-title">Computer Vision & Multimodal AI</h3>
+            <p class="service-desc">
+              Building and integrating computer vision and NLP pipelines with PyTorch and Python, focusing on multimodal AI architectures, data preprocessing, and content moderation systems.
+            </p>
+            <div class="service-tech-tags">
+              <span class="tech-tag">PyTorch</span>
+              <span class="tech-tag">Multimodal AI</span>
+              <span class="tech-tag">NLP</span>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="service-card">
+            <div class="service-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10"></path><path d="M12 20V4"></path><path d="M6 20v-6"></path></svg>
+            </div>
+            <h3 class="service-title">Machine Learning & Anomaly Detection</h3>
+            <p class="service-desc">
+              Building classification and anomaly detection pipelines using XGBoost, Local Outlier Factor, and Scikit-Learn for skewed and imbalanced datasets.
+            </p>
+            <div class="service-tech-tags">
+              <span class="tech-tag">XGBoost</span>
+              <span class="tech-tag">Local Outlier Factor</span>
+              <span class="tech-tag">Scikit-Learn</span>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="service-card">
+            <div class="service-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+            </div>
+            <h3 class="service-title">Full-Stack Development</h3>
+            <p class="service-desc">
+              Wrapping machine learning pipelines into interactive web apps using React, Streamlit, Django REST Framework, and databases like PostgreSQL and MongoDB.
+            </p>
+            <div class="service-tech-tags">
+              <span class="tech-tag">Streamlit</span>
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">Django REST</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         ABOUT ME (AUTHENTIC STUDENT BACKGROUND)
+         =================================================================== -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="about-grid">
+          <!-- Visual Column -->
+          <div class="about-card-frame">
+            <div class="about-img-wrap">
+              <img src="./Images/vivek_portrait.jpg" alt="Duvva Sai Vivek portrait" loading="lazy">
+            </div>
+            <div class="about-info-strip">
+              <div class="about-strip-item">
+                <span class="about-strip-val">IIITDM Kurnool</span>
+                <span class="about-strip-lbl">B.Tech in AI & Data Science (2024–2028)</span>
+              </div>
+              <div class="about-strip-item" style="text-align: right;">
+                <span class="about-strip-val">Undergraduate</span>
+                <span class="about-strip-lbl">Class of 2028</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Content Column -->
+          <div class="about-content">
+            <span class="section-tag">About Me</span>
+            <h3>Undergrad AI & Data Science student who loves building projects</h3>
+            <p class="about-text">
+              Hey! I'm Vivek, currently pursuing my B.Tech in Artificial Intelligence and Data Science at the Indian Institute of Information Technology, Design and Manufacturing (IIITDM), Kurnool.
+            </p>
+            <p class="about-text">
+              I love turning ideas into working code. Over the past couple of years, I've completed internships at Infosys Springboard, IBM SkillsBuild, and Elevate Labs, where I built NLP summarizers, audio note generators, and fraud detection systems. I also actively take part in national hackathons — recently securing 6th place out of 240+ teams at Agentica 2.0 (IIIT Sricity) with our project Civility.ai.
+            </p>
+            <p class="about-text">
+              When I'm not writing code or training models, I manage financial planning and tracking as NSS Treasurer and help organize reading initiatives on campus as Reading Club Coordinator.
+            </p>
+
+            <div class="about-highlights-list">
+              <div class="about-highlight-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+                <div>
+                  <div class="about-highlight-title">College</div>
+                  <div class="about-highlight-desc">IIITDM Kurnool &bull; B.Tech AI & Data Science</div>
+                </div>
+              </div>
+
+              <div class="about-highlight-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+                <div>
+                  <div class="about-highlight-title">Campus Roles</div>
+                  <div class="about-highlight-desc">NSS Treasurer &bull; Reading Club Coordinator</div>
+                </div>
+              </div>
+
+              <div class="about-highlight-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                <div>
+                  <div class="about-highlight-title">Languages</div>
+                  <div class="about-highlight-desc">English (Fluent) &bull; Telugu (Fluent) &bull; Hindi (Fluent)</div>
+                </div>
+              </div>
+
+              <div class="about-highlight-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                <div>
+                  <div class="about-highlight-title">Core Tools</div>
+                  <div class="about-highlight-desc">Python, PyTorch, Streamlit, React, Git</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="about-actions">
+              <a href="./Resumes/Duvva Sai Vivek's Resume.pdf" download="Duvva_Sai_Vivek_Resume.pdf" class="btn btn-primary">
+                Download Resume PDF
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              </a>
+              <button type="button" class="btn btn-outline" id="previewResumeBtn">Preview In-Browser</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         INTERNSHIP EXPERIENCE
+         =================================================================== -->
+    <section class="section" id="experience">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Experience</span>
+          <h2 class="section-title">My <span>Internships</span></h2>
+          <p class="section-subtitle">
+            Internships where I got to build, test, and ship real ML pipelines and applications.
+          </p>
+        </div>
+
+        <div class="experience-timeline">
+          <!-- Infosys -->
+          <div class="timeline-card">
+            <div class="timeline-node"></div>
+            <div class="timeline-header">
+              <div>
+                <div class="timeline-role">AI Intern</div>
+                <div class="timeline-company">Infosys Springboard</div>
+              </div>
+              <div class="timeline-badge">Nov 2025 – Jan 2026 &bull; Remote</div>
+            </div>
+            <div class="timeline-body">
+              Built an AI-powered Research Paper Review & Summarization tool using Python, Streamlit, NLP, and Generative AI to automate academic paper reading and insight extraction. Developed independently as part of a 20-member AI development cohort.
+            </div>
+            <div class="timeline-footer">
+              <div class="service-tech-tags">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Streamlit</span>
+                <span class="tech-tag">NLP</span>
+                <span class="tech-tag">Generative AI</span>
+              </div>
+              <a href="https://github.com/duvvasaivivek" target="_blank" rel="noopener noreferrer" class="project-details-btn">
+                GitHub Repo &rarr;
+              </a>
+            </div>
+          </div>
+
+          <!-- IBM -->
+          <div class="timeline-card">
+            <div class="timeline-node"></div>
+            <div class="timeline-header">
+              <div>
+                <div class="timeline-role">AI/ML Intern</div>
+                <div class="timeline-company">IBM SkillsBuild</div>
+              </div>
+              <div class="timeline-badge">Dec 2025 – Jan 2026 &bull; Remote</div>
+            </div>
+            <div class="timeline-body">
+              Automated lecture note creation by building a pipeline with speech-to-text, NLP summarization, and Generative AI. Tested and tuned 5+ parameters like chunk overlap and temperature to make sure notes stayed accurate to the original audio.
+            </div>
+            <div class="timeline-footer">
+              <div class="service-tech-tags">
+                <span class="tech-tag">Speech-to-Text</span>
+                <span class="tech-tag">NLP Summarization</span>
+                <span class="tech-tag">Generative AI</span>
+              </div>
+              <a href="https://github.com/duvvasaivivek" target="_blank" rel="noopener noreferrer" class="project-details-btn">
+                GitHub Repo &rarr;
+              </a>
+            </div>
+          </div>
+
+          <!-- Elevate Labs -->
+          <div class="timeline-card">
+            <div class="timeline-node"></div>
+            <div class="timeline-header">
+              <div>
+                <div class="timeline-role">AI/ML Intern</div>
+                <div class="timeline-company">Elevate Labs</div>
+              </div>
+              <div class="timeline-badge">Oct 2025 – Dec 2025 &bull; Remote</div>
+            </div>
+            <div class="timeline-body">
+              Engineered and deployed a Fraud Transaction Detection System with an interactive Streamlit UI. Used XGBoost for classification and Local Outlier Factor for unsupervised anomaly detection to catch fraudulent charges in heavily imbalanced financial data.
+            </div>
+            <div class="timeline-footer">
+              <div class="service-tech-tags">
+                <span class="tech-tag">XGBoost</span>
+                <span class="tech-tag">Local Outlier Factor</span>
+                <span class="tech-tag">Streamlit</span>
+              </div>
+              <a href="https://github.com/duvvasaivivek" target="_blank" rel="noopener noreferrer" class="project-details-btn">
+                GitHub Repo &rarr;
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         PROJECTS I'VE BUILT
+         =================================================================== -->
+    <section class="section" id="portfolio">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Projects</span>
+          <h2 class="section-title">Projects I've <span>Built</span></h2>
+          <p class="section-subtitle">
+            A mix of hackathon projects, internship systems, and personal experiments in AI and web development.
+          </p>
+        </div>
+
+        <!-- Filter tabs -->
+        <div class="filter-tabs">
+          <button type="button" class="filter-btn active" data-filter="all">All</button>
+          <button type="button" class="filter-btn" data-filter="genai">Generative AI</button>
+          <button type="button" class="filter-btn" data-filter="vision">Vision & DL</button>
+          <button type="button" class="filter-btn" data-filter="fullstack">Web & Full-Stack</button>
+          <button type="button" class="filter-btn" data-filter="hackathons">Hackathons</button>
+        </div>
+
+        <div class="projects-grid">
+          <!-- 1: Scholarium -->
+          <div class="project-card" data-category="genai fullstack">
+            <!-- Project Picture Placeholder -->
+            <div class="card-media-wrap">
+              <div class="media-placeholder">
+                <div class="placeholder-icon-box">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                </div>
+                <span class="placeholder-label">Scholarium App Screenshot</span>
+                <span class="placeholder-hint">Images/projects/scholarium.jpg</span>
+              </div>
+            </div>
+            <div class="project-header-bar">
+              <span class="project-category-tag">Full-Stack AI</span>
+              <span class="project-metric-badge">Gemini 2.0 + Claude</span>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Scholarium</h3>
+              <p class="project-desc">
+                An adaptive learning platform that generates personalized DAG-based learning roadmaps via LLM prompts, with hybrid PostgreSQL + MongoDB caching and anti-memorization quizzes.
+              </p>
+              <div class="project-tech-stack">
+                <span class="tech-tag">React 18</span>
+                <span class="tech-tag">Django REST</span>
+                <span class="tech-tag">PostgreSQL</span>
+                <span class="tech-tag">React Flow DAG</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://github.com/duvvasaivivek" target="_blank" rel="noopener noreferrer" class="project-link-btn">
+                  GitHub
+                </a>
+                <button type="button" class="project-details-btn" onclick="openProjectModal('scholarium')">
+                  Details &rarr;
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2: Civility.ai -->
+          <div class="project-card" data-category="vision hackathons">
+            <!-- Project Picture Placeholder -->
+            <div class="card-media-wrap">
+              <div class="media-placeholder">
+                <div class="placeholder-icon-box">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                </div>
+                <span class="placeholder-label">Civility.ai Detection Demo</span>
+                <span class="placeholder-hint">Images/projects/civility.jpg</span>
+              </div>
+            </div>
+            <div class="project-header-bar">
+              <span class="project-category-tag">Vision & NLP</span>
+              <span class="project-metric-badge">Top 6 / 240+ Teams</span>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Civility.ai</h3>
+              <p class="project-desc">
+                AI content moderation platform for detecting and flagging toxic text and multimedia. Built with Team ByteBuilders at Agentica 2.0 (IIIT Sricity), securing 6th place out of 240+ teams nationwide in the offline Grand Finale.
+              </p>
+              <div class="project-tech-stack">
+                <span class="tech-tag">PyTorch</span>
+                <span class="tech-tag">NLP</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Agentica 2.0 Finale</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://github.com/duvvasaivivek" target="_blank" rel="noopener noreferrer" class="project-link-btn">
+                  GitHub
+                </a>
+                <button type="button" class="project-details-btn" onclick="openProjectModal('civility')">
+                  Details &rarr;
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3: Connect IQ -->
+          <div class="project-card" data-category="genai hackathons">
+            <!-- Project Picture Placeholder -->
+            <div class="card-media-wrap">
+              <div class="media-placeholder">
+                <div class="placeholder-icon-box">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                </div>
+                <span class="placeholder-label">Connect IQ Matchmaking UI</span>
+                <span class="placeholder-hint">Images/projects/connectiq.jpg</span>
+              </div>
+            </div>
+            <div class="project-header-bar">
+              <span class="project-category-tag">Generative AI</span>
+              <span class="project-metric-badge">Devfest 5.0 BITS Goa</span>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Connect IQ</h3>
+              <p class="project-desc">
+                An AI-driven professional networking platform built at Devfest 5.0 (BITS Goa) that scores compatibility and surfaces opportunities between developers and projects using LLMs.
+              </p>
+              <div class="project-tech-stack">
+                <span class="tech-tag">LLMs</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Streamlit</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://github.com/duvvasaivivek" target="_blank" rel="noopener noreferrer" class="project-link-btn">
+                  GitHub
+                </a>
+                <button type="button" class="project-details-btn" onclick="openProjectModal('connectiq')">
+                  Details &rarr;
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4: SafeSwipe -->
+          <div class="project-card" data-category="fullstack">
+            <!-- Project Picture Placeholder -->
+            <div class="card-media-wrap">
+              <div class="media-placeholder">
+                <div class="placeholder-icon-box">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                </div>
+                <span class="placeholder-label">SafeSwipe Fraud Dashboard</span>
+                <span class="placeholder-hint">Images/projects/safeswipe.jpg</span>
+              </div>
+            </div>
+            <div class="project-header-bar">
+              <span class="project-category-tag">Machine Learning</span>
+              <span class="project-metric-badge">XGBoost + LOF</span>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">SafeSwipe</h3>
+              <p class="project-desc">
+                Interactive fraud transaction detection system built during my internship at Elevate Labs. Uses XGBoost alongside Local Outlier Factor to flag fraudulent transactions with low false-alarm rates.
+              </p>
+              <div class="project-tech-stack">
+                <span class="tech-tag">XGBoost</span>
+                <span class="tech-tag">LOF Anomaly</span>
+                <span class="tech-tag">Streamlit</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://github.com/duvvasaivivek" target="_blank" rel="noopener noreferrer" class="project-link-btn">
+                  GitHub
+                </a>
+                <button type="button" class="project-details-btn" onclick="openProjectModal('safeswipe')">
+                  Details &rarr;
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5: Lecture-Lens -->
+          <div class="project-card" data-category="genai">
+            <!-- Project Picture Placeholder -->
+            <div class="card-media-wrap">
+              <div class="media-placeholder">
+                <div class="placeholder-icon-box">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                </div>
+                <span class="placeholder-label">Lecture-Lens Notes UI</span>
+                <span class="placeholder-hint">Images/projects/lecturelens.jpg</span>
+              </div>
+            </div>
+            <div class="project-header-bar">
+              <span class="project-category-tag">Audio & NLP</span>
+              <span class="project-metric-badge">IBM SkillsBuild</span>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Lecture-Lens</h3>
+              <p class="project-desc">
+                Turn recorded audio lectures into clean, bulleted study notes, formulas, and quiz questions. Built during the IBM SkillsBuild internship using speech-to-text and generative NLP.
+              </p>
+              <div class="project-tech-stack">
+                <span class="tech-tag">Speech-to-Text</span>
+                <span class="tech-tag">Generative AI</span>
+                <span class="tech-tag">NLP</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://github.com/duvvasaivivek" target="_blank" rel="noopener noreferrer" class="project-link-btn">
+                  GitHub
+                </a>
+                <button type="button" class="project-details-btn" onclick="openProjectModal('lecturelens')">
+                  Details &rarr;
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6: Skill Drift Monitor -->
+          <div class="project-card" data-category="genai hackathons">
+            <!-- Project Picture Placeholder -->
+            <div class="card-media-wrap">
+              <div class="media-placeholder">
+                <div class="placeholder-icon-box">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                </div>
+                <span class="placeholder-label">Skill Drift Analytics Dashboard</span>
+                <span class="placeholder-hint">Images/projects/skilldrift.jpg</span>
+              </div>
+            </div>
+            <div class="project-header-bar">
+              <span class="project-category-tag">Data Science</span>
+              <span class="project-metric-badge">Hackxios 2K25</span>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Skill Drift Monitor</h3>
+              <p class="project-desc">
+                NLP tool created at Hackxios 2K25 (IIIT Bhopal) analyzing time-series trends across 100+ real job listings and computer science syllabi to highlight outdated and in-demand skills.
+              </p>
+              <div class="project-tech-stack">
+                <span class="tech-tag">NLP</span>
+                <span class="tech-tag">Streamlit</span>
+                <span class="tech-tag">Time-Series</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://github.com/duvvasaivivek" target="_blank" rel="noopener noreferrer" class="project-link-btn">
+                  GitHub
+                </a>
+                <button type="button" class="project-details-btn" onclick="openProjectModal('skilldrift')">
+                  Details &rarr;
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 7: Campus Hustle -->
+          <div class="project-card" data-category="hackathons">
+            <!-- Project Picture Placeholder -->
+            <div class="card-media-wrap">
+              <div class="media-placeholder">
+                <div class="placeholder-icon-box">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                </div>
+                <span class="placeholder-label">Campus Hustle Game Preview</span>
+                <span class="placeholder-hint">Images/projects/campushustle.jpg</span>
+              </div>
+            </div>
+            <div class="project-header-bar">
+              <span class="project-category-tag">Game Development</span>
+              <span class="project-metric-badge">GDG Open Source</span>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Campus Hustle</h3>
+              <p class="project-desc">
+                A 2D Unity action runner game built during the GDG Open Source Hackathon at IIITDM Kurnool, featuring responsive jump mechanics, dynamic obstacles, and custom movement physics.
+              </p>
+              <div class="project-tech-stack">
+                <span class="tech-tag">Unity</span>
+                <span class="tech-tag">C#</span>
+                <span class="tech-tag">Physics Engine</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://github.com/duvvasaivivek" target="_blank" rel="noopener noreferrer" class="project-link-btn">
+                  GitHub
+                </a>
+                <button type="button" class="project-details-btn" onclick="openProjectModal('campushustle')">
+                  Details &rarr;
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 8: AIgnite Chatbot -->
+          <div class="project-card" data-category="genai hackathons">
+            <!-- Project Picture Placeholder -->
+            <div class="card-media-wrap">
+              <div class="media-placeholder">
+                <div class="placeholder-icon-box">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                </div>
+                <span class="placeholder-label">AIgnite Order Assistant Demo</span>
+                <span class="placeholder-hint">Images/projects/aignite.jpg</span>
+              </div>
+            </div>
+            <div class="project-header-bar">
+              <span class="project-category-tag">Generative AI</span>
+              <span class="project-metric-badge">AIgnite 2.0 Finale</span>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">AIgnite Order Assistant</h3>
+              <p class="project-desc">
+                A conversational support assistant built with Gemini Flash and RAG at AIgnite 2.0 (GPREC) to explain multi-step food delivery order workflows and help customers track their meals.
+              </p>
+              <div class="project-tech-stack">
+                <span class="tech-tag">Gemini Flash</span>
+                <span class="tech-tag">RAG</span>
+                <span class="tech-tag">Vector Search</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://github.com/duvvasaivivek" target="_blank" rel="noopener noreferrer" class="project-link-btn">
+                  GitHub
+                </a>
+                <button type="button" class="project-details-btn" onclick="openProjectModal('aignite')">
+                  Details &rarr;
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         HACKATHONS & COMPETITIONS
+         =================================================================== -->
+    <section class="section" id="hackathons">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Competitions</span>
+          <h2 class="section-title">Hackathons & <span>Achievements</span></h2>
+          <p class="section-subtitle">
+            Hackathons are where I love building with teammates, learning new stacks on the fly, and solving problems under time pressure.
+          </p>
+        </div>
+
+        <div class="hackathons-grid">
+          <!-- Award 1 -->
+          <div class="hackathon-card">
+            <!-- Hackathon Picture Placeholder -->
+            <div class="card-media-wrap">
+              <div class="media-placeholder">
+                <div class="placeholder-icon-box">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                </div>
+                <span class="placeholder-label">Agentica 2.0 Finale Photo</span>
+                <span class="placeholder-hint">Images/hackathons/agentica.jpg</span>
+              </div>
+            </div>
+            <div class="hackathon-content">
+              <div class="hackathon-top">
+                <div class="hackathon-badge-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+                </div>
+                <div class="hackathon-title-box">
+                  <h4>Agentica 2.0 — IIIT Sricity</h4>
+                  <div class="hackathon-subtitle">6th Place out of 240+ Teams &bull; Offline Grand Finale</div>
+                </div>
+              </div>
+              <div class="hackathon-body">
+                Co-developed Civility.ai with Team ByteBuilders, an AI content moderation platform for flagging toxic text and media. Reached the offline Grand Finale and secured 6th place out of 240+ participating teams nationwide.
+              </div>
+            </div>
+          </div>
+
+          <!-- Award 2 -->
+          <div class="hackathon-card">
+            <!-- Hackathon Picture Placeholder -->
+            <div class="card-media-wrap">
+              <div class="media-placeholder">
+                <div class="placeholder-icon-box">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                </div>
+                <span class="placeholder-label">Devfest 5.0 Team Photo</span>
+                <span class="placeholder-hint">Images/hackathons/devfest.jpg</span>
+              </div>
+            </div>
+            <div class="hackathon-content">
+              <div class="hackathon-top">
+                <div class="hackathon-badge-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                </div>
+                <div class="hackathon-title-box">
+                  <h4>Devfest 5.0 — BITS Goa</h4>
+                  <div class="hackathon-subtitle">Team Void Walkers &bull; Online</div>
+                </div>
+              </div>
+              <div class="hackathon-body">
+                Built Connect IQ — an intelligent matchmaking app for developers and opportunities using LLM-based opportunity scoring.
+              </div>
+            </div>
+          </div>
+
+          <!-- Award 3 -->
+          <div class="hackathon-card">
+            <!-- Hackathon Picture Placeholder -->
+            <div class="card-media-wrap">
+              <div class="media-placeholder">
+                <div class="placeholder-icon-box">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                </div>
+                <span class="placeholder-label">AIgnite 2.0 Finale Stage Demo</span>
+                <span class="placeholder-hint">Images/hackathons/aignite.jpg</span>
+              </div>
+            </div>
+            <div class="hackathon-content">
+              <div class="hackathon-top">
+                <div class="hackathon-badge-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                </div>
+                <div class="hackathon-title-box">
+                  <h4>AIgnite 2.0 — GPREC</h4>
+                  <div class="hackathon-subtitle">Team ApexVAMY &bull; Offline Grand Finale</div>
+                </div>
+              </div>
+              <div class="hackathon-body">
+                Built a RAG chatbot using Gemini Flash to explain food delivery progress and handle customer support questions in real time.
+              </div>
+            </div>
+          </div>
+
+          <!-- Award 4 -->
+          <div class="hackathon-card">
+            <!-- Hackathon Picture Placeholder -->
+            <div class="card-media-wrap">
+              <div class="media-placeholder">
+                <div class="placeholder-icon-box">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                </div>
+                <span class="placeholder-label">Hackxios 2K25 Hackathon Photo</span>
+                <span class="placeholder-hint">Images/hackathons/hackxios.jpg</span>
+              </div>
+            </div>
+            <div class="hackathon-content">
+              <div class="hackathon-top">
+                <div class="hackathon-badge-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                </div>
+                <div class="hackathon-title-box">
+                  <h4>Hackxios 2K25 — IIIT Bhopal</h4>
+                  <div class="hackathon-subtitle">Team Core Cube &bull; Online</div>
+                </div>
+              </div>
+              <div class="hackathon-body">
+                Developed a Streamlit app using NLP to analyze real job postings versus college curricula, identifying missing topics in coursework.
+              </div>
+            </div>
+          </div>
+
+          <!-- Award 5 -->
+          <div class="hackathon-card">
+            <!-- Hackathon Picture Placeholder -->
+            <div class="card-media-wrap">
+              <div class="media-placeholder">
+                <div class="placeholder-icon-box">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                </div>
+                <span class="placeholder-label">GDG Open Source Hackathon</span>
+                <span class="placeholder-hint">Images/hackathons/gdg.jpg</span>
+              </div>
+            </div>
+            <div class="hackathon-content">
+              <div class="hackathon-top">
+                <div class="hackathon-badge-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                </div>
+                <div class="hackathon-title-box">
+                  <h4>GDG Open Source Hackathon</h4>
+                  <div class="hackathon-subtitle">Team SpriteVRM &bull; IIITDM Kurnool</div>
+                </div>
+              </div>
+              <div class="hackathon-body">
+                Engineered Campus Hustle — a 2D Unity runner game with custom physics, dynamic obstacles, and collision detection.
+              </div>
+            </div>
+          </div>
+
+          <!-- Award 6 -->
+          <div class="hackathon-card">
+            <!-- Hackathon Picture Placeholder -->
+            <div class="card-media-wrap">
+              <div class="media-placeholder">
+                <div class="placeholder-icon-box">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                </div>
+                <span class="placeholder-label">Certifications & Leadership</span>
+                <span class="placeholder-hint">Images/hackathons/activities.jpg</span>
+              </div>
+            </div>
+            <div class="hackathon-content">
+              <div class="hackathon-top">
+                <div class="hackathon-badge-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                </div>
+                <div class="hackathon-title-box">
+                  <h4>Certifications & Activities</h4>
+                  <div class="hackathon-subtitle">Udemy &bull; IIITDM Kurnool</div>
+                </div>
+              </div>
+              <div class="hackathon-body">
+                &bull; Beginning C++ Programming — From Beginner to Beyond (Udemy)<br>
+                &bull; Master Git and GitHub in 5 Days (Udemy)<br>
+                &bull; NSS Coordinator & Treasurer (Budget management & community programs)<br>
+                &bull; Reading Club Coordinator (Organizing campus reading events)
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         TECHNICAL SKILLS MATRIX
+         =================================================================== -->
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Skills</span>
+          <h2 class="section-title">Technical <span>Skills</span></h2>
+          <p class="section-subtitle">
+            Languages, libraries, and tools I use in my projects.
+          </p>
+        </div>
+
+        <div class="skills-wrapper">
+          <!-- Category 1 -->
+          <div class="skill-category-card">
+            <div class="skill-category-header">
+              <div class="skill-cat-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+              </div>
+              <div class="skill-category-title">Languages</div>
+            </div>
+            <div class="skills-pills">
+              <span class="skill-pill">Python</span>
+              <span class="skill-pill">C</span>
+              <span class="skill-pill">C++</span>
+              <span class="skill-pill">C#</span>
+              <span class="skill-pill">JavaScript</span>
+              <span class="skill-pill">SQL</span>
+            </div>
+          </div>
+
+          <!-- Category 2 -->
+          <div class="skill-category-card">
+            <div class="skill-category-header">
+              <div class="skill-cat-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z"></path></svg>
+              </div>
+              <div class="skill-category-title">AI & Machine Learning</div>
+            </div>
+            <div class="skills-pills">
+              <span class="skill-pill">PyTorch</span>
+              <span class="skill-pill">Vision Transformers (ViT)</span>
+              <span class="skill-pill">Scikit-Learn</span>
+              <span class="skill-pill">XGBoost</span>
+              <span class="skill-pill">Local Outlier Factor</span>
+              <span class="skill-pill">NLTK</span>
+              <span class="skill-pill">RAG</span>
+              <span class="skill-pill">Prompt Engineering</span>
+            </div>
+          </div>
+
+          <!-- Category 3 -->
+          <div class="skill-category-card">
+            <div class="skill-category-header">
+              <div class="skill-cat-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+              </div>
+              <div class="skill-category-title">Frameworks & Web</div>
+            </div>
+            <div class="skills-pills">
+              <span class="skill-pill">Streamlit</span>
+              <span class="skill-pill">React 18</span>
+              <span class="skill-pill">Django REST</span>
+              <span class="skill-pill">Unity 2D/3D</span>
+              <span class="skill-pill">React Flow</span>
+            </div>
+          </div>
+
+          <!-- Category 4 -->
+          <div class="skill-category-card">
+            <div class="skill-category-header">
+              <div class="skill-cat-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+              </div>
+              <div class="skill-category-title">Data & Tools</div>
+            </div>
+            <div class="skills-pills">
+              <span class="skill-pill">NumPy</span>
+              <span class="skill-pill">pandas</span>
+              <span class="skill-pill">Matplotlib & Seaborn</span>
+              <span class="skill-pill">PostgreSQL</span>
+              <span class="skill-pill">MongoDB</span>
+              <span class="skill-pill">Git & GitHub</span>
+              <span class="skill-pill">VS Code</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         RESUME BANNER
+         =================================================================== -->
+    <section class="section" id="resume-center" style="padding-top: 10px; padding-bottom: 50px;">
+      <div class="container">
+        <div class="resume-cta-banner">
+          <div class="resume-cta-text">
+            <h3>My Resume</h3>
+            <p>Looking for a copy of my resume? You can download either version in PDF format below.</p>
+          </div>
+          <div class="resume-cta-actions">
+            <a href="./Resumes/Duvva Sai Vivek's Resume.pdf" download="Duvva_Sai_Vivek_Resume.pdf" class="btn btn-primary btn-pill">
+              Download Full Resume
+            </a>
+            <a href="./Resumes/Duvva_Sai_Vivek_s_Resume.pdf" download="Duvva_Sai_Vivek_Resume_Compact.pdf" class="btn btn-outline btn-pill">
+              Compact Version
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         CONTACT ME
+         =================================================================== -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Contact</span>
+          <h2 class="section-title">Get In <span>Touch</span></h2>
+          <p class="section-subtitle">
+            I'm currently looking for AI/ML internship opportunities and hackathon collaborations. Feel free to drop a message!
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Info Column -->
+          <div class="contact-info-wrap">
+            <div class="contact-info-card">
+              <div class="contact-info-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              </div>
+              <div class="contact-info-details">
+                <div class="contact-info-label">Email</div>
+                <div class="contact-info-value">duvvasaivivek@gmail.com</div>
+              </div>
+              <button type="button" class="contact-copy-btn" onclick="copyText('duvvasaivivek@gmail.com', 'Email')">Copy</button>
+            </div>
+
+            <div class="contact-info-card">
+              <div class="contact-info-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              </div>
+              <div class="contact-info-details">
+                <div class="contact-info-label">Phone</div>
+                <div class="contact-info-value">+91 8019792969</div>
+              </div>
+              <button type="button" class="contact-copy-btn" onclick="copyText('+918019792969', 'Phone number')">Copy</button>
+            </div>
+
+            <div class="contact-info-card">
+              <div class="contact-info-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              </div>
+              <div class="contact-info-details">
+                <div class="contact-info-label">College Location</div>
+                <div class="contact-info-value">IIITDM Kurnool, Andhra Pradesh, India</div>
+              </div>
+            </div>
+
+            <div class="contact-info-card">
+              <div class="contact-info-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+              </div>
+              <div class="contact-info-details">
+                <div class="contact-info-label">Profiles</div>
+                <div class="contact-info-value" style="display: flex; gap: 14px; margin-top: 4px;">
+                  <a href="https://linkedin.com/in/duvvasaivivek" target="_blank" rel="noopener noreferrer" style="color: var(--accent); font-weight: 600;">LinkedIn &nearr;</a>
+                  <a href="https://github.com/duvvasaivivek" target="_blank" rel="noopener noreferrer" style="color: var(--accent); font-weight: 600;">GitHub &nearr;</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Form Column -->
+          <div class="contact-form-card">
+            <form id="contactForm">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="senderName">Your Name *</label>
+                  <input type="text" id="senderName" class="form-control" placeholder="Name" required>
+                </div>
+                <div class="form-group">
+                  <label for="senderEmail">Your Email *</label>
+                  <input type="email" id="senderEmail" class="form-control" placeholder="email@example.com" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="msgSubject">Subject</label>
+                <input type="text" id="msgSubject" class="form-control" placeholder="Internship Opportunity / Project Collab">
+              </div>
+
+              <div class="form-group">
+                <label for="msgBody">Message *</label>
+                <textarea id="msgBody" class="form-control" placeholder="Hi Vivek, I checked out your portfolio and would like to chat about..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-pill" style="width: 100%;">
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================================================================
+       FOOTER
+       =================================================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <a href="#home" class="brand-logo">
+          <span>SAI VIVEK</span><span class="logo-dot"></span>
+        </a>
+
+        <div class="footer-nav">
+          <a href="#home">Home</a>
+          <a href="#focus">What I Do</a>
+          <a href="#about">About</a>
+          <a href="#experience">Internships</a>
+          <a href="#portfolio">Projects</a>
+          <a href="#hackathons">Hackathons</a>
+          <a href="#contact">Contact</a>
+        </div>
+
+        <button type="button" class="back-to-top-btn" id="backToTopBtn" aria-label="Back to top">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"></polyline></svg>
+        </button>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Duvva Sai Vivek &bull; IIITDM Kurnool</div>
+        <div style="display: flex; gap: 16px;">
+          <a href="https://github.com/duvvasaivivek" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary);">GitHub</a>
+          <a href="https://linkedin.com/in/duvvasaivivek" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary);">LinkedIn</a>
+          <a href="mailto:duvvasaivivek@gmail.com" style="color: var(--text-secondary);">Email</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================================================================
+       MODAL: PROJECT DETAILS
+       =================================================================== -->
+  <div class="modal-backdrop" id="projectModal" role="dialog" aria-modal="true">
+    <div class="modal-container">
+      <button type="button" class="modal-close-btn" id="modalCloseBtn" aria-label="Close modal">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <!-- ===================================================================
+       MODAL: RESUME PREVIEW
+       =================================================================== -->
+  <div class="modal-backdrop" id="resumeModal" role="dialog" aria-modal="true">
+    <div class="modal-container" style="max-width: 860px; height: 86vh; display: flex; flex-direction: column;">
+      <button type="button" class="modal-close-btn" id="resumeModalCloseBtn" aria-label="Close modal">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; padding-right: 36px;">
+        <h3 style="font-size: 1.25rem; color: #fff;">Duvva Sai Vivek &mdash; Resume</h3>
+        <a href="./Resumes/Duvva Sai Vivek's Resume.pdf" download="Duvva_Sai_Vivek_Resume.pdf" class="btn btn-primary btn-sm">
+          Download PDF
+        </a>
+      </div>
+      <div style="flex-grow: 1; border-radius: var(--radius-sm); overflow: hidden; border: 1px solid var(--border-medium);">
+        <iframe src="./Resumes/Duvva Sai Vivek's Resume.pdf" style="width: 100%; height: 100%; border: none;" title="Resume PDF View"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="./js/three.min.js"></script>
+  <script src="./js/three-scene.js"></script>
+  <script src="./js/main.js"></script>
+</body>
+</html>
