@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
         "Engineered an assessment engine featuring binary-scored MCQs and session-level analytics to identify knowledge gaps.",
         "Developed RESTful APIs with Django REST Framework & JWT, serving a React 18 SPA with React Flow visualizations."
       ],
-      github: "https://github.com/duvvasaivivek"
+      github: "https://github.com/duvvasaivivek/Scholarium"
     },
     civility: {
       title: "Civility.ai — Multimodal AI Toxicity Moderation Platform",
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
         "Created an automated Opportunity Scoring algorithm quantifying alignment between candidate profiles and project requirements.",
         "Built an interactive interface for real-time recommendation updates."
       ],
-      github: "https://github.com/duvvasaivivek"
+      github: "https://github.com/duvvasaivivek/AI-Powered-Networking-System"
     },
     safeswipe: {
       title: "SafeSwipe — Fraud Transaction Detection System",
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
         "Handled extreme class imbalance with precision-focused metrics and threshold tuning to control false-positive rates.",
         "Deployed an interactive Streamlit live dashboard for real-time transaction scoring."
       ],
-      github: "https://github.com/duvvasaivivek"
+      github: "https://github.com/duvvasaivivek/SafeSwipe-Fraud-Transaction-Detection-System"
     },
     lecturelens: {
       title: "Lecture-Lens — Audio Lecture Voice-to-Notes Generator",
@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
         "Benchmarked and tuned 5+ parameters (chunk overlap, temperature, token limits) for transcription fidelity.",
         "Generated instant topic breakdowns, key formulas, and review cheat sheets from raw audio."
       ],
-      github: "https://github.com/duvvasaivivek"
+      github: "https://github.com/duvvasaivivek/AI-Powered-Lecture-Voice-To-Notes-Generation-System"
     },
     skilldrift: {
       title: "Skill Drift Monitor — Industry Skill Gap Analyzer",
@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
         "Modeled temporal trends to quantify discrepancies between curriculum content and active market demands.",
         "Delivered actionable insights through an interactive Streamlit interface."
       ],
-      github: "https://github.com/duvvasaivivek"
+      github: "https://github.com/duvvasaivivek/Skill-Drift-Monitor"
     },
     campushustle: {
       title: "Campus Hustle — 2D Unity Action Game",
@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
         "Engineered smooth physics-driven player controller, jump mechanics, dynamic obstacles, and multi-tier health systems.",
         "Coordinated codebase integration via Git within a multi-member hackathon team."
       ],
-      github: "https://github.com/duvvasaivivek"
+      github: "https://github.com/duvvasaivivek/Campus-Hustle"
     },
     aignite: {
       title: "AIgnite Order Assistant — Gemini Flash RAG Chatbot",
@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
         "Integrated Gemini Flash with Retrieval-Augmented Generation (RAG) to provide contextual answers on order placement, preparation, and delivery progress.",
         "Reduced repetitive inquiries through accurate and immediate conversational guidance."
       ],
-      github: "https://github.com/duvvasaivivek"
+      github: "https://github.com/duvvasaivivek/VAMY-Chatbot"
     }
   };
 
