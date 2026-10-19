@@ -8,10 +8,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const projectsData = {
     scholarium: {
       title: "Scholarium — AI-Powered Adaptive Learning Platform",
-      category: "Full-Stack AI",
-      metric: "DAG-Based Roadmaps | Gemini 2.0 Flash + Claude",
-      tags: ["React 18", "Django REST Framework", "PostgreSQL", "MongoDB", "Gemini 2.0 Flash", "Anthropic Claude", "React Flow DAG", "JWT", "Gunicorn"],
-      overview: "A full-stack generative AI education platform delivering personalized learning roadmaps structured as Directed Acyclic Graphs (DAGs) using prompt engineering and hybrid database caching.",
+      category: "Full-Stack AI Platform",
+      metric: "Gemini 2.0 Flash + Claude Fallback",
+      tags: ["React 18", "Django REST Framework", "React Flow (DAG)", "PostgreSQL", "MongoDB", "JWT Auth"],
+      overview: "A full-stack adaptive education platform delivering personalized learning roadmaps structured as Directed Acyclic Graphs (DAGs) using prompt caching and hybrid database storage.",
       highlights: [
         "Architected personalized DAG-based learning roadmaps via LLM prompt engineering with Gemini 2.0 Flash, integrating Anthropic Claude as a reliable fallback.",
         "Built a hybrid persistence layer: PostgreSQL for relational state management alongside MongoDB for LLM response caching and token telemetry.",
@@ -23,9 +23,9 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     civility: {
       title: "Civility.ai — Multimodal AI Toxicity Moderation Platform",
-      category: "Vision & NLP AI",
-      metric: "Top 6 out of 240+ Teams (Agentica 2.0 Finale)",
-      tags: ["PyTorch", "NLP", "Python", "Team ByteBuilders", "Agentica 2.0 Grand Finale"],
+      category: "Multimodal AI Safety",
+      metric: "Top 6 / 240+ Finalist (Agentica 2.0)",
+      tags: ["PyTorch", "Multimodal Classifier", "FastAPI Inference", "Content Safety"],
       overview: "An AI content moderation platform designed to classify and flag toxic text and multimedia in online environments, developed collaboratively with Team ByteBuilders at Agentica 2.0.",
       highlights: [
         "Co-developed Civility.ai during Agentica 2.0 at IIIT Sricity, reaching the offline Grand Finale and securing 6th place out of 240+ competing teams nationwide.",
@@ -37,9 +37,9 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     connectiq: {
       title: "Connect IQ — AI-Powered Professional Networking Platform",
-      category: "Generative AI",
-      metric: "Devfest 5.0 BITS Goa",
-      tags: ["LLMs", "Python", "Streamlit", "Vector Similarity", "Prompt Engineering"],
+      category: "AI Matchmaking System",
+      metric: "Devfest 5.0 (BITS Goa)",
+      tags: ["Vector Embeddings", "Semantic Matchmaking", "Cosine Similarity", "Streamlit UI"],
       overview: "An AI networking platform developed at Devfest 5.0 (BITS Goa) leveraging Large Language Models to compute professional compatibility and opportunity scores.",
       highlights: [
         "Architected vector and LLM-based profile analysis to match software engineers and researchers with open opportunities.",
@@ -50,9 +50,9 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     safeswipe: {
       title: "SafeSwipe — Fraud Transaction Detection System",
-      category: "Machine Learning",
-      metric: "XGBoost + Local Outlier Factor",
-      tags: ["XGBoost", "Local Outlier Factor", "Streamlit", "Scikit-Learn", "Imbalanced Data"],
+      category: "Machine Learning & Fraud Detection",
+      metric: "Elevate Labs Internship",
+      tags: ["XGBoost", "Scikit-Learn (LOF)", "Class-Imbalance Tuning", "Financial Risk Modeling"],
       overview: "A production-grade fraud transaction identification system engineered at Elevate Labs to detect unauthorized financial transactions across highly imbalanced datasets.",
       highlights: [
         "Engineered a dual-model approach combining supervised classification (XGBoost) with unsupervised anomaly detection (Local Outlier Factor).",
@@ -63,9 +63,9 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     lecturelens: {
       title: "Lecture-Lens — Audio Lecture Voice-to-Notes Generator",
-      category: "Audio & NLP",
-      metric: "IBM SkillsBuild",
-      tags: ["Speech-to-Text", "NLP Summarization", "Generative AI", "Python", "Streamlit"],
+      category: "Speech Processing & NLP",
+      metric: "IBM SkillsBuild Internship",
+      tags: ["Speech Recognition", "Chunked Audio Pipeline", "Structured Note Extraction", "Evaluation Benchmarks"],
       overview: "An automated lecture processing pipeline developed during the IBM SkillsBuild internship to transform spoken lectures into structured, exam-ready study notes.",
       highlights: [
         "Constructed a multi-stage pipeline combining speech-to-text transcription, NLP text chunking, and Generative AI summarization.",
@@ -76,9 +76,9 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     skilldrift: {
       title: "Skill Drift Monitor — Industry Skill Gap Analyzer",
-      category: "Data Science",
-      metric: "Hackxios 2K25 IIIT Bhopal",
-      tags: ["Streamlit", "NLP", "Time-Series Modeling", "Python"],
+      category: "Data Science & NLP Analytics",
+      metric: "Hackxios 2K25 (IIIT Bhopal)",
+      tags: ["Job Market Web Scraping", "Curriculum Gap Scoring", "Time-Series Analysis", "Data Visualization"],
       overview: "An NLP pipeline built during Hackxios 2K25 (IIIT Bhopal) analyzing real-world tech job postings against university syllabi.",
       highlights: [
         "Analyzed time-series NLP patterns across 100+ industry job postings and academic curricula.",
@@ -89,9 +89,9 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     campushustle: {
       title: "Campus Hustle — 2D Unity Action Game",
-      category: "Game Development",
+      category: "Game Development & Physics",
       metric: "GDG Open Source Hackathon",
-      tags: ["Unity", "C#", "Git", "Physics Engine"],
+      tags: ["Unity Engine", "C# Scripting", "2D Physics Engine", "State-Driven Animation"],
       overview: "A fast-paced 2D runner game built under hackathon time constraints for the GDG Open Source Hackathon at IIITDM Kurnool.",
       highlights: [
         "Engineered smooth physics-driven player controller, jump mechanics, dynamic obstacles, and multi-tier health systems.",
@@ -101,9 +101,9 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     aignite: {
       title: "AIgnite Order Assistant — Gemini Flash RAG Chatbot",
-      category: "Generative AI",
-      metric: "AIgnite 2.0 Finale",
-      tags: ["Gemini Flash", "RAG", "Vector Search", "Python"],
+      category: "Conversational AI & Workflows",
+      metric: "AIgnite 2.0 Grand Finale",
+      tags: ["Gemini Flash API", "RAG Knowledge Base", "Order Workflow Automation", "Conversation State Machine"],
       overview: "A specialized conversational assistant developed during AIgnite 2.0 at GPREC to support food delivery order tracking workflows.",
       highlights: [
         "Integrated Gemini Flash with Retrieval-Augmented Generation (RAG) to provide contextual answers on order placement, preparation, and delivery progress.",
@@ -171,6 +171,22 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  // 4.5 IMAGE FALLBACK CONTROLLER
+  const mediaWrapImgs = document.querySelectorAll('.card-media-wrap img');
+  mediaWrapImgs.forEach(img => {
+    function handleFail() {
+      img.classList.add('img-failed');
+      const placeholder = img.parentElement ? img.parentElement.querySelector('.media-placeholder') : null;
+      if (placeholder) {
+        placeholder.style.display = 'flex';
+      }
+    }
+    img.addEventListener('error', handleFail);
+    if (img.complete && img.naturalWidth === 0) {
+      handleFail();
+    }
+  });
 
   // 5. PROJECT FILTER TABS
   const filterBtns = document.querySelectorAll('.filter-btn');

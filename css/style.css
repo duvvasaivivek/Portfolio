@@ -1019,6 +1019,11 @@ button, input, textarea {
   object-position: center 25%;
 }
 
+.hackathon-card:first-child .card-media-wrap img,
+img[src*="civility"] {
+  object-position: center 65%;
+}
+
 .card-media-wrap img.img-failed {
   display: none !important;
 }
@@ -1103,17 +1108,23 @@ button, input, textarea {
   border-color: rgba(253, 111, 0, 0.2);
 }
 
-/* Auto-hide placeholder if an img is placed inside */
-.card-media-wrap:has(img) .media-placeholder,
+/* Auto-hide placeholder only if an img is present and NOT failed */
+.card-media-wrap:has(img:not(.img-failed)) .media-placeholder,
 .card-media-wrap.has-image .media-placeholder {
   display: none !important;
+}
+
+/* Ensure placeholder displays when image is missing or failed */
+.card-media-wrap:has(img.img-failed) .media-placeholder {
+  display: flex !important;
 }
 
 .project-header-bar {
   padding: 18px 22px 0 22px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 8px;
 }
 
 .project-category-tag {
