@@ -192,10 +192,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const milestonesData = {
     1: {
       id: 1,
-      pin: '#01',
       date: 'Late 2024',
       category: 'hackathon',
-      catLabel: '🏆 Hackathon',
+      catLabel: 'HACKATHON',
       catClass: 'cat-hackathon-text',
       title: 'GDG Open Source Hackathon',
       subtitle: 'Team SpriteVRM • Campus Hustle',
@@ -209,10 +208,9 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     2: {
       id: 2,
-      pin: '#02',
-      date: 'Late 2024 – Early 2025',
+      date: 'Late 2024 - Early 2025',
       category: 'hackathon',
-      catLabel: '📜 Certification',
+      catLabel: 'CERTIFICATION',
       catClass: 'cat-cert-text',
       title: 'Foundations & Engineering Track',
       subtitle: 'Modern C++, OOP & Git Specializations',
@@ -226,12 +224,11 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     3: {
       id: 3,
-      pin: '#03',
       date: 'Early 2025',
       category: 'hackathon',
-      catLabel: '🏆 Grand Finale',
+      catLabel: 'GRAND FINALE',
       catClass: 'cat-hackathon-text',
-      title: 'AIgnite 2.0 — Grand Finale',
+      title: 'AIgnite 2.0: Grand Finale',
       subtitle: 'Team ApexVAMY • Conversational Order Assistant',
       org: 'GPREC Campus • Offline Stage',
       img: './Images/hackathons/aignite.jpeg',
@@ -243,12 +240,11 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     4: {
       id: 4,
-      pin: '#04',
       date: 'Mid 2025',
       category: 'hackathon',
-      catLabel: '🏆 Hackathon',
+      catLabel: 'HACKATHON',
       catClass: 'cat-hackathon-text',
-      title: 'Devfest 5.0 — BITS Goa',
+      title: 'Devfest 5.0: BITS Goa',
       subtitle: 'Team Void Walkers • Connect IQ',
       org: 'BITS Goa • Online',
       img: './Images/projects/connectiq.jpeg',
@@ -260,12 +256,11 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     5: {
       id: 5,
-      pin: '#05',
       date: 'Mid 2025',
       category: 'hackathon',
-      catLabel: '🏆 Hackathon',
+      catLabel: 'HACKATHON',
       catClass: 'cat-hackathon-text',
-      title: 'Hackxios 2K25 — IIIT Bhopal',
+      title: 'Hackxios 2K25: IIIT Bhopal',
       subtitle: 'Team Core Cube • Skill Drift Monitor',
       org: 'IIIT Bhopal • Online',
       img: './Images/hackathons/hackxios.jpeg',
@@ -277,10 +272,9 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     6: {
       id: 6,
-      pin: '#06',
-      date: 'Oct – Dec 2025',
+      date: 'Oct - Dec 2025',
       category: 'internship',
-      catLabel: '💼 ML Internship',
+      catLabel: 'ML INTERNSHIP',
       catClass: 'cat-internship-text',
       title: 'Machine Learning Intern',
       subtitle: 'Elevate Labs • SafeSwipe Fraud Detection',
@@ -294,12 +288,11 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     7: {
       id: 7,
-      pin: '#07',
-      date: 'Nov 2025 – Jan 2026',
+      date: 'Nov 2025 - Jan 2026',
       category: 'internship',
-      catLabel: '💼 AI Internship',
+      catLabel: 'AI INTERNSHIP',
       catClass: 'cat-internship-text',
-      title: 'AI Intern — Literature Synthesizer',
+      title: 'AI Intern: Literature Synthesizer',
       subtitle: 'Infosys Springboard • Research Summarizer',
       org: 'Infosys Springboard • Remote',
       img: './Images/projects/scholarium.jpeg',
@@ -311,12 +304,11 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     8: {
       id: 8,
-      pin: '#08',
-      date: 'Dec 2025 – Jan 2026',
+      date: 'Dec 2025 - Jan 2026',
       category: 'internship',
-      catLabel: '💼 AI/ML Internship',
+      catLabel: 'AI/ML INTERNSHIP',
       catClass: 'cat-internship-text',
-      title: 'AI/ML Intern — Lecture-Lens',
+      title: 'AI/ML Intern: Lecture-Lens',
       subtitle: 'IBM SkillsBuild • Audio Intelligence & Study Assistant',
       org: 'IBM SkillsBuild • Remote',
       img: './Images/projects/lecturelens.jpeg',
@@ -328,12 +320,11 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     9: {
       id: 9,
-      pin: '#09',
       date: 'Jan 2026',
       category: 'hackathon',
-      catLabel: '🏆 National Podium Finish',
+      catLabel: '6TH PLACE NATIONAL',
       catClass: 'cat-hackathon-text',
-      title: 'Agentica 2.0 — 6th Place National',
+      title: 'Agentica 2.0: 6th Place National',
       subtitle: '6th Place out of 240+ Teams • Civility.ai',
       org: 'IIIT Sricity • Offline Grand Finale',
       img: './Images/hackathons/agentica.jpeg',
@@ -345,12 +336,11 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     10: {
       id: 10,
-      pin: '#10',
-      date: '2025 – Present',
+      date: '2025 - Present',
       category: 'leadership',
-      catLabel: '🌟 Campus Leadership',
+      catLabel: 'CAMPUS LEADERSHIP',
       catClass: 'cat-leadership-text',
-      title: 'Treasurer — National Service Scheme (NSS)',
+      title: 'Treasurer: National Service Scheme (NSS)',
       subtitle: 'Executive Finance & Logistics Officer',
       org: 'IIITDM Kurnool Chapter',
       img: './Images/leadership/nss2.jpeg',
@@ -362,12 +352,11 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     11: {
       id: 11,
-      pin: '#11',
-      date: '2025 – Present',
+      date: '2025 - Present',
       category: 'leadership',
-      catLabel: '🌟 Club Leadership',
+      catLabel: 'CLUB LEADERSHIP',
       catClass: 'cat-leadership-text',
-      title: 'Coordinator — Novella: The Reading Club',
+      title: 'Coordinator: Novella (Reading Club)',
       subtitle: 'Literary Circles & Campus Reading Culture',
       org: 'IIITDM Kurnool',
       img: './Images/leadership/novella_club.jpeg',
@@ -383,7 +372,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const milestoneDrawer = document.getElementById('milestoneDrawer');
   const drawerBackdrop = document.getElementById('drawerBackdrop');
   const drawerCloseBtn = document.getElementById('drawerCloseBtn');
-  const drawerPin = document.getElementById('drawerPin');
   const drawerDate = document.getElementById('drawerDate');
   const drawerCatBadge = document.getElementById('drawerCatBadge');
   const drawerOrg = document.getElementById('drawerOrg');
@@ -404,10 +392,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     currentMilestoneId = Number(id);
 
-    if (drawerPin) drawerPin.textContent = data.pin;
     if (drawerDate) drawerDate.textContent = data.date;
     if (drawerCatBadge) {
-      drawerCatBadge.textContent = data.catLabel;
+      drawerCatBadge.innerHTML = `<span class="cat-dot"></span>${data.catLabel}`;
       drawerCatBadge.className = 'drawer-cat-badge ' + (data.catClass || '');
     }
     if (drawerOrg) drawerOrg.textContent = data.org;
@@ -415,7 +402,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (drawerSubtitle) drawerSubtitle.textContent = data.subtitle;
     if (drawerDesc) drawerDesc.textContent = data.desc;
     if (drawerImpactBox) {
-      drawerImpactBox.innerHTML = '<strong>Key Impact:</strong> ' + data.impact;
+      drawerImpactBox.innerHTML = `
+        <div class="drawer-impact-header">
+          <span class="cat-dot"></span>
+          VERIFIED OUTCOME &amp; IMPACT
+        </div>
+        <div class="drawer-impact-text">${data.impact}</div>
+      `;
     }
     if (drawerTags) {
       drawerTags.innerHTML = data.tags.map(t => `<span class="tech-tag">${t}</span>`).join('');
@@ -435,13 +428,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (drawerImg) {
+      if (drawerImg.parentElement) {
+        drawerImg.parentElement.style.display = '';
+      }
       drawerImg.src = data.img;
       drawerImg.alt = data.title;
       drawerImg.onerror = function () {
         if (!this.src.endsWith('.jpg')) {
           this.src = data.img.replace('.jpeg', '.jpg');
         } else {
-          this.src = './Images/vivek_portrait.jpg';
+          // Gracefully hide media container if authentic image is not found
+          if (this.parentElement) {
+            this.parentElement.style.display = 'none';
+          }
         }
       };
     }
