@@ -36,10 +36,8 @@
         <a href="#home" class="nav-link active">Home</a>
         <a href="#focus" class="nav-link">What I Do</a>
         <a href="#about" class="nav-link">About me</a>
-        <a href="#experience" class="nav-link">Internships</a>
+        <a href="#experience" class="nav-link">Journey</a>
         <a href="#portfolio" class="nav-link">Projects</a>
-        <a href="#hackathons" class="nav-link">Hackathons</a>
-        <a href="#leadership" class="nav-link">Leadership</a>
         <a href="#skills" class="nav-link">Skills</a>
         <a href="#contact" class="nav-link">Contact</a>
       </nav>
@@ -298,93 +296,314 @@
     </section>
 
     <!-- ===================================================================
-         INTERNSHIP EXPERIENCE
+         UNIFIED EXPERIENCE & JOURNEY HUB (INTERNSHIPS, HACKATHONS, LEADERSHIP)
          =================================================================== -->
     <section class="section" id="experience">
+      <span id="internships" class="anchor-target"></span>
+      <span id="hackathons" class="anchor-target"></span>
+      <span id="leadership" class="anchor-target"></span>
+
       <div class="container">
         <div class="section-header">
-          <span class="section-tag">Experience</span>
-          <h2 class="section-title">My <span>Internships</span></h2>
+          <span class="section-tag">Track Record & Milestones</span>
+          <h2 class="section-title">My <span>Journey & Experience</span></h2>
           <p class="section-subtitle">
-            Internships where I got to build, test, and ship real ML pipelines and applications.
+            Interactive chronological roadmap — hover any milestone to preview, or click to slide out the complete case study & technical breakdown.
           </p>
         </div>
 
-        <div class="experience-timeline">
-          <!-- Infosys -->
-          <div class="timeline-card">
-            <div class="timeline-node"></div>
-            <div class="timeline-header">
-              <div>
-                <div class="timeline-role">AI Intern</div>
-                <div class="timeline-company">Infosys Springboard</div>
-              </div>
-              <div class="timeline-badge">Nov 2025 – Jan 2026 &bull; Remote</div>
-            </div>
-            <div class="timeline-body">
-              Engineered an automated research literature analysis pipeline to parse dense academic publications, extract core methodologies, and synthesize key insights into structured briefs.
-            </div>
-            <div class="timeline-footer">
-              <div class="service-tech-tags">
-                <span class="tech-tag">Document Parsing</span>
-                <span class="tech-tag">Structured Summaries</span>
-              </div>
-              <a href="https://github.com/duvvasaivivek/AI-System-To-Automatically-Review-And-Summarize-Research-Papers" target="_blank" rel="noopener noreferrer" class="project-details-btn">
-                GitHub Repo &rarr;
-              </a>
+        <!-- Interactive Category Filter Chips -->
+        <div class="roadmap-filter-bar" role="tablist" aria-label="Journey category filter">
+          <button type="button" class="roadmap-filter-chip active" data-filter="all">
+            All Milestones (11)
+          </button>
+          <button type="button" class="roadmap-filter-chip" data-filter="internship">
+            Internships (3)
+          </button>
+          <button type="button" class="roadmap-filter-chip" data-filter="hackathon">
+            Hackathons & Wins (6)
+          </button>
+          <button type="button" class="roadmap-filter-chip" data-filter="leadership">
+            Campus Leadership (2)
+          </button>
+        </div>
+
+        <!-- Stream Circuit Container ("Cards Floating On Them Like Dots In Chrono Order Small Size") -->
+        <div class="stream-timeline-wrap" id="streamContainer">
+          
+          <!-- Smooth 180° Right Bend connecting Line 1 to Line 2 -->
+          <div class="stream-connector" aria-hidden="true">
+            <svg class="stream-connector-svg" width="58" height="212" viewBox="0 0 58 212" fill="none">
+              <!-- Background soft glow -->
+              <path class="stream-connector-glow" d="M 0 3 L 28 3 A 27 27 0 0 1 55 30 L 55 182 A 27 27 0 0 1 28 209 L 0 209" stroke="#fd6f00" stroke-width="6" stroke-linecap="round" fill="none" opacity="0.35" />
+              <!-- Core sharp line -->
+              <path class="stream-connector-core" d="M 0 3 L 28 3 A 27 27 0 0 1 55 30 L 55 182 A 27 27 0 0 1 28 209 L 0 209" stroke="#fd6f00" stroke-width="3" stroke-linecap="round" fill="none" />
+            </svg>
+            <div class="stream-connector-indicator">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </div>
           </div>
 
-          <!-- IBM -->
-          <div class="timeline-card">
-            <div class="timeline-node"></div>
-            <div class="timeline-header">
-              <div>
-                <div class="timeline-role">AI/ML Intern</div>
-                <div class="timeline-company">IBM SkillsBuild</div>
+          <!-- ==========================================
+               LINE 1: TOP ROW (6 Milestones #01 to #06, LTR)
+               ========================================== -->
+          <div class="stream-row row-top" data-row="1">
+            <!-- Node 01: GDG Open Source Hackathon -->
+            <div class="stream-node" data-milestone-id="1" data-category="hackathon" tabindex="0" role="button" aria-label="Milestone 1: GDG Open Source Hackathon">
+              <div class="stream-card">
+                <div class="stream-card-top">
+                  <span class="stream-card-pin">#01</span>
+                  <span class="stream-card-date">Late 2024</span>
+                </div>
+                <div class="stream-card-cat cat-hackathon-text">🏆 Hackathon</div>
+                <h4 class="stream-card-title">GDG Hackathon</h4>
+                <div class="stream-card-sub">Campus Hustle (Unity)</div>
+                <div class="stream-card-action">Details &rarr;</div>
               </div>
-              <div class="timeline-badge">Dec 2025 – Jan 2026 &bull; Remote</div>
+              <div class="stream-stem"></div>
+              <div class="stream-dot"></div>
             </div>
-            <div class="timeline-body">
-              Developed an automated voice-to-notes processing engine that transcribes recorded lectures, isolates key mathematical formulas, and generates revision questions. Calibrated context windows and chunk overlaps to optimize factual fidelity.
-            </div>
-            <div class="timeline-footer">
-              <div class="service-tech-tags">
-                <span class="tech-tag">Audio Processing</span>
-                <span class="tech-tag">Factual Recall Tuning</span>
+
+            <!-- Node 02: Foundations & Engineering -->
+            <div class="stream-node" data-milestone-id="2" data-category="hackathon" tabindex="0" role="button" aria-label="Milestone 2: Foundations & Engineering">
+              <div class="stream-card">
+                <div class="stream-card-top">
+                  <span class="stream-card-pin">#02</span>
+                  <span class="stream-card-date">Late 2024</span>
+                </div>
+                <div class="stream-card-cat cat-cert-text">📜 Certification</div>
+                <h4 class="stream-card-title">Foundations</h4>
+                <div class="stream-card-sub">Modern C++, OOP & Git</div>
+                <div class="stream-card-action">Details &rarr;</div>
               </div>
-              <a href="https://github.com/duvvasaivivek/AI-Powered-Lecture-Voice-To-Notes-Generation-System" target="_blank" rel="noopener noreferrer" class="project-details-btn">
-                GitHub Repo &rarr;
-              </a>
+              <div class="stream-stem"></div>
+              <div class="stream-dot"></div>
+            </div>
+
+            <!-- Node 03: AIgnite 2.0 Grand Finale -->
+            <div class="stream-node" data-milestone-id="3" data-category="hackathon" tabindex="0" role="button" aria-label="Milestone 3: AIgnite 2.0 Grand Finale">
+              <div class="stream-card">
+                <div class="stream-card-top">
+                  <span class="stream-card-pin">#03</span>
+                  <span class="stream-card-date">Early 2025</span>
+                </div>
+                <div class="stream-card-cat cat-hackathon-text">🏆 Grand Finale</div>
+                <h4 class="stream-card-title">AIgnite 2.0</h4>
+                <div class="stream-card-sub">Gemini Flash & RAG</div>
+                <div class="stream-card-action">Details &rarr;</div>
+              </div>
+              <div class="stream-stem"></div>
+              <div class="stream-dot"></div>
+            </div>
+
+            <!-- Node 04: Devfest 5.0 BITS Goa -->
+            <div class="stream-node" data-milestone-id="4" data-category="hackathon" tabindex="0" role="button" aria-label="Milestone 4: Devfest 5.0 BITS Goa">
+              <div class="stream-card">
+                <div class="stream-card-top">
+                  <span class="stream-card-pin">#04</span>
+                  <span class="stream-card-date">Mid 2025</span>
+                </div>
+                <div class="stream-card-cat cat-hackathon-text">🏆 Hackathon</div>
+                <h4 class="stream-card-title">Devfest 5.0</h4>
+                <div class="stream-card-sub">Connect IQ (BITS Goa)</div>
+                <div class="stream-card-action">Details &rarr;</div>
+              </div>
+              <div class="stream-stem"></div>
+              <div class="stream-dot"></div>
+            </div>
+
+            <!-- Node 05: Hackxios 2K25 IIIT Bhopal -->
+            <div class="stream-node" data-milestone-id="5" data-category="hackathon" tabindex="0" role="button" aria-label="Milestone 5: Hackxios 2K25 IIIT Bhopal">
+              <div class="stream-card">
+                <div class="stream-card-top">
+                  <span class="stream-card-pin">#05</span>
+                  <span class="stream-card-date">Mid 2025</span>
+                </div>
+                <div class="stream-card-cat cat-hackathon-text">🏆 Hackathon</div>
+                <h4 class="stream-card-title">Hackxios 2K25</h4>
+                <div class="stream-card-sub">Skill Drift Monitor</div>
+                <div class="stream-card-action">Details &rarr;</div>
+              </div>
+              <div class="stream-stem"></div>
+              <div class="stream-dot"></div>
+            </div>
+
+            <!-- Node 06: Elevate Labs SafeSwipe -->
+            <div class="stream-node" data-milestone-id="6" data-category="internship" tabindex="0" role="button" aria-label="Milestone 6: Elevate Labs SafeSwipe">
+              <div class="stream-card">
+                <div class="stream-card-top">
+                  <span class="stream-card-pin">#06</span>
+                  <span class="stream-card-date">Oct–Dec 2025</span>
+                </div>
+                <div class="stream-card-cat cat-internship-text">💼 Internship</div>
+                <h4 class="stream-card-title">Elevate Labs</h4>
+                <div class="stream-card-sub">SafeSwipe Fraud ML</div>
+                <div class="stream-card-action">Details &rarr;</div>
+              </div>
+              <div class="stream-stem"></div>
+              <div class="stream-dot"></div>
             </div>
           </div>
 
-          <!-- Elevate Labs -->
-          <div class="timeline-card">
-            <div class="timeline-node"></div>
-            <div class="timeline-header">
-              <div>
-                <div class="timeline-role">AI/ML Intern</div>
-                <div class="timeline-company">Elevate Labs</div>
+          <!-- ==========================================
+               LINE 2: BOTTOM ROW (5 Milestones #07 to #11, RTL on Desktop)
+               ========================================== -->
+          <div class="stream-row row-bottom" data-row="2">
+            <!-- Node 07: Infosys Springboard (Desktop Col 6) -->
+            <div class="stream-node" data-milestone-id="7" data-category="internship" style="grid-column: 6; grid-row: 1;" tabindex="0" role="button" aria-label="Milestone 7: Infosys Springboard">
+              <div class="stream-card">
+                <div class="stream-card-top">
+                  <span class="stream-card-pin">#07</span>
+                  <span class="stream-card-date">Nov 2025</span>
+                </div>
+                <div class="stream-card-cat cat-internship-text">💼 Internship</div>
+                <h4 class="stream-card-title">Infosys AI</h4>
+                <div class="stream-card-sub">Literature Synthesizer</div>
+                <div class="stream-card-action">Details &rarr;</div>
               </div>
-              <div class="timeline-badge">Oct 2025 – Dec 2025 &bull; Remote</div>
+              <div class="stream-stem"></div>
+              <div class="stream-dot"></div>
             </div>
-            <div class="timeline-body">
-              Constructed a dual-stage transaction risk evaluation system on imbalanced banking records, combining gradient-boosted decision trees for supervised fraud scoring with density-based outlier detection for unseen attack vectors.
-            </div>
-            <div class="timeline-footer">
-              <div class="service-tech-tags">
-                <span class="tech-tag">Dual Anomaly Pipeline</span>
-                <span class="tech-tag">Imbalance Mitigation</span>
+
+            <!-- Node 08: IBM SkillsBuild (Desktop Col 5) -->
+            <div class="stream-node" data-milestone-id="8" data-category="internship" style="grid-column: 5; grid-row: 1;" tabindex="0" role="button" aria-label="Milestone 8: IBM SkillsBuild">
+              <div class="stream-card">
+                <div class="stream-card-top">
+                  <span class="stream-card-pin">#08</span>
+                  <span class="stream-card-date">Dec 2025</span>
+                </div>
+                <div class="stream-card-cat cat-internship-text">💼 Internship</div>
+                <h4 class="stream-card-title">IBM SkillsBuild</h4>
+                <div class="stream-card-sub">Lecture-Lens Audio AI</div>
+                <div class="stream-card-action">Details &rarr;</div>
               </div>
-              <a href="https://github.com/duvvasaivivek/SafeSwipe-Fraud-Transaction-Detection-System" target="_blank" rel="noopener noreferrer" class="project-details-btn">
-                GitHub Repo &rarr;
+              <div class="stream-stem"></div>
+              <div class="stream-dot"></div>
+            </div>
+
+            <!-- Node 09: Agentica 2.0 (Desktop Col 4) -->
+            <div class="stream-node" data-milestone-id="9" data-category="hackathon" style="grid-column: 4; grid-row: 1;" tabindex="0" role="button" aria-label="Milestone 9: Agentica 2.0 National Podium">
+              <div class="stream-card">
+                <div class="stream-card-top">
+                  <span class="stream-card-pin">#09</span>
+                  <span class="stream-card-date">Jan 2026</span>
+                </div>
+                <div class="stream-card-cat cat-hackathon-text">🏆 6th Place</div>
+                <h4 class="stream-card-title">Agentica 2.0</h4>
+                <div class="stream-card-sub">Civility.ai (IIIT Sricity)</div>
+                <div class="stream-card-action">Details &rarr;</div>
+              </div>
+              <div class="stream-stem"></div>
+              <div class="stream-dot"></div>
+            </div>
+
+            <!-- Node 10: NSS Treasurer (Desktop Col 3) -->
+            <div class="stream-node" data-milestone-id="10" data-category="leadership" style="grid-column: 3; grid-row: 1;" tabindex="0" role="button" aria-label="Milestone 10: NSS Treasurer">
+              <div class="stream-card">
+                <div class="stream-card-top">
+                  <span class="stream-card-pin">#10</span>
+                  <span class="stream-card-date">2025–Present</span>
+                </div>
+                <div class="stream-card-cat cat-leadership-text">🌟 Leadership</div>
+                <h4 class="stream-card-title">NSS Treasurer</h4>
+                <div class="stream-card-sub">Finance & Logistics</div>
+                <div class="stream-card-action">Details &rarr;</div>
+              </div>
+              <div class="stream-stem"></div>
+              <div class="stream-dot"></div>
+            </div>
+
+            <!-- Node 11: Novella Reading Club (Desktop Col 2) -->
+            <div class="stream-node" data-milestone-id="11" data-category="leadership" style="grid-column: 2; grid-row: 1;" tabindex="0" role="button" aria-label="Milestone 11: Novella Reading Club">
+              <div class="stream-card">
+                <div class="stream-card-top">
+                  <span class="stream-card-pin">#11</span>
+                  <span class="stream-card-date">2025–Present</span>
+                </div>
+                <div class="stream-card-cat cat-leadership-text">🌟 Leadership</div>
+                <h4 class="stream-card-title">Novella Club</h4>
+                <div class="stream-card-sub">Coordinator (IIITDM)</div>
+                <div class="stream-card-action">Details &rarr;</div>
+              </div>
+              <div class="stream-stem"></div>
+              <div class="stream-dot"></div>
+            </div>
+
+            <!-- Terminal Marker in Col 1 -->
+            <div class="stream-terminal-node" style="grid-column: 1; grid-row: 1;">
+              <div class="stream-card stream-terminal-card">
+                <span class="stream-terminal-text">🚀 Current Focus<br><small style="color:var(--text-muted);font-weight:400;font-size:0.64rem;">AI Systems & Scale</small></span>
+              </div>
+              <div class="stream-stem" style="background: rgba(253, 111, 0, 0.2);"></div>
+              <div class="stream-dot" style="background: var(--bg-surface); border-color: var(--accent);"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         MILESTONE DETAIL SLIDE-OUT SIDEBAR (DRAWER)
+         =================================================================== -->
+    <aside class="timeline-drawer" id="milestoneDrawer" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Milestone Case Study Details">
+      <div class="drawer-backdrop" id="drawerBackdrop"></div>
+      <div class="drawer-panel">
+        <div class="drawer-header">
+          <div class="drawer-header-meta">
+            <span class="drawer-pin" id="drawerPin">#01</span>
+            <span class="drawer-date" id="drawerDate">Late 2024</span>
+          </div>
+          <button type="button" class="drawer-close-btn" id="drawerCloseBtn" aria-label="Close sidebar">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+
+        <div class="drawer-content" id="drawerContent">
+          <!-- Banner Media -->
+          <div class="drawer-media-wrap" id="drawerMediaWrap">
+            <img src="./Images/hackathons/gdg.jpeg" alt="" id="drawerImg">
+          </div>
+
+          <div class="drawer-body">
+            <div class="drawer-cat-badge" id="drawerCatBadge">🏆 Hackathon</div>
+            <div class="drawer-org-line" id="drawerOrg">GDG On Campus • Online</div>
+            <h3 class="drawer-title" id="drawerTitle">GDG Open Source Hackathon</h3>
+            <div class="drawer-subtitle" id="drawerSubtitle">Team SpriteVRM • Campus Hustle</div>
+
+            <div class="drawer-divider"></div>
+
+            <div class="drawer-section-title">Overview & Contributions</div>
+            <p class="drawer-desc" id="drawerDesc"></p>
+
+            <div class="drawer-impact-box" id="drawerImpactBox"></div>
+
+            <div class="drawer-section-title">Core Technologies & Methods</div>
+            <div class="drawer-tags" id="drawerTags"></div>
+
+            <div class="drawer-actions" id="drawerActions">
+              <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-pill" id="drawerActionBtn">
+                View Repository &rarr;
               </a>
             </div>
           </div>
         </div>
+
+        <!-- Footer Navigation -->
+        <div class="drawer-footer">
+          <button type="button" class="drawer-nav-btn" id="drawerPrevBtn">
+            &larr; Previous
+          </button>
+          <span class="drawer-nav-counter" id="drawerCounter">1 of 11</span>
+          <button type="button" class="drawer-nav-btn" id="drawerNextBtn">
+            Next &rarr;
+          </button>
+        </div>
       </div>
-    </section>
+    </aside>
 
     <!-- ===================================================================
          PROJECTS I'VE BUILT
@@ -397,14 +616,6 @@
           <p class="section-subtitle">
             A mix of hackathon projects, internship systems, and personal experiments in AI and web development.
           </p>
-        </div>
-
-        <!-- Filter tabs -->
-        <div class="filter-tabs">
-          <button type="button" class="filter-btn active" data-filter="all">All</button>
-          <button type="button" class="filter-btn" data-filter="ai">AI & Machine Learning</button>
-          <button type="button" class="filter-btn" data-filter="web">Web & Systems</button>
-          <button type="button" class="filter-btn" data-filter="hackathons">Hackathons</button>
         </div>
 
         <div class="projects-grid">
@@ -708,288 +919,6 @@
                 <button type="button" class="project-details-btn" onclick="openProjectModal('aignite')">
                   Details &rarr;
                 </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================================================================
-         HACKATHONS & COMPETITIONS
-         =================================================================== -->
-    <section class="section" id="hackathons">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-tag">Competitions</span>
-          <h2 class="section-title">Hackathons & <span>Achievements</span></h2>
-          <p class="section-subtitle">
-            Hackathons are where I love building with teammates, learning new stacks on the fly, and solving problems under time pressure.
-          </p>
-        </div>
-
-        <div class="hackathons-grid">
-          <!-- Award 1 -->
-          <div class="hackathon-card">
-            <!-- Hackathon Picture Placeholder -->
-            <div class="card-media-wrap">
-              <img src="./Images/hackathons/agentica.jpeg" alt="Agentica 2.0 Finale Stage Award" loading="lazy" onerror="this.classList.add('img-failed');">
-              <div class="media-placeholder">
-                <div class="placeholder-icon-box">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
-                </div>
-                <span class="placeholder-label">Agentica 2.0 Finale Photo</span>
-                <span class="placeholder-hint">Images/hackathons/agentica.jpeg</span>
-              </div>
-            </div>
-            <div class="hackathon-content">
-              <div class="hackathon-top">
-                <div class="hackathon-badge-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
-                </div>
-                <div class="hackathon-title-box">
-                  <h4>Agentica 2.0 — IIIT Sricity</h4>
-                  <div class="hackathon-subtitle">6th Place out of 240+ Teams &bull; Offline Grand Finale</div>
-                </div>
-              </div>
-              <div class="hackathon-body">
-                Architected Civility.ai with Team ByteBuilders, an AI toxicity moderation platform for online communities. Selected as one of the national finalist teams to pitch live at the IIIT Sricity campus.
-              </div>
-            </div>
-          </div>
-
-          <!-- Award 2 -->
-          <div class="hackathon-card">
-            <!-- Hackathon Picture Placeholder -->
-            <div class="card-media-wrap">
-              <img src="./Images/hackathons/devfest.jpeg" alt="Devfest 5.0 Team Photo" loading="lazy" onerror="if(!this.src.includes('connectiq')){this.src='./Images/projects/connectiq2.jpeg';}else{this.classList.add('img-failed');}">
-              <div class="media-placeholder">
-                <div class="placeholder-icon-box">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
-                </div>
-                <span class="placeholder-label">Devfest 5.0 Team Photo</span>
-                <span class="placeholder-hint">Images/hackathons/devfest.jpg</span>
-              </div>
-            </div>
-            <div class="hackathon-content">
-              <div class="hackathon-top">
-                <div class="hackathon-badge-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                </div>
-                <div class="hackathon-title-box">
-                  <h4>Devfest 5.0 — BITS Goa</h4>
-                  <div class="hackathon-subtitle">Team Void Walkers &bull; Online</div>
-                </div>
-              </div>
-              <div class="hackathon-body">
-                Engineered Connect IQ with Team Void Walkers, matching developer skill vectors with active technical projects to automate compatibility scoring and opportunity discovery.
-              </div>
-            </div>
-          </div>
-
-          <!-- Award 3 -->
-          <div class="hackathon-card">
-            <!-- Hackathon Picture Placeholder -->
-            <div class="card-media-wrap">
-              <img src="./Images/hackathons/aignite.jpeg" alt="AIgnite 2.0 Finale Stage Demo" loading="lazy" onerror="if(!this.src.endsWith('.jpg')){this.src='./Images/hackathons/aignite.jpg';}else{this.classList.add('img-failed');}">
-              <div class="media-placeholder">
-                <div class="placeholder-icon-box">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
-                </div>
-                <span class="placeholder-label">AIgnite 2.0 Finale Stage Demo</span>
-                <span class="placeholder-hint">Images/hackathons/aignite.jpg</span>
-              </div>
-            </div>
-            <div class="hackathon-content">
-              <div class="hackathon-top">
-                <div class="hackathon-badge-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                </div>
-                <div class="hackathon-title-box">
-                  <h4>AIgnite 2.0 — GPREC</h4>
-                  <div class="hackathon-subtitle">Team ApexVAMY &bull; Offline Grand Finale</div>
-                </div>
-              </div>
-              <div class="hackathon-body">
-                Developed a conversational order assistant using Gemini Flash and Retrieval-Augmented Generation (RAG) to dynamically track meal deliveries and resolve customer inquiries in real time.
-              </div>
-            </div>
-          </div>
-
-          <!-- Award 4 -->
-          <div class="hackathon-card">
-            <!-- Hackathon Picture Placeholder -->
-            <div class="card-media-wrap">
-              <img src="./Images/hackathons/hackxios.jpeg" alt="Hackxios 2K25 Hackathon Photo" loading="lazy" onerror="if(!this.src.endsWith('.jpg')){this.src='./Images/hackathons/hackxios.jpg';}else{this.classList.add('img-failed');}">
-              <div class="media-placeholder">
-                <div class="placeholder-icon-box">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
-                </div>
-                <span class="placeholder-label">Hackxios 2K25 Hackathon Photo</span>
-                <span class="placeholder-hint">Images/hackathons/hackxios.jpg</span>
-              </div>
-            </div>
-            <div class="hackathon-content">
-              <div class="hackathon-top">
-                <div class="hackathon-badge-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
-                </div>
-                <div class="hackathon-title-box">
-                  <h4>Hackxios 2K25 — IIIT Bhopal</h4>
-                  <div class="hackathon-subtitle">Team Core Cube &bull; Online</div>
-                </div>
-              </div>
-              <div class="hackathon-body">
-                Built Skill Drift Monitor with Team Core Cube, parsing curriculum syllabi against 100+ active tech job listings to detect evolving skill gaps in college coursework.
-              </div>
-            </div>
-          </div>
-
-          <!-- Award 5 -->
-          <div class="hackathon-card">
-            <!-- Hackathon Picture Placeholder -->
-            <div class="card-media-wrap">
-              <img src="./Images/hackathons/gdg.jpeg" alt="GDG Open Source Hackathon" loading="lazy" onerror="if(!this.src.endsWith('.jpg')){this.src='./Images/hackathons/gdg.jpg';}else{this.classList.add('img-failed');}">
-              <div class="media-placeholder">
-                <div class="placeholder-icon-box">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
-                </div>
-                <span class="placeholder-label">GDG Open Source Hackathon</span>
-                <span class="placeholder-hint">Images/hackathons/gdg.jpg</span>
-              </div>
-            </div>
-            <div class="hackathon-content">
-              <div class="hackathon-top">
-                <div class="hackathon-badge-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-                </div>
-                <div class="hackathon-title-box">
-                  <h4>GDG Open Source Hackathon</h4>
-                  <div class="hackathon-subtitle">Team SpriteVRM &bull; IIITDM Kurnool</div>
-                </div>
-              </div>
-              <div class="hackathon-body">
-                Engineered Campus Hustle — a 2D Unity runner game with custom physics, dynamic obstacles, and collision detection.
-              </div>
-            </div>
-          </div>
-
-          <!-- Award 6 -->
-          <div class="hackathon-card">
-            <!-- Hackathon Picture Placeholder -->
-            <div class="card-media-wrap">
-              <img src="./Images/hackathons/certifications.jpeg" alt="Certifications & Learning" loading="lazy" onerror="if(!this.src.endsWith('.jpg')){this.src='./Images/hackathons/certifications.jpg';}else{this.classList.add('img-failed');}">
-              <div class="media-placeholder">
-                <div class="placeholder-icon-box">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
-                </div>
-                <span class="placeholder-label">Certifications & Learning</span>
-                <span class="placeholder-hint">Images/hackathons/certifications.jpg</span>
-              </div>
-            </div>
-            <div class="hackathon-content">
-              <div class="hackathon-top">
-                <div class="hackathon-badge-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
-                </div>
-                <div class="hackathon-title-box">
-                  <h4>Certifications & Continuous Learning</h4>
-                  <div class="hackathon-subtitle">Udemy &bull; Technical Upskilling</div>
-                </div>
-              </div>
-              <div class="hackathon-body">
-                &bull; <strong>Beginning C++ Programming — From Beginner to Beyond</strong> (Udemy)<br>
-                &bull; <strong>Master Git and GitHub in 5 Days</strong> (Udemy)<br>
-                &bull; Continuous hands-on self-study in Object-Oriented Software Design, Data Structures, and Generative AI pipelines.
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================================================================
-         CAMPUS LEADERSHIP & EXTRACURRICULAR ACTIVITIES
-         =================================================================== -->
-    <section class="section" id="leadership">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-tag">Campus Leadership</span>
-          <h2 class="section-title">Extracurricular <span>Activities</span></h2>
-          <p class="section-subtitle">
-            Beyond engineering and machine learning, I actively contribute to campus governance, financial administration, and student community culture at IIITDM Kurnool.
-          </p>
-        </div>
-
-        <div class="extracurricular-grid">
-          <!-- Role 1: NSS Treasurer -->
-          <div class="extracurricular-card">
-            <!-- Media Placeholder -->
-            <div class="card-media-wrap">
-              <img src="./Images/leadership/nss2.jpeg" alt="NSS Social Impact & Community Drives" loading="lazy" onerror="this.classList.add('img-failed');">
-              <div class="media-placeholder">
-                <div class="placeholder-icon-box">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                </div>
-                <span class="placeholder-label">NSS Social Impact & Community Drives</span>
-                <span class="placeholder-hint">Images/leadership/nss2.jpeg</span>
-              </div>
-            </div>
-            <div class="extracurricular-content">
-              <div class="extracurricular-top">
-                <div class="extracurricular-badge-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
-                </div>
-                <div>
-                  <div class="extracurricular-role-badge">Elected Leadership</div>
-                  <h3 class="extracurricular-title">NSS Treasurer</h3>
-                  <div class="extracurricular-org">National Service Scheme (NSS) &bull; IIITDM Kurnool</div>
-                </div>
-              </div>
-              <p class="extracurricular-desc">
-                Directed financial planning, budget allocations, and transparent expense accounting for university-wide social welfare programs. Coordinated large-scale community initiatives including blood donation camps, environmental cleanliness drives, and educational outreach in collaboration with university authorities.
-              </p>
-              <div class="extracurricular-highlights">
-                <span class="tech-tag">Budget Planning</span>
-                <span class="tech-tag">Fund Management</span>
-                <span class="tech-tag">Community Outreach</span>
-                <span class="tech-tag">Team Leadership</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Role 2: Novella Coordinator -->
-          <div class="extracurricular-card">
-            <!-- Media Placeholder -->
-            <div class="card-media-wrap">
-              <img src="./Images/leadership/novella_club.jpeg" alt="Novella Reading Club Gatherings" loading="lazy" onerror="if(!this.src.endsWith('.jpg')){this.src='./Images/leadership/novella_club.jpg';}else{this.classList.add('img-failed');}">
-              <div class="media-placeholder">
-                <div class="placeholder-icon-box">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
-                </div>
-                <span class="placeholder-label">Novella Reading Club Gatherings</span>
-                <span class="placeholder-hint">Images/leadership/novella_club.jpg</span>
-              </div>
-            </div>
-            <div class="extracurricular-content">
-              <div class="extracurricular-top">
-                <div class="extracurricular-badge-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
-                </div>
-                <div>
-                  <div class="extracurricular-role-badge">Club Leadership</div>
-                  <h3 class="extracurricular-title">Coordinator — Novella: The Reading Club</h3>
-                  <div class="extracurricular-org">IIITDM Kurnool</div>
-                </div>
-              </div>
-              <p class="extracurricular-desc">
-                Organized and led weekly book reading circles, literary review sessions, and open discussion forums to foster a rich reading culture among university students. Curated library recommendations, organized campus reading marathons, and managed student engagement initiatives across batches.
-              </p>
-              <div class="extracurricular-highlights">
-                <span class="tech-tag">Literary Discussions</span>
-                <span class="tech-tag">Event Curation</span>
-                <span class="tech-tag">Student Engagement</span>
-                <span class="tech-tag">Campus Outreach</span>
               </div>
             </div>
           </div>

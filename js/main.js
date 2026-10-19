@@ -188,29 +188,393 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // 5. PROJECT FILTER TABS
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const projectCards = document.querySelectorAll('.project-card');
+  // 4.8 CHRONOLOGICAL STREAM TIMELINE & SLIDE-OUT DETAIL DRAWER
+  const milestonesData = {
+    1: {
+      id: 1,
+      pin: '#01',
+      date: 'Late 2024',
+      category: 'hackathon',
+      catLabel: '🏆 Hackathon',
+      catClass: 'cat-hackathon-text',
+      title: 'GDG Open Source Hackathon',
+      subtitle: 'Team SpriteVRM • Campus Hustle',
+      org: 'GDG On Campus • Online',
+      img: './Images/hackathons/gdg.jpeg',
+      desc: 'Architected and programmed Campus Hustle, an endless 2D runner built in Unity and C#. Engineered dynamic procedural obstacle generation, responsive player physics, and high-performance WebGL browser compilation for cross-platform gameplay.',
+      impact: 'Tested and played by university students across campus during the GDG event with smooth 60 FPS in-browser execution.',
+      tags: ['Unity', 'C#', 'Game Dev', 'WebGL', 'Physics Engine'],
+      link: 'https://github.com/duvvasaivivek/Campus-Hustle',
+      linkText: 'View GitHub Repository'
+    },
+    2: {
+      id: 2,
+      pin: '#02',
+      date: 'Late 2024 – Early 2025',
+      category: 'hackathon',
+      catLabel: '📜 Certification',
+      catClass: 'cat-cert-text',
+      title: 'Foundations & Engineering Track',
+      subtitle: 'Modern C++, OOP & Git Specializations',
+      org: 'Udemy & Independent Study',
+      img: './Images/hackathons/certifications.jpeg',
+      desc: 'Completed comprehensive engineering certifications covering Modern C++ (C++11/14/17), Object-Oriented Design patterns, memory management, and professional Git/GitHub collaborative branching workflows.',
+      impact: 'Established the core systems and algorithmic foundations that power subsequent AI pipelines, ML architectures, and full-stack software development.',
+      tags: ['Modern C++', 'OOP', 'Data Structures', 'Git & GitHub', 'Linux'],
+      link: 'https://github.com/duvvasaivivek',
+      linkText: 'Verified Profile'
+    },
+    3: {
+      id: 3,
+      pin: '#03',
+      date: 'Early 2025',
+      category: 'hackathon',
+      catLabel: '🏆 Grand Finale',
+      catClass: 'cat-hackathon-text',
+      title: 'AIgnite 2.0 — Grand Finale',
+      subtitle: 'Team ApexVAMY • Conversational Order Assistant',
+      org: 'GPREC Campus • Offline Stage',
+      img: './Images/hackathons/aignite.jpeg',
+      desc: 'Developed an intelligent conversational order assistant utilizing Gemini Flash and Retrieval-Augmented Generation (RAG). Built real-time order tracking, dynamic food menu query resolution, and live customer interaction via FastAPI endpoints.',
+      impact: 'Selected as offline grand finalists, demonstrating real-time low latency multimodal query handling on the live finale stage.',
+      tags: ['Gemini Flash', 'RAG', 'LangChain', 'FastAPI', 'Python'],
+      link: 'https://github.com/duvvasaivivek/AI-Powered-Automated-Food-Ordering-System',
+      linkText: 'View GitHub Repository'
+    },
+    4: {
+      id: 4,
+      pin: '#04',
+      date: 'Mid 2025',
+      category: 'hackathon',
+      catLabel: '🏆 Hackathon',
+      catClass: 'cat-hackathon-text',
+      title: 'Devfest 5.0 — BITS Goa',
+      subtitle: 'Team Void Walkers • Connect IQ',
+      org: 'BITS Goa • Online',
+      img: './Images/projects/connectiq.jpeg',
+      desc: 'Engineered Connect IQ, a talent matchmaking platform that extracts developer skill vectors and compares them with active open-source and hackathon technical projects using Sentence Transformers and cosine similarity.',
+      impact: 'Automated compatibility scoring and opportunity discovery with an interactive Streamlit UI for real-time developer portfolio matching.',
+      tags: ['Sentence Transformers', 'Embeddings', 'Streamlit', 'Cosine Similarity', 'Python'],
+      link: 'https://github.com/duvvasaivivek/Connect-IQ',
+      linkText: 'View GitHub Repository'
+    },
+    5: {
+      id: 5,
+      pin: '#05',
+      date: 'Mid 2025',
+      category: 'hackathon',
+      catLabel: '🏆 Hackathon',
+      catClass: 'cat-hackathon-text',
+      title: 'Hackxios 2K25 — IIIT Bhopal',
+      subtitle: 'Team Core Cube • Skill Drift Monitor',
+      org: 'IIIT Bhopal • Online',
+      img: './Images/hackathons/hackxios.jpeg',
+      desc: 'Built Skill Drift Monitor with Team Core Cube. The system automatically scrapes and parses 100+ live tech job listings across developer portals, compares them against college course syllabi, and identifies curriculum drift.',
+      impact: 'Generates structured gap reports and actionable skill-up pathways for engineering students seeking industry alignment.',
+      tags: ['NLP Extraction', 'Web Scraping', 'Skill Mining', 'Python', 'Streamlit'],
+      link: 'https://github.com/duvvasaivivek/Skill-Drift-Monitor',
+      linkText: 'View GitHub Repository'
+    },
+    6: {
+      id: 6,
+      pin: '#06',
+      date: 'Oct – Dec 2025',
+      category: 'internship',
+      catLabel: '💼 ML Internship',
+      catClass: 'cat-internship-text',
+      title: 'Machine Learning Intern',
+      subtitle: 'Elevate Labs • SafeSwipe Fraud Detection',
+      org: 'Elevate Labs • Remote',
+      img: './Images/projects/safeswipe.jpeg',
+      desc: 'Constructed a dual-stage transaction risk evaluation system on imbalanced banking records, combining gradient-boosted decision trees (XGBoost) for supervised fraud scoring with density-based outlier detection (Local Outlier Factor) for zero-day attack vectors.',
+      impact: 'Achieved high precision-recall balance on severely imbalanced datasets with real-time risk classification API and interactive monitoring dashboard.',
+      tags: ['XGBoost', 'Local Outlier Factor', 'Imbalance Handling', 'Scikit-Learn', 'FastAPI'],
+      link: 'https://github.com/duvvasaivivek/SafeSwipe-Fraud-Transaction-Detection-System',
+      linkText: 'View GitHub Repository'
+    },
+    7: {
+      id: 7,
+      pin: '#07',
+      date: 'Nov 2025 – Jan 2026',
+      category: 'internship',
+      catLabel: '💼 AI Internship',
+      catClass: 'cat-internship-text',
+      title: 'AI Intern — Literature Synthesizer',
+      subtitle: 'Infosys Springboard • Research Summarizer',
+      org: 'Infosys Springboard • Remote',
+      img: './Images/projects/scholarium.jpeg',
+      desc: 'Engineered an automated research literature analysis pipeline to parse dense academic publications, extract core methodologies, formulas, and findings, and synthesize them into structured executive briefs.',
+      impact: 'Accelerated literature review workflows for academic researchers by ~60% with high citation accuracy.',
+      tags: ['Document Parsing', 'NLP Summaries', 'PDF Miner', 'Python', 'FastAPI'],
+      link: 'https://github.com/duvvasaivivek/AI-System-To-Automatically-Review-And-Summarize-Research-Papers',
+      linkText: 'View GitHub Repository'
+    },
+    8: {
+      id: 8,
+      pin: '#08',
+      date: 'Dec 2025 – Jan 2026',
+      category: 'internship',
+      catLabel: '💼 AI/ML Internship',
+      catClass: 'cat-internship-text',
+      title: 'AI/ML Intern — Lecture-Lens',
+      subtitle: 'IBM SkillsBuild • Audio Intelligence & Study Assistant',
+      org: 'IBM SkillsBuild • Remote',
+      img: './Images/projects/lecturelens.jpeg',
+      desc: 'Developed an automated voice-to-notes processing engine that transcribes recorded lectures, isolates key mathematical formulas, and generates revision questions. Calibrated context windows and chunk overlaps to optimize factual fidelity.',
+      impact: 'Enabled students to generate comprehensive revision guides and self-assessment flashcards from 60-minute audio lectures in under 2 minutes.',
+      tags: ['Speech-to-Text', 'Prompt Engineering', 'Quiz Generation', 'Python', 'RAG'],
+      link: 'https://github.com/duvvasaivivek/AI-Powered-Lecture-Voice-To-Notes-Generation-System',
+      linkText: 'View GitHub Repository'
+    },
+    9: {
+      id: 9,
+      pin: '#09',
+      date: 'Jan 2026',
+      category: 'hackathon',
+      catLabel: '🏆 National Podium Finish',
+      catClass: 'cat-hackathon-text',
+      title: 'Agentica 2.0 — 6th Place National',
+      subtitle: '6th Place out of 240+ Teams • Civility.ai',
+      org: 'IIIT Sricity • Offline Grand Finale',
+      img: './Images/hackathons/agentica.jpeg',
+      desc: 'Architected Civility.ai with Team ByteBuilders, an AI toxicity moderation platform for online gaming channels and web communities. Selected as one of the national finalist teams to pitch live on stage at the IIIT Sricity campus.',
+      impact: 'Podium finish (6th Place out of 240+ nationwide engineering teams), recognized for real-time sub-100ms inference on toxic streaming text.',
+      tags: ['PyTorch', 'HuggingFace', 'Toxicity ML', 'FastAPI', 'React'],
+      link: 'https://github.com/duvvasaivivek/Civility.ai',
+      linkText: 'View GitHub Repository'
+    },
+    10: {
+      id: 10,
+      pin: '#10',
+      date: '2025 – Present',
+      category: 'leadership',
+      catLabel: '🌟 Campus Leadership',
+      catClass: 'cat-leadership-text',
+      title: 'Treasurer — National Service Scheme (NSS)',
+      subtitle: 'Executive Finance & Logistics Officer',
+      org: 'IIITDM Kurnool Chapter',
+      img: './Images/leadership/nss2.jpeg',
+      desc: 'Directing financial planning, budget allocations, and transparent expense accounting for university-wide social welfare programs. Spearheading budgeting and logistics for campus blood donation drives, cleanliness campaigns, and educational outreach to rural schools.',
+      impact: 'Successfully allocated and audited funds across 15+ university social impact drives impacting hundreds of beneficiaries.',
+      tags: ['Financial Planning', 'Budgeting', 'Operations', 'Leadership', 'Social Welfare'],
+      link: '#contact',
+      linkText: 'Contact Vivek'
+    },
+    11: {
+      id: 11,
+      pin: '#11',
+      date: '2025 – Present',
+      category: 'leadership',
+      catLabel: '🌟 Club Leadership',
+      catClass: 'cat-leadership-text',
+      title: 'Coordinator — Novella: The Reading Club',
+      subtitle: 'Literary Circles & Campus Reading Culture',
+      org: 'IIITDM Kurnool',
+      img: './Images/leadership/novella_club.jpeg',
+      desc: 'Organizing and leading weekly book reading circles, literary review sessions, and open discussion forums to foster a rich reading culture among university students. Curating library recommendations, organizing campus reading marathons, and managing student engagement across batches.',
+      impact: 'Built an active student reading community with weekly peer-led discussion roundtables.',
+      tags: ['Event Curation', 'Literary Discussions', 'Student Engagement', 'Campus Outreach'],
+      link: '#contact',
+      linkText: 'Contact Vivek'
+    }
+  };
 
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
+  let currentMilestoneId = 1;
+  const milestoneDrawer = document.getElementById('milestoneDrawer');
+  const drawerBackdrop = document.getElementById('drawerBackdrop');
+  const drawerCloseBtn = document.getElementById('drawerCloseBtn');
+  const drawerPin = document.getElementById('drawerPin');
+  const drawerDate = document.getElementById('drawerDate');
+  const drawerCatBadge = document.getElementById('drawerCatBadge');
+  const drawerOrg = document.getElementById('drawerOrg');
+  const drawerTitle = document.getElementById('drawerTitle');
+  const drawerSubtitle = document.getElementById('drawerSubtitle');
+  const drawerDesc = document.getElementById('drawerDesc');
+  const drawerImpactBox = document.getElementById('drawerImpactBox');
+  const drawerTags = document.getElementById('drawerTags');
+  const drawerActionBtn = document.getElementById('drawerActionBtn');
+  const drawerPrevBtn = document.getElementById('drawerPrevBtn');
+  const drawerNextBtn = document.getElementById('drawerNextBtn');
+  const drawerCounter = document.getElementById('drawerCounter');
+  const drawerImg = document.getElementById('drawerImg');
 
-      const filter = btn.getAttribute('data-filter');
+  window.openMilestoneDrawer = function (id) {
+    const data = milestonesData[id];
+    if (!data || !milestoneDrawer) return;
 
-      projectCards.forEach(card => {
-        const cat = card.getAttribute('data-category');
-        if (filter === 'all' || cat.includes(filter)) {
-          card.style.display = 'flex';
+    currentMilestoneId = Number(id);
+
+    if (drawerPin) drawerPin.textContent = data.pin;
+    if (drawerDate) drawerDate.textContent = data.date;
+    if (drawerCatBadge) {
+      drawerCatBadge.textContent = data.catLabel;
+      drawerCatBadge.className = 'drawer-cat-badge ' + (data.catClass || '');
+    }
+    if (drawerOrg) drawerOrg.textContent = data.org;
+    if (drawerTitle) drawerTitle.textContent = data.title;
+    if (drawerSubtitle) drawerSubtitle.textContent = data.subtitle;
+    if (drawerDesc) drawerDesc.textContent = data.desc;
+    if (drawerImpactBox) {
+      drawerImpactBox.innerHTML = '<strong>Key Impact:</strong> ' + data.impact;
+    }
+    if (drawerTags) {
+      drawerTags.innerHTML = data.tags.map(t => `<span class="tech-tag">${t}</span>`).join('');
+    }
+    if (drawerActionBtn) {
+      drawerActionBtn.href = data.link;
+      drawerActionBtn.textContent = (data.linkText || 'View Project') + ' →';
+    }
+    if (drawerCounter) {
+      drawerCounter.textContent = `${currentMilestoneId} of 11`;
+    }
+    if (drawerPrevBtn) {
+      drawerPrevBtn.disabled = currentMilestoneId <= 1;
+    }
+    if (drawerNextBtn) {
+      drawerNextBtn.disabled = currentMilestoneId >= 11;
+    }
+
+    if (drawerImg) {
+      drawerImg.src = data.img;
+      drawerImg.alt = data.title;
+      drawerImg.onerror = function () {
+        if (!this.src.endsWith('.jpg')) {
+          this.src = data.img.replace('.jpeg', '.jpg');
         } else {
-          card.style.display = 'none';
+          this.src = './Images/vivek_portrait.jpg';
         }
-      });
+      };
+    }
+
+    milestoneDrawer.classList.add('open');
+    milestoneDrawer.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  };
+
+  window.closeMilestoneDrawer = function () {
+    if (!milestoneDrawer) return;
+    milestoneDrawer.classList.remove('open');
+    milestoneDrawer.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  };
+
+  if (drawerCloseBtn) {
+    drawerCloseBtn.addEventListener('click', window.closeMilestoneDrawer);
+  }
+  if (drawerBackdrop) {
+    drawerBackdrop.addEventListener('click', window.closeMilestoneDrawer);
+  }
+
+  if (drawerPrevBtn) {
+    drawerPrevBtn.addEventListener('click', () => {
+      if (currentMilestoneId > 1) {
+        window.openMilestoneDrawer(currentMilestoneId - 1);
+      }
+    });
+  }
+
+  if (drawerNextBtn) {
+    drawerNextBtn.addEventListener('click', () => {
+      if (currentMilestoneId < 11) {
+        window.openMilestoneDrawer(currentMilestoneId + 1);
+      }
+    });
+  }
+
+  // Node Click and Keyboard Listeners
+  document.querySelectorAll('.stream-node').forEach(node => {
+    node.addEventListener('click', () => {
+      const id = node.getAttribute('data-milestone-id');
+      if (id) window.openMilestoneDrawer(id);
+    });
+    node.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        const id = node.getAttribute('data-milestone-id');
+        if (id) window.openMilestoneDrawer(id);
+      }
     });
   });
 
-  // 6. PROJECT DETAILS MODAL
+  // ESC key to close drawer
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      window.closeMilestoneDrawer();
+    }
+  });
+
+  // Filter Chips for Stream Timeline
+  const roadmapChips = document.querySelectorAll('.roadmap-filter-chip');
+  const streamNodes = document.querySelectorAll('.stream-node');
+
+  window.filterRoadmap = function (category) {
+    const cleanCat = (category || 'all').toLowerCase();
+
+    roadmapChips.forEach(chip => {
+      const chipFilter = (chip.getAttribute('data-filter') || '').toLowerCase();
+      const isActive = chipFilter === cleanCat ||
+        (cleanCat === 'internships' && chipFilter === 'internship') ||
+        (cleanCat === 'hackathons' && chipFilter === 'hackathon');
+      chip.classList.toggle('active', isActive);
+    });
+
+    streamNodes.forEach(node => {
+      const nodeCat = (node.getAttribute('data-category') || '').toLowerCase();
+      if (cleanCat === 'all' || cleanCat === '') {
+        node.classList.remove('dimmed', 'highlighted');
+      } else if (nodeCat === cleanCat ||
+        (cleanCat === 'internships' && nodeCat === 'internship') ||
+        (cleanCat === 'hackathons' && nodeCat === 'hackathon')) {
+        node.classList.remove('dimmed');
+        node.classList.add('highlighted');
+      } else {
+        node.classList.remove('highlighted');
+        node.classList.add('dimmed');
+      }
+    });
+  };
+
+  roadmapChips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      const filter = chip.getAttribute('data-filter');
+      window.filterRoadmap(filter);
+    });
+  });
+
+  // Deep-link interceptor for #internships, #hackathons, #leadership, #experience
+  function handleJourneyHash() {
+    const rawHash = window.location.hash.replace('#', '').toLowerCase();
+    let filter = null;
+    if (rawHash === 'internships' || rawHash === 'internship') filter = 'internship';
+    else if (rawHash === 'hackathons' || rawHash === 'hackathon') filter = 'hackathon';
+    else if (rawHash === 'leadership') filter = 'leadership';
+    else if (rawHash === 'experience') filter = 'all';
+
+    if (filter !== null) {
+      window.filterRoadmap(filter);
+      const hub = document.getElementById('experience');
+      if (hub && rawHash !== 'experience') {
+        setTimeout(() => {
+          hub.scrollIntoView({ behavior: 'smooth' });
+        }, 80);
+      }
+    }
+  }
+
+  window.addEventListener('hashchange', handleJourneyHash);
+  if (window.location.hash) {
+    handleJourneyHash();
+  }
+
+  // Intercept anchor clicks
+  document.querySelectorAll('a[href="#internships"], a[href="#hackathons"], a[href="#leadership"]').forEach(a => {
+    a.addEventListener('click', () => {
+      const target = a.getAttribute('href').replace('#', '').toLowerCase();
+      window.filterRoadmap(target);
+    });
+  });
+
+  // 5. PROJECT DETAILS MODAL
   const projectModal = document.getElementById('projectModal');
   const modalCloseBtn = document.getElementById('modalCloseBtn');
   const modalBody = document.getElementById('modalBody');
