@@ -676,13 +676,6 @@ button, input, textarea {
   flex-grow: 1;
 }
 
-.service-tech-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-top: auto;
-}
-
 .tech-tag {
   font-size: 0.76rem;
   font-weight: 500;
@@ -871,6 +864,14 @@ button, input, textarea {
 .stream-row.row-bottom {
   margin-bottom: 16px;
 }
+
+/* Bottom row flows right-to-left chronologically on desktop */
+.stream-row.row-bottom > :nth-child(1) { grid-column: 6; grid-row: 1; }
+.stream-row.row-bottom > :nth-child(2) { grid-column: 5; grid-row: 1; }
+.stream-row.row-bottom > :nth-child(3) { grid-column: 4; grid-row: 1; }
+.stream-row.row-bottom > :nth-child(4) { grid-column: 3; grid-row: 1; }
+.stream-row.row-bottom > :nth-child(5) { grid-column: 2; grid-row: 1; }
+.stream-row.row-bottom > :nth-child(6) { grid-column: 1; grid-row: 1; }
 
 /* Horizontal Glowing Spine on each row — centered exactly through the 14px dots */
 .stream-row::before {
@@ -1113,6 +1114,23 @@ button, input, textarea {
   line-height: 1.3;
 }
 
+.stream-terminal-text small {
+  display: block;
+  color: var(--text-muted);
+  font-weight: 400;
+  font-size: 0.64rem;
+  margin-top: 2px;
+}
+
+.stream-terminal-node .stream-stem {
+  background: rgba(253, 111, 0, 0.2);
+}
+
+.stream-terminal-node .stream-dot {
+  background: var(--bg-surface);
+  border-color: var(--accent);
+}
+
 /* Invisible Deep Link Anchors */
 .anchor-target {
   position: absolute;
@@ -1332,14 +1350,6 @@ button, input, textarea {
   gap: 6px;
 }
 
-.impact-pulse-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--accent);
-  box-shadow: 0 0 6px var(--accent);
-}
-
 .drawer-tags {
   display: flex;
   flex-wrap: wrap;
@@ -1503,12 +1513,7 @@ button, input, textarea {
   justify-content: center;
 }
 
-.hackathon-card .card-media-wrap,
-.extracurricular-card .card-media-wrap {
-  height: 185px;
-}
-
-/* Clean image rendering when user drops in photos */
+/* Clean image rendering for project media */
 .card-media-wrap img {
   position: absolute;
   top: 0;
@@ -1522,22 +1527,11 @@ button, input, textarea {
   transition: transform var(--ease-normal);
 }
 
-.extracurricular-card .card-media-wrap img {
-  object-position: center 25%;
-}
-
-.hackathon-card:first-child .card-media-wrap img,
 img[src*="civility"] {
   object-position: center 65%;
 }
 
-.card-media-wrap img.img-failed {
-  display: none !important;
-}
-
-.project-card:hover .card-media-wrap img,
-.hackathon-card:hover .card-media-wrap img,
-.extracurricular-card:hover .card-media-wrap img {
+.project-card:hover .card-media-wrap img {
   transform: scale(1.035);
 }
 
@@ -1643,198 +1637,6 @@ img[src*="civility"] {
 
 .project-details-btn:hover {
   text-decoration: underline;
-}
-
-/* ===================================================================
-   HACKATHONS & ACHIEVEMENTS
-   =================================================================== */
-
-.hackathons-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 20px;
-}
-
-.hackathon-card {
-  background: var(--bg-surface);
-  border: 1px solid var(--border-card);
-  border-radius: var(--radius-md);
-  padding: 0;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transition: all var(--ease-fast);
-}
-
-.hackathon-card:hover {
-  background: var(--bg-card);
-  border-color: rgba(253, 111, 0, 0.3);
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-hover);
-}
-
-.hackathon-content {
-  padding: 22px 24px 24px 24px;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-}
-
-.hackathon-top {
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-  margin-bottom: 14px;
-}
-
-.hackathon-badge-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: var(--radius-sm);
-  background: var(--accent-soft);
-  border: 1px solid var(--accent-border);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--accent);
-  flex-shrink: 0;
-}
-
-.hackathon-badge-icon svg {
-  width: 20px;
-  height: 20px;
-}
-
-.hackathon-title-box h4 {
-  font-size: 1.15rem;
-  color: var(--text-white);
-  margin-bottom: 2px;
-}
-
-.hackathon-subtitle {
-  font-size: 0.82rem;
-  color: var(--accent);
-  font-weight: 600;
-}
-
-.hackathon-body {
-  color: var(--text-secondary);
-  font-size: 0.9rem;
-  line-height: 1.6;
-}
-
-/* ===================================================================
-   CAMPUS LEADERSHIP & EXTRACURRICULAR ACTIVITIES
-   =================================================================== */
-
-.extracurricular-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 28px;
-}
-
-.extracurricular-card {
-  background: var(--bg-surface);
-  border: 1px solid var(--border-card);
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transition: all var(--ease-fast);
-}
-
-.extracurricular-card:hover {
-  background: var(--bg-card);
-  border-color: rgba(253, 111, 0, 0.35);
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-hover);
-}
-
-.extracurricular-card:hover .placeholder-icon-box {
-  color: var(--accent);
-  background: var(--accent-soft);
-  border-color: var(--accent-border);
-  transform: translateY(-2px);
-}
-
-.extracurricular-card:hover .placeholder-hint {
-  color: var(--accent);
-  border-color: rgba(253, 111, 0, 0.2);
-}
-
-.extracurricular-content {
-  padding: 24px 26px 26px 26px;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-}
-
-.extracurricular-top {
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-  margin-bottom: 14px;
-}
-
-.extracurricular-badge-icon {
-  width: 44px;
-  height: 44px;
-  border-radius: var(--radius-sm);
-  background: var(--accent-soft);
-  border: 1px solid var(--accent-border);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--accent);
-  flex-shrink: 0;
-}
-
-.extracurricular-badge-icon svg {
-  width: 20px;
-  height: 20px;
-}
-
-.extracurricular-role-badge {
-  display: inline-block;
-  font-size: 0.72rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--accent);
-  margin-bottom: 4px;
-}
-
-.extracurricular-title {
-  font-size: 1.25rem;
-  color: var(--text-white);
-  font-weight: 700;
-  margin-bottom: 4px;
-}
-
-.extracurricular-org {
-  font-size: 0.85rem;
-  color: var(--text-secondary);
-  font-weight: 500;
-}
-
-.extracurricular-desc {
-  color: var(--text-secondary);
-  font-size: 0.92rem;
-  line-height: 1.65;
-  margin-bottom: 20px;
-  flex-grow: 1;
-}
-
-.extracurricular-highlights {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-
-@media (max-width: 860px) {
-  .extracurricular-grid {
-    grid-template-columns: 1fr;
-  }
 }
 
 /* ===================================================================
@@ -2189,6 +1991,158 @@ textarea.form-control {
   color: #fff;
 }
 
+/* Modal Project Details Typography & Layout */
+.modal-project-meta {
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.modal-project-title {
+  font-size: 1.55rem;
+  margin-bottom: 12px;
+  color: #ffffff;
+}
+
+.modal-project-overview {
+  color: var(--text-secondary);
+  line-height: 1.65;
+  font-size: 0.96rem;
+  margin-bottom: 20px;
+}
+
+.modal-section-title {
+  font-size: 1.02rem;
+  color: var(--accent);
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.modal-section-title.tech-title {
+  font-size: 0.95rem;
+  color: #ffffff;
+}
+
+.modal-highlight-list {
+  margin-bottom: 22px;
+  padding-left: 20px;
+  list-style-type: disc;
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+  line-height: 1.65;
+}
+
+.modal-highlight-list li {
+  margin-bottom: 6px;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Modal Resume Preview */
+.resume-modal-container {
+  max-width: 860px;
+  height: 86vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  padding-right: 36px;
+}
+
+.modal-header-row h3 {
+  font-size: 1.25rem;
+  color: #ffffff;
+}
+
+.resume-iframe-wrap {
+  flex-grow: 1;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1px solid var(--border-medium);
+}
+
+.resume-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* ===================================================================
+   UTILITY & COMPONENT HELPER CLASSES
+   =================================================================== */
+
+.btn-block {
+  width: 100%;
+}
+
+.resume-section {
+  padding-top: 10px;
+  padding-bottom: 50px;
+}
+
+.contact-social-links {
+  display: flex;
+  gap: 14px;
+  margin-top: 4px;
+}
+
+.contact-social-links a {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.footer-social-links {
+  display: flex;
+  gap: 16px;
+}
+
+.footer-social-links a {
+  color: var(--text-secondary);
+}
+
+.footer-social-links a:hover {
+  color: var(--text-white);
+}
+
+.about-highlight-box.interactive {
+  text-decoration: none;
+  color: inherit;
+  transition: all var(--ease-fast);
+  cursor: pointer;
+}
+
+.about-highlight-box.interactive:hover {
+  border-color: rgba(253, 111, 0, 0.4);
+  background: var(--bg-card);
+  transform: translateY(-2px);
+}
+
+.about-highlight-inner {
+  width: 100%;
+}
+
+.about-highlight-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.highlight-view-link {
+  font-size: 0.72rem;
+  color: var(--accent);
+  font-weight: 700;
+}
+
 /* Toast */
 .toast-notice {
   position: fixed;
@@ -2342,19 +2296,6 @@ textarea.form-control {
 
   .about-highlights-list {
     grid-template-columns: 1fr;
-  }
-
-  .experience-timeline::before {
-    left: 18px;
-  }
-
-  .timeline-card {
-    margin-left: 44px;
-    padding: 20px;
-  }
-
-  .timeline-node {
-    left: -33px;
   }
 
   .form-row {

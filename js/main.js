@@ -172,23 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 4.5 IMAGE FALLBACK CONTROLLER
-  const mediaWrapImgs = document.querySelectorAll('.card-media-wrap img');
-  mediaWrapImgs.forEach(img => {
-    function handleFail() {
-      img.classList.add('img-failed');
-      const placeholder = img.parentElement ? img.parentElement.querySelector('.media-placeholder') : null;
-      if (placeholder) {
-        placeholder.style.display = 'flex';
-      }
-    }
-    img.addEventListener('error', handleFail);
-    if (img.complete && img.naturalWidth === 0) {
-      handleFail();
-    }
-  });
-
-  // 4.8 CHRONOLOGICAL STREAM TIMELINE & SLIDE-OUT DETAIL DRAWER
+  // 5. CHRONOLOGICAL STREAM TIMELINE & SLIDE-OUT DETAIL DRAWER
   const milestonesData = {
     1: {
       id: 1,
@@ -573,7 +557,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 5. PROJECT DETAILS MODAL
+  // 6. PROJECT DETAILS MODAL
   const projectModal = document.getElementById('projectModal');
   const modalCloseBtn = document.getElementById('modalCloseBtn');
   const modalBody = document.getElementById('modalBody');
@@ -583,28 +567,28 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!data || !projectModal || !modalBody) return;
 
     modalBody.innerHTML = `
-      <div style="margin-bottom: 14px;">
+      <div class="modal-project-meta">
         <span class="project-category-tag">${data.category}</span>
-        <span class="project-metric-badge" style="margin-left: 8px;">${data.metric}</span>
+        <span class="project-metric-badge">${data.metric}</span>
       </div>
-      <h2 style="font-size: 1.55rem; margin-bottom: 12px; color: #fff;">${data.title}</h2>
-      <p style="color: var(--text-secondary); line-height: 1.65; font-size: 0.96rem; margin-bottom: 20px;">${data.overview}</p>
+      <h2 class="modal-project-title">${data.title}</h2>
+      <p class="modal-project-overview">${data.overview}</p>
       
-      <h4 style="font-size: 1.02rem; color: var(--accent); margin-bottom: 10px; font-weight: 700;">System Implementation Details</h4>
-      <ul style="margin-bottom: 22px; padding-left: 20px; list-style-type: disc; color: var(--text-secondary); font-size: 0.92rem; line-height: 1.65;">
-        ${data.highlights.map(h => `<li style="margin-bottom: 6px;">${h}</li>`).join('')}
+      <h4 class="modal-section-title">System Implementation Details</h4>
+      <ul class="modal-highlight-list">
+        ${data.highlights.map(h => `<li>${h}</li>`).join('')}
       </ul>
 
-      <h4 style="font-size: 0.95rem; color: #fff; margin-bottom: 10px; font-weight: 700;">Tech Stack</h4>
+      <h4 class="modal-section-title tech-title">Tech Stack</h4>
       <div class="project-tech-stack" style="margin-bottom: 26px;">
         ${data.tags.map(t => `<span class="tech-tag">${t}</span>`).join('')}
       </div>
 
-      <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+      <div class="modal-actions">
         <a href="${data.github}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
           GitHub Repository
         </a>
-        <button class="btn btn-outline btn-sm" onclick="closeAllModals()">Close</button>
+        <button type="button" class="btn btn-outline btn-sm" onclick="closeAllModals()">Close</button>
       </div>
     `;
 

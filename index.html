@@ -237,11 +237,11 @@
                 </div>
               </div>
 
-              <a href="#leadership" class="about-highlight-box" style="text-decoration: none; color: inherit; transition: all var(--ease-fast);">
-                <div style="width: 100%;">
-                  <div class="about-highlight-title" style="display: flex; align-items: center; justify-content: space-between;">
-                    <span>Campus Leadership</span>
-                    <span style="font-size: 0.72rem; color: var(--accent); font-weight: 700;">View &rarr;</span>
+              <a href="#leadership" class="about-highlight-box interactive">
+                <div class="about-highlight-inner">
+                  <div class="about-highlight-title-row">
+                    <span class="about-highlight-title">Campus Leadership</span>
+                    <span class="highlight-view-link">View &rarr;</span>
                   </div>
                   <div class="about-highlight-desc">NSS Treasurer &bull; Novella Reading Club Coordinator</div>
                 </div>
@@ -307,7 +307,7 @@
         </div>
 
         <!-- Stream Circuit Container -->
-        <div class="stream-timeline-wrap" id="streamContainer">
+        <div class="stream-timeline-wrap">
           
           <!-- Smooth 180° Right Bend connecting Line 1 to Line 2 -->
           <div class="stream-connector" aria-hidden="true">
@@ -414,8 +414,8 @@
 
           <!-- LINE 2: BOTTOM ROW (RTL on Desktop) -->
           <div class="stream-row row-bottom" data-row="2">
-            <!-- Infosys Springboard (Desktop Col 6) -->
-            <div class="stream-node" data-milestone-id="7" data-category="internship" style="grid-column: 6; grid-row: 1;" tabindex="0" role="button" aria-label="Infosys Springboard">
+            <!-- Infosys Springboard -->
+            <div class="stream-node" data-milestone-id="7" data-category="internship" tabindex="0" role="button" aria-label="Infosys Springboard">
               <div class="stream-card">
                 <div class="stream-card-top">
                   <div class="stream-card-cat cat-internship-text"><span class="cat-dot"></span>AI INTERNSHIP</div>
@@ -429,8 +429,8 @@
               <div class="stream-dot"></div>
             </div>
 
-            <!-- IBM SkillsBuild (Desktop Col 5) -->
-            <div class="stream-node" data-milestone-id="8" data-category="internship" style="grid-column: 5; grid-row: 1;" tabindex="0" role="button" aria-label="IBM SkillsBuild">
+            <!-- IBM SkillsBuild -->
+            <div class="stream-node" data-milestone-id="8" data-category="internship" tabindex="0" role="button" aria-label="IBM SkillsBuild">
               <div class="stream-card">
                 <div class="stream-card-top">
                   <div class="stream-card-cat cat-internship-text"><span class="cat-dot"></span>AI/ML INTERNSHIP</div>
@@ -444,8 +444,8 @@
               <div class="stream-dot"></div>
             </div>
 
-            <!-- Agentica 2.0 (Desktop Col 4) -->
-            <div class="stream-node" data-milestone-id="9" data-category="hackathon" style="grid-column: 4; grid-row: 1;" tabindex="0" role="button" aria-label="Agentica 2.0 National Podium">
+            <!-- Agentica 2.0 -->
+            <div class="stream-node" data-milestone-id="9" data-category="hackathon" tabindex="0" role="button" aria-label="Agentica 2.0 National Podium">
               <div class="stream-card">
                 <div class="stream-card-top">
                   <div class="stream-card-cat cat-hackathon-text"><span class="cat-dot"></span>6TH PLACE NATIONAL</div>
@@ -459,8 +459,8 @@
               <div class="stream-dot"></div>
             </div>
 
-            <!-- NSS Treasurer (Desktop Col 3) -->
-            <div class="stream-node" data-milestone-id="10" data-category="leadership" style="grid-column: 3; grid-row: 1;" tabindex="0" role="button" aria-label="NSS Treasurer">
+            <!-- NSS Treasurer -->
+            <div class="stream-node" data-milestone-id="10" data-category="leadership" tabindex="0" role="button" aria-label="NSS Treasurer">
               <div class="stream-card">
                 <div class="stream-card-top">
                   <div class="stream-card-cat cat-leadership-text"><span class="cat-dot"></span>CAMPUS LEADERSHIP</div>
@@ -474,8 +474,8 @@
               <div class="stream-dot"></div>
             </div>
 
-            <!-- Novella Reading Club (Desktop Col 2) -->
-            <div class="stream-node" data-milestone-id="11" data-category="leadership" style="grid-column: 2; grid-row: 1;" tabindex="0" role="button" aria-label="Novella Reading Club">
+            <!-- Novella Reading Club -->
+            <div class="stream-node" data-milestone-id="11" data-category="leadership" tabindex="0" role="button" aria-label="Novella Reading Club">
               <div class="stream-card">
                 <div class="stream-card-top">
                   <div class="stream-card-cat cat-leadership-text"><span class="cat-dot"></span>CLUB LEADERSHIP</div>
@@ -489,13 +489,13 @@
               <div class="stream-dot"></div>
             </div>
 
-            <!-- Terminal Marker in Col 1 -->
-            <div class="stream-terminal-node" style="grid-column: 1; grid-row: 1;">
+            <!-- Terminal Marker -->
+            <div class="stream-terminal-node">
               <div class="stream-card stream-terminal-card">
-                <span class="stream-terminal-text">ACTIVE FOCUS<br><small style="color:var(--text-muted);font-weight:400;font-size:0.64rem;">AI Systems &amp; Scale</small></span>
+                <span class="stream-terminal-text">ACTIVE FOCUS<small>AI Systems &amp; Scale</small></span>
               </div>
-              <div class="stream-stem" style="background: rgba(253, 111, 0, 0.2);"></div>
-              <div class="stream-dot" style="background: var(--bg-surface); border-color: var(--accent);"></div>
+              <div class="stream-stem"></div>
+              <div class="stream-dot"></div>
             </div>
           </div>
 
@@ -516,9 +516,9 @@
           <button type="button" class="drawer-close-btn" id="drawerCloseBtn" aria-label="Close sidebar">&times;</button>
         </div>
 
-        <div class="drawer-content" id="drawerContent">
+        <div class="drawer-content">
           <!-- Banner Media -->
-          <div class="drawer-media-wrap" id="drawerMediaWrap">
+          <div class="drawer-media-wrap">
             <img src="./Images/hackathons/gdg.jpeg" alt="" id="drawerImg">
           </div>
 
@@ -538,7 +538,7 @@
             <div class="drawer-section-title">Core Technologies & Methods</div>
             <div class="drawer-tags" id="drawerTags"></div>
 
-            <div class="drawer-actions" id="drawerActions">
+            <div class="drawer-actions">
               <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-pill" id="drawerActionBtn">
                 View Repository &rarr;
               </a>
@@ -895,7 +895,7 @@
     <!-- ===================================================================
          RESUME BANNER
          =================================================================== -->
-    <section class="section" id="resume-center" style="padding-top: 10px; padding-bottom: 50px;">
+    <section class="section resume-section">
       <div class="container">
         <div class="resume-cta-banner">
           <div class="resume-cta-text">
@@ -956,9 +956,9 @@
             <div class="contact-info-card">
               <div class="contact-info-details">
                 <div class="contact-info-label">Profiles</div>
-                <div class="contact-info-value" style="display: flex; gap: 14px; margin-top: 4px;">
-                  <a href="https://linkedin.com/in/duvvasaivivek" target="_blank" rel="noopener noreferrer" style="color: var(--accent); font-weight: 600;">LinkedIn &nearr;</a>
-                  <a href="https://github.com/duvvasaivivek" target="_blank" rel="noopener noreferrer" style="color: var(--accent); font-weight: 600;">GitHub &nearr;</a>
+                <div class="contact-info-value contact-social-links">
+                  <a href="https://linkedin.com/in/duvvasaivivek" target="_blank" rel="noopener noreferrer">LinkedIn &nearr;</a>
+                  <a href="https://github.com/duvvasaivivek" target="_blank" rel="noopener noreferrer">GitHub &nearr;</a>
                 </div>
               </div>
             </div>
@@ -988,7 +988,7 @@
                 <textarea id="msgBody" class="form-control" placeholder="Hi Vivek, I checked out your portfolio and would like to chat about..." required></textarea>
               </div>
 
-              <button type="submit" class="btn btn-primary btn-pill" style="width: 100%;">
+              <button type="submit" class="btn btn-primary btn-pill btn-block">
                 Send Message
               </button>
               <div class="form-privacy-note">Direct dispatch to inbox &bull; No marketing or automated spam.</div>
@@ -1012,10 +1012,10 @@
         <div class="footer-nav">
           <a href="#home">Home</a>
           <a href="#focus">What I Do</a>
-          <a href="#about">About</a>
-          <a href="#experience">Internships</a>
+          <a href="#about">About me</a>
+          <a href="#experience">Journey</a>
           <a href="#portfolio">Projects</a>
-          <a href="#hackathons">Hackathons</a>
+          <a href="#skills">Skills</a>
           <a href="#contact">Contact</a>
         </div>
 
@@ -1024,10 +1024,10 @@
 
       <div class="footer-bottom">
         <div>&copy; 2026 Duvva Sai Vivek &bull; IIITDM Kurnool</div>
-        <div style="display: flex; gap: 16px;">
-          <a href="https://github.com/duvvasaivivek" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary);">GitHub</a>
-          <a href="https://linkedin.com/in/duvvasaivivek" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary);">LinkedIn</a>
-          <a href="mailto:duvvasaivivek@gmail.com" style="color: var(--text-secondary);">Email</a>
+        <div class="footer-social-links">
+          <a href="https://github.com/duvvasaivivek" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://linkedin.com/in/duvvasaivivek" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="mailto:duvvasaivivek@gmail.com">Email</a>
         </div>
       </div>
     </div>
@@ -1047,16 +1047,16 @@
        MODAL: RESUME PREVIEW
        =================================================================== -->
   <div class="modal-backdrop" id="resumeModal" role="dialog" aria-modal="true">
-    <div class="modal-container" style="max-width: 860px; height: 86vh; display: flex; flex-direction: column;">
+    <div class="modal-container resume-modal-container">
       <button type="button" class="modal-close-btn" id="resumeModalCloseBtn" aria-label="Close modal">&times;</button>
-      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; padding-right: 36px;">
-        <h3 style="font-size: 1.25rem; color: #fff;">Duvva Sai Vivek &mdash; Resume</h3>
+      <div class="modal-header-row">
+        <h3>Duvva Sai Vivek &mdash; Resume</h3>
         <a href="./Resumes/Duvva Sai Vivek's Resume.pdf" download="Duvva_Sai_Vivek_Resume.pdf" class="btn btn-primary btn-sm">
           Download PDF
         </a>
       </div>
-      <div style="flex-grow: 1; border-radius: var(--radius-sm); overflow: hidden; border: 1px solid var(--border-medium);">
-        <iframe src="./Resumes/Duvva Sai Vivek's Resume.pdf" style="width: 100%; height: 100%; border: none;" title="Resume PDF View"></iframe>
+      <div class="resume-iframe-wrap">
+        <iframe src="./Resumes/Duvva Sai Vivek's Resume.pdf" class="resume-iframe" title="Resume PDF View"></iframe>
       </div>
     </div>
   </div>
