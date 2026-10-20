@@ -192,22 +192,6 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     2: {
       id: 2,
-      date: 'Late 2024 - Early 2025',
-      category: 'hackathon',
-      catLabel: 'CERTIFICATION',
-      catClass: 'cat-cert-text',
-      title: 'Foundations & Engineering Track',
-      subtitle: 'Modern C++, OOP & Git Specializations',
-      org: 'Udemy & Independent Study',
-      img: './Images/hackathons/certifications.jpeg',
-      desc: 'Completed comprehensive engineering certifications covering Modern C++ (C++11/14/17), Object-Oriented Design patterns, memory management, and professional Git/GitHub collaborative branching workflows.',
-      impact: 'Established the core systems and algorithmic foundations that power subsequent AI pipelines, ML architectures, and full-stack software development.',
-      tags: ['Modern C++', 'OOP', 'Data Structures', 'Git & GitHub', 'Linux'],
-      link: 'https://github.com/duvvasaivivek',
-      linkText: 'Verified Profile'
-    },
-    3: {
-      id: 3,
       date: 'Early 2025',
       category: 'hackathon',
       catLabel: 'GRAND FINALE',
@@ -215,15 +199,15 @@ document.addEventListener('DOMContentLoaded', () => {
       title: 'AIgnite 2.0: Grand Finale',
       subtitle: 'Team ApexVAMY • Conversational Order Assistant',
       org: 'GPREC Campus • Offline Stage',
-      img: './Images/hackathons/aignite.jpeg',
+      img: null,
       desc: 'Developed an intelligent conversational order assistant utilizing Gemini Flash and Retrieval-Augmented Generation (RAG). Built real-time order tracking, dynamic food menu query resolution, and live customer interaction via FastAPI endpoints.',
       impact: 'Selected as offline grand finalists, demonstrating real-time low latency multimodal query handling on the live finale stage.',
       tags: ['Gemini Flash', 'RAG', 'LangChain', 'FastAPI', 'Python'],
       link: 'https://github.com/duvvasaivivek/AI-Powered-Automated-Food-Ordering-System',
       linkText: 'View GitHub Repository'
     },
-    4: {
-      id: 4,
+    3: {
+      id: 3,
       date: 'Mid 2025',
       category: 'hackathon',
       catLabel: 'HACKATHON',
@@ -238,8 +222,8 @@ document.addEventListener('DOMContentLoaded', () => {
       link: 'https://github.com/duvvasaivivek/Connect-IQ',
       linkText: 'View GitHub Repository'
     },
-    5: {
-      id: 5,
+    4: {
+      id: 4,
       date: 'Mid 2025',
       category: 'hackathon',
       catLabel: 'HACKATHON',
@@ -254,8 +238,8 @@ document.addEventListener('DOMContentLoaded', () => {
       link: 'https://github.com/duvvasaivivek/Skill-Drift-Monitor',
       linkText: 'View GitHub Repository'
     },
-    6: {
-      id: 6,
+    5: {
+      id: 5,
       date: 'Oct - Dec 2025',
       category: 'internship',
       catLabel: 'ML INTERNSHIP',
@@ -263,15 +247,15 @@ document.addEventListener('DOMContentLoaded', () => {
       title: 'Machine Learning Intern',
       subtitle: 'Elevate Labs • SafeSwipe Fraud Detection',
       org: 'Elevate Labs • Remote',
-      img: './Images/projects/safeswipe.jpeg',
+      img: null,
       desc: 'Constructed a dual-stage transaction risk evaluation system on imbalanced banking records, combining gradient-boosted decision trees (XGBoost) for supervised fraud scoring with density-based outlier detection (Local Outlier Factor) for zero-day attack vectors.',
       impact: 'Achieved high precision-recall balance on severely imbalanced datasets with real-time risk classification API and interactive monitoring dashboard.',
       tags: ['XGBoost', 'Local Outlier Factor', 'Imbalance Handling', 'Scikit-Learn', 'FastAPI'],
       link: 'https://github.com/duvvasaivivek/SafeSwipe-Fraud-Transaction-Detection-System',
       linkText: 'View GitHub Repository'
     },
-    7: {
-      id: 7,
+    6: {
+      id: 6,
       date: 'Nov 2025 - Jan 2026',
       category: 'internship',
       catLabel: 'AI INTERNSHIP',
@@ -279,15 +263,15 @@ document.addEventListener('DOMContentLoaded', () => {
       title: 'AI Intern: Literature Synthesizer',
       subtitle: 'Infosys Springboard • Research Summarizer',
       org: 'Infosys Springboard • Remote',
-      img: './Images/projects/scholarium.jpeg',
+      img: null,
       desc: 'Engineered an automated research literature analysis pipeline to parse dense academic publications, extract core methodologies, formulas, and findings, and synthesize them into structured executive briefs.',
       impact: 'Accelerated literature review workflows for academic researchers by ~60% with high citation accuracy.',
       tags: ['Document Parsing', 'NLP Summaries', 'PDF Miner', 'Python', 'FastAPI'],
       link: 'https://github.com/duvvasaivivek/AI-System-To-Automatically-Review-And-Summarize-Research-Papers',
       linkText: 'View GitHub Repository'
     },
-    8: {
-      id: 8,
+    7: {
+      id: 7,
       date: 'Dec 2025 - Jan 2026',
       category: 'internship',
       catLabel: 'AI/ML INTERNSHIP',
@@ -295,15 +279,15 @@ document.addEventListener('DOMContentLoaded', () => {
       title: 'AI/ML Intern: Lecture-Lens',
       subtitle: 'IBM SkillsBuild • Audio Intelligence & Study Assistant',
       org: 'IBM SkillsBuild • Remote',
-      img: './Images/projects/lecturelens.jpeg',
+      img: null,
       desc: 'Developed an automated voice-to-notes processing engine that transcribes recorded lectures, isolates key mathematical formulas, and generates revision questions. Calibrated context windows and chunk overlaps to optimize factual fidelity.',
       impact: 'Enabled students to generate comprehensive revision guides and self-assessment flashcards from 60-minute audio lectures in under 2 minutes.',
       tags: ['Speech-to-Text', 'Prompt Engineering', 'Quiz Generation', 'Python', 'RAG'],
       link: 'https://github.com/duvvasaivivek/AI-Powered-Lecture-Voice-To-Notes-Generation-System',
       linkText: 'View GitHub Repository'
     },
-    9: {
-      id: 9,
+    8: {
+      id: 8,
       date: 'Jan 2026',
       category: 'hackathon',
       catLabel: '6TH PLACE NATIONAL',
@@ -317,38 +301,6 @@ document.addEventListener('DOMContentLoaded', () => {
       tags: ['PyTorch', 'HuggingFace', 'Toxicity ML', 'FastAPI', 'React'],
       link: 'https://github.com/duvvasaivivek/Civility.ai',
       linkText: 'View GitHub Repository'
-    },
-    10: {
-      id: 10,
-      date: '2025 - Present',
-      category: 'leadership',
-      catLabel: 'CAMPUS LEADERSHIP',
-      catClass: 'cat-leadership-text',
-      title: 'Treasurer: National Service Scheme (NSS)',
-      subtitle: 'Executive Finance & Logistics Officer',
-      org: 'IIITDM Kurnool Chapter',
-      img: './Images/leadership/nss2.jpeg',
-      desc: 'Directing financial planning, budget allocations, and transparent expense accounting for university-wide social welfare programs. Spearheading budgeting and logistics for campus blood donation drives, cleanliness campaigns, and educational outreach to rural schools.',
-      impact: 'Successfully allocated and audited funds across 15+ university social impact drives impacting hundreds of beneficiaries.',
-      tags: ['Financial Planning', 'Budgeting', 'Operations', 'Leadership', 'Social Welfare'],
-      link: '#contact',
-      linkText: 'Contact Vivek'
-    },
-    11: {
-      id: 11,
-      date: '2025 - Present',
-      category: 'leadership',
-      catLabel: 'CLUB LEADERSHIP',
-      catClass: 'cat-leadership-text',
-      title: 'Coordinator: Novella (Reading Club)',
-      subtitle: 'Literary Circles & Campus Reading Culture',
-      org: 'IIITDM Kurnool',
-      img: './Images/leadership/novella_club.jpeg',
-      desc: 'Organizing and leading weekly book reading circles, literary review sessions, and open discussion forums to foster a rich reading culture among university students. Curating library recommendations, organizing campus reading marathons, and managing student engagement across batches.',
-      impact: 'Built an active student reading community with weekly peer-led discussion roundtables.',
-      tags: ['Event Curation', 'Literary Discussions', 'Student Engagement', 'Campus Outreach'],
-      link: '#contact',
-      linkText: 'Contact Vivek'
     }
   };
 
@@ -378,7 +330,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (drawerDate) drawerDate.textContent = data.date;
     if (drawerCatBadge) {
-      drawerCatBadge.innerHTML = `<span class="cat-dot"></span>${data.catLabel}`;
+      drawerCatBadge.textContent = data.catLabel;
       drawerCatBadge.className = 'drawer-cat-badge ' + (data.catClass || '');
     }
     if (drawerOrg) drawerOrg.textContent = data.org;
@@ -388,7 +340,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (drawerImpactBox) {
       drawerImpactBox.innerHTML = `
         <div class="drawer-impact-header">
-          <span class="cat-dot"></span>
           VERIFIED OUTCOME &amp; IMPACT
         </div>
         <div class="drawer-impact-text">${data.impact}</div>
@@ -402,31 +353,31 @@ document.addEventListener('DOMContentLoaded', () => {
       drawerActionBtn.textContent = (data.linkText || 'View Project') + ' →';
     }
     if (drawerCounter) {
-      drawerCounter.textContent = `${currentMilestoneId} of 11`;
+      drawerCounter.textContent = `${currentMilestoneId} of 8`;
     }
     if (drawerPrevBtn) {
       drawerPrevBtn.disabled = currentMilestoneId <= 1;
     }
     if (drawerNextBtn) {
-      drawerNextBtn.disabled = currentMilestoneId >= 11;
+      drawerNextBtn.disabled = currentMilestoneId >= 8;
     }
 
-    if (drawerImg) {
-      if (drawerImg.parentElement) {
-        drawerImg.parentElement.style.display = '';
-      }
-      drawerImg.src = data.img;
-      drawerImg.alt = data.title;
-      drawerImg.onerror = function () {
-        if (!this.src.endsWith('.jpg')) {
-          this.src = data.img.replace('.jpeg', '.jpg');
-        } else {
-          // Gracefully hide media container if authentic image is not found
-          if (this.parentElement) {
-            this.parentElement.style.display = 'none';
+    if (drawerImg && drawerImg.parentElement) {
+      if (data.img) {
+        drawerImg.parentElement.style.display = 'block';
+        drawerImg.src = data.img;
+        drawerImg.alt = data.title;
+        drawerImg.onerror = function () {
+          if (!this.src.endsWith('.jpg')) {
+            this.src = data.img.replace('.jpeg', '.jpg');
+          } else {
+            drawerImg.parentElement.style.display = 'none';
           }
-        }
-      };
+        };
+      } else {
+        drawerImg.parentElement.style.display = 'none';
+        drawerImg.removeAttribute('src');
+      }
     }
 
     milestoneDrawer.classList.add('open');
@@ -458,7 +409,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (drawerNextBtn) {
     drawerNextBtn.addEventListener('click', () => {
-      if (currentMilestoneId < 11) {
+      if (currentMilestoneId < 8) {
         window.openMilestoneDrawer(currentMilestoneId + 1);
       }
     });
@@ -484,77 +435,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'Escape') {
       window.closeMilestoneDrawer();
     }
-  });
-
-  // Filter Chips for Stream Timeline
-  const roadmapChips = document.querySelectorAll('.roadmap-filter-chip');
-  const streamNodes = document.querySelectorAll('.stream-node');
-
-  window.filterRoadmap = function (category) {
-    const cleanCat = (category || 'all').toLowerCase();
-
-    roadmapChips.forEach(chip => {
-      const chipFilter = (chip.getAttribute('data-filter') || '').toLowerCase();
-      const isActive = chipFilter === cleanCat ||
-        (cleanCat === 'internships' && chipFilter === 'internship') ||
-        (cleanCat === 'hackathons' && chipFilter === 'hackathon');
-      chip.classList.toggle('active', isActive);
-    });
-
-    streamNodes.forEach(node => {
-      const nodeCat = (node.getAttribute('data-category') || '').toLowerCase();
-      if (cleanCat === 'all' || cleanCat === '') {
-        node.classList.remove('dimmed', 'highlighted');
-      } else if (nodeCat === cleanCat ||
-        (cleanCat === 'internships' && nodeCat === 'internship') ||
-        (cleanCat === 'hackathons' && nodeCat === 'hackathon')) {
-        node.classList.remove('dimmed');
-        node.classList.add('highlighted');
-      } else {
-        node.classList.remove('highlighted');
-        node.classList.add('dimmed');
-      }
-    });
-  };
-
-  roadmapChips.forEach(chip => {
-    chip.addEventListener('click', () => {
-      const filter = chip.getAttribute('data-filter');
-      window.filterRoadmap(filter);
-    });
-  });
-
-  // Deep-link interceptor for #internships, #hackathons, #leadership, #experience
-  function handleJourneyHash() {
-    const rawHash = window.location.hash.replace('#', '').toLowerCase();
-    let filter = null;
-    if (rawHash === 'internships' || rawHash === 'internship') filter = 'internship';
-    else if (rawHash === 'hackathons' || rawHash === 'hackathon') filter = 'hackathon';
-    else if (rawHash === 'leadership') filter = 'leadership';
-    else if (rawHash === 'experience') filter = 'all';
-
-    if (filter !== null) {
-      window.filterRoadmap(filter);
-      const hub = document.getElementById('experience');
-      if (hub && rawHash !== 'experience') {
-        setTimeout(() => {
-          hub.scrollIntoView({ behavior: 'smooth' });
-        }, 80);
-      }
-    }
-  }
-
-  window.addEventListener('hashchange', handleJourneyHash);
-  if (window.location.hash) {
-    handleJourneyHash();
-  }
-
-  // Intercept anchor clicks
-  document.querySelectorAll('a[href="#internships"], a[href="#hackathons"], a[href="#leadership"]').forEach(a => {
-    a.addEventListener('click', () => {
-      const target = a.getAttribute('href').replace('#', '').toLowerCase();
-      window.filterRoadmap(target);
-    });
   });
 
   // 6. PROJECT DETAILS MODAL
