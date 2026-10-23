@@ -256,6 +256,76 @@ export function attachPointer(canvas, handlers = {}) {
   };
 }
 
+/* ---------------- Easing ---------------- */
+
+/** Moves `current` toward `target` with time constant `tau` (ms). Frame-rate independent. */
+export function approach(current, target, dt, tau) {
+  return current + (target - current) * (1 - Math.exp(-dt / tau));
+}
+
+/* ---------------- Orbit ---------------- */
+
+/**
+ * Drag-to-rotate with inertia, shared by every scene that can be turned by hand.
+ * Feed it pointer events from attachPointer; call tick(dt) each frame, which returns true
+ * while inertia is still changing the rotation. Adds is-dragging / is-touched to `root`.
+ */
+export function createOrbit(root, opts = {}) {
+  const pitchClamp = opts.pitchClamp ?? 1.2;
+  const yawClamp = opts.yawClamp ?? Infinity;
+  const yawHome = opts.rotY ?? 0;
+  const speed = opts.speed ?? 0.005;
+  const damp = opts.damp ?? 0.94;
+  const clampPitch = (v) => Math.min(pitchClamp, Math.max(-pitchClamp, v));
+  const clampYaw = (v) => Math.min(yawHome + yawClamp, Math.max(yawHome - yawClamp, v));
+  const o = {
+    rotX: opts.rotX ?? 0,
+    rotY: opts.rotY ?? 0,
+    velX: 0,
+    velY: 0,
+    dragging: false,
+    lastX: 0,
+    lastY: 0,
+    onDown(e) {
+      o.dragging = true;
+      o.lastX = e.clientX; o.lastY = e.clientY;
+      o.velX = 0; o.velY = 0;
+      root.classList.add('is-dragging');
+      root.classList.add('is-touched');
+    },
+    onMove(e) {
+      if (!o.dragging) return false;
+      const dx = e.clientX - o.lastX;
+      const dy = e.clientY - o.lastY;
+      o.lastX = e.clientX; o.lastY = e.clientY;
+      o.velY = dx * speed;
+      o.velX = dy * speed;
+      o.rotY = clampYaw(o.rotY + o.velY);
+      o.rotX = clampPitch(o.rotX + o.velX);
+      return true;
+    },
+    onUp(inertia = true) {
+      o.dragging = false;
+      root.classList.remove('is-dragging');
+      if (!inertia) { o.velX = 0; o.velY = 0; }
+    },
+    tick(dt) {
+      if (o.dragging) return false;
+      if (Math.abs(o.velX) + Math.abs(o.velY) <= 1e-4) {
+        o.velX = 0; o.velY = 0;
+        return false;
+      }
+      o.rotY = clampYaw(o.rotY + o.velY);
+      o.rotX = clampPitch(o.rotX + o.velX);
+      const d = Math.pow(damp, dt / 16.667);
+      o.velX *= d; o.velY *= d;
+      return true;
+    },
+    stop() { o.velX = 0; o.velY = 0; }
+  };
+  return o;
+}
+
 /* ---------------- Picking and projection ---------------- */
 
 export function createPicker(camera, targets) {
@@ -279,6 +349,30 @@ export function projectToScreen(worldPos, camera, w, h, out) {
   out.y = (1 - projScratch.y) * 0.5 * h;
   out.visible = projScratch.z < 1 && Math.abs(projScratch.x) <= 1.15 && Math.abs(projScratch.y) <= 1.15;
   return out;
+}
+
+const labelScratch = { x: 0, y: 0, visible: false };
+
+/**
+ * Places an HTML label at the projection of `worldPos` inside a w x h canvas and toggles
+ * its is-visible class. Modes: 'tip' sits below-right of the point and flips to the left
+ * past 55% of the width (hero style); 'above' centres the label over the point; 'left' and
+ * 'right' sit beside it, vertically centred. Returns whether the point is on screen.
+ */
+export function placeLabel(el, worldPos, camera, w, h, mode = 'tip', pad = 14) {
+  projectToScreen(worldPos, camera, w, h, labelScratch);
+  const x = Math.round(labelScratch.x);
+  const y = Math.round(labelScratch.y);
+  const visible = labelScratch.visible;
+  el.classList.toggle('is-visible', visible);
+  if (!visible) return false;
+  let t;
+  if (mode === 'above') t = `translate(${x}px, ${y}px) translate(-50%, -100%)`;
+  else if (mode === 'right') t = `translate(${x + pad}px, ${y}px) translate(0, -50%)`;
+  else if (mode === 'left') t = `translate(${x - pad}px, ${y}px) translate(-100%, -50%)`;
+  else t = x > w * 0.55 ? `translate(calc(${x - pad}px - 100%), ${y + pad}px)` : `translate(${x + pad}px, ${y + pad}px)`;
+  el.style.transform = t;
+  return true;
 }
 
 export { THREE };

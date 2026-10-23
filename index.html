@@ -66,6 +66,8 @@
 
   <a class="skip-link" href="#main">Skip to content</a>
 
+  <canvas class="ambient-canvas" id="ambientCanvas" aria-hidden="true"></canvas>
+
   <header class="site-header" id="siteHeader">
     <div class="container header-inner">
       <a class="wordmark" href="#home">Duvva Sai Vivek</a>
@@ -117,12 +119,13 @@
         <div class="hero-visual">
           <div class="lattice" id="skillsLattice" aria-hidden="true">
             <canvas class="lattice-canvas"></canvas>
-            <div class="lattice-label" hidden>
+            <div class="lattice-label view-label" hidden>
               <span class="lattice-label-name"></span>
               <span class="lattice-label-group"></span>
+              <span class="lattice-label-projects"></span>
             </div>
           </div>
-          <p class="lattice-hint mono-label">Skills graph. Drag to rotate<span class="hint-hover">; hover a node</span>.</p>
+          <p class="lattice-hint view-hint mono-label">Skills graph: lines join skills used in the same project. Drag to rotate<span class="hint-hover">; hover a node</span>; select one for its projects.</p>
         </div>
       </div>
     </section>
@@ -138,13 +141,26 @@
         </div>
 
         <div class="about-grid">
-          <figure class="portrait">
-            <picture>
-              <source type="image/webp" srcset="./Images/vivek-about-480.webp 480w, ./Images/vivek-about-800.webp 800w" sizes="(min-width: 1024px) 320px, 80vw">
-              <img src="./Images/vivek-about-800.jpg" srcset="./Images/vivek-about-480.jpg 480w, ./Images/vivek-about-800.jpg 800w" sizes="(min-width: 1024px) 320px, 80vw" width="800" height="1000" alt="Portrait of Duvva Sai Vivek" loading="lazy" decoding="async">
-            </picture>
-            <figcaption>Kurnool, 2026</figcaption>
-          </figure>
+          <div class="about-side">
+            <figure class="portrait">
+              <picture>
+                <source type="image/webp" srcset="./Images/vivek-about-480.webp 480w, ./Images/vivek-about-800.webp 800w" sizes="(min-width: 1024px) 320px, 80vw">
+                <img src="./Images/vivek-about-800.jpg" srcset="./Images/vivek-about-480.jpg 480w, ./Images/vivek-about-800.jpg 800w" sizes="(min-width: 1024px) 320px, 80vw" width="800" height="1000" alt="Portrait of Duvva Sai Vivek" loading="lazy" decoding="async">
+              </picture>
+              <figcaption>Kurnool, 2026</figcaption>
+            </figure>
+
+            <figure class="globe" aria-hidden="true">
+              <div class="globe-stage">
+                <canvas class="globe-canvas"></canvas>
+                <div class="globe-label view-label" hidden>
+                  <span class="view-label-name"></span>
+                  <span class="view-label-note"></span>
+                </div>
+              </div>
+              <figcaption class="view-hint">Where the work took place. Drag to rotate<span class="hint-hover">; hover a marker</span>.</figcaption>
+            </figure>
+          </div>
 
           <div class="about-body">
             <p>I am a B.Tech student (2024–2028) in Artificial Intelligence and Data Science at the Indian Institute of Information Technology, Design and Manufacturing, Kurnool.</p>
@@ -282,8 +298,9 @@
           <p class="section-intro">Eight projects from internships, hackathons, and independent work, in order of significance.</p>
         </div>
 
+        <div class="projects-grid">
         <ol class="case-list">
-          <li class="case-row">
+          <li class="case-row" id="project-civility">
             <span class="case-num" aria-hidden="true">01</span>
             <div class="case-main">
               <h3 class="case-title">Civility.ai</h3>
@@ -296,7 +313,7 @@
             </dl>
           </li>
 
-          <li class="case-row">
+          <li class="case-row" id="project-scholarium">
             <span class="case-num" aria-hidden="true">02</span>
             <div class="case-main">
               <h3 class="case-title">Scholarium</h3>
@@ -309,7 +326,7 @@
             </dl>
           </li>
 
-          <li class="case-row">
+          <li class="case-row" id="project-safeswipe">
             <span class="case-num" aria-hidden="true">03</span>
             <div class="case-main">
               <h3 class="case-title">SafeSwipe</h3>
@@ -322,7 +339,7 @@
             </dl>
           </li>
 
-          <li class="case-row">
+          <li class="case-row" id="project-lecturelens">
             <span class="case-num" aria-hidden="true">04</span>
             <div class="case-main">
               <h3 class="case-title">Lecture-Lens</h3>
@@ -335,7 +352,7 @@
             </dl>
           </li>
 
-          <li class="case-row">
+          <li class="case-row" id="project-connectiq">
             <span class="case-num" aria-hidden="true">05</span>
             <div class="case-main">
               <h3 class="case-title">Connect IQ</h3>
@@ -348,7 +365,7 @@
             </dl>
           </li>
 
-          <li class="case-row">
+          <li class="case-row" id="project-skilldrift">
             <span class="case-num" aria-hidden="true">06</span>
             <div class="case-main">
               <h3 class="case-title">Skill Drift Monitor</h3>
@@ -361,7 +378,7 @@
             </dl>
           </li>
 
-          <li class="case-row">
+          <li class="case-row" id="project-aignite">
             <span class="case-num" aria-hidden="true">07</span>
             <div class="case-main">
               <h3 class="case-title">AIgnite Order Assistant</h3>
@@ -374,7 +391,7 @@
             </dl>
           </li>
 
-          <li class="case-row">
+          <li class="case-row" id="project-campushustle">
             <span class="case-num" aria-hidden="true">08</span>
             <div class="case-main">
               <h3 class="case-title">Campus Hustle</h3>
@@ -387,6 +404,16 @@
             </dl>
           </li>
         </ol>
+
+        <div class="arch-view" aria-hidden="true">
+          <p class="arch-title mono-label"></p>
+          <div class="arch-stage">
+            <canvas class="arch-canvas"></canvas>
+            <div class="arch-labels"></div>
+          </div>
+          <p class="view-hint mono-label">Architecture of the selected project. Drag to orbit<span class="hint-hover">; hover a layer</span>; select a layer for details.</p>
+        </div>
+        </div>
       </div>
     </section>
 
@@ -401,12 +428,22 @@
           <p class="section-intro">Languages, libraries, and tools used in the projects above.</p>
         </div>
 
+        <div class="skills-grid">
         <dl class="matrix">
-          <div class="matrix-row"><dt>Languages</dt><dd>Python, C, C++, C#, JavaScript, SQL</dd></div>
-          <div class="matrix-row"><dt>AI and machine learning</dt><dd>PyTorch, Scikit-Learn, XGBoost, NLP and text processing, RAG architectures, anomaly detection</dd></div>
-          <div class="matrix-row"><dt>Frameworks and web</dt><dd>Django REST Framework, React 18, Streamlit, React Flow, Unity</dd></div>
-          <div class="matrix-row"><dt>Data and tools</dt><dd>NumPy, pandas, PostgreSQL, MongoDB, Git and GitHub, Matplotlib and Seaborn</dd></div>
+          <div class="matrix-row"><dt>Languages</dt><dd><span class="term" data-skill="python">Python</span>, <span class="term" data-skill="c">C</span>, <span class="term" data-skill="cpp">C++</span>, <span class="term" data-skill="csharp">C#</span>, <span class="term" data-skill="js">JavaScript</span>, <span class="term" data-skill="sql">SQL</span></dd></div>
+          <div class="matrix-row"><dt>AI and machine learning</dt><dd><span class="term" data-skill="pytorch">PyTorch</span>, <span class="term" data-skill="sklearn">Scikit-Learn</span>, <span class="term" data-skill="xgboost">XGBoost</span>, <span class="term" data-skill="nlp">NLP and text processing</span>, <span class="term" data-skill="rag">RAG architectures</span>, <span class="term" data-skill="anomaly">anomaly detection</span></dd></div>
+          <div class="matrix-row"><dt>Frameworks and web</dt><dd><span class="term" data-skill="django">Django REST Framework</span>, <span class="term" data-skill="react">React 18</span>, <span class="term" data-skill="streamlit">Streamlit</span>, <span class="term" data-skill="reactflow">React Flow</span>, <span class="term" data-skill="unity">Unity</span></dd></div>
+          <div class="matrix-row"><dt>Data and tools</dt><dd><span class="term" data-skill="numpy">NumPy</span>, <span class="term" data-skill="pandas">pandas</span>, <span class="term" data-skill="postgres">PostgreSQL</span>, <span class="term" data-skill="mongodb">MongoDB</span>, <span class="term" data-skill="git">Git and GitHub</span>, <span class="term" data-skill="matplotlib">Matplotlib and Seaborn</span></dd></div>
         </dl>
+
+        <div class="skills-view" aria-hidden="true">
+          <div class="skills-stage">
+            <canvas class="skills-canvas"></canvas>
+            <div class="skills-labels"></div>
+          </div>
+          <p class="view-hint mono-label">Skills and the projects that used them. Hover a term or a node; select a project for details.</p>
+        </div>
+        </div>
       </div>
     </section>
 

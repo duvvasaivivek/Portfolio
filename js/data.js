@@ -231,6 +231,68 @@ export const milestonesData = {
 
 export const MILESTONE_COUNT = 8;
 
+/** Project ids in page order (order of significance), used by the 3D scenes. */
+export const projectOrder = ['civility', 'scholarium', 'safeswipe', 'lecturelens', 'connectiq', 'skilldrift', 'aignite', 'campushustle'];
+
+/**
+ * Architecture layers drawn by the Projects scene, top layer first. These are a regrouping
+ * of each project's tags and highlights above; they introduce no new claims.
+ */
+export const architectureData = {
+  civility: [
+    { layer: 'Interface', items: ['React moderation dashboard'] },
+    { layer: 'Service', items: ['FastAPI inference service'] },
+    { layer: 'Model', items: ['PyTorch', 'Hugging Face Transformers'] },
+    { layer: 'Data', items: ['Text and image inputs', 'Preprocessing'] }
+  ],
+  scholarium: [
+    { layer: 'Interface', items: ['React 18', 'React Flow roadmaps'] },
+    { layer: 'Service', items: ['Django REST Framework', 'JWT authentication'] },
+    { layer: 'Model', items: ['Gemini 2.0 Flash', 'Claude fallback', 'MD5-keyed prompt cache'] },
+    { layer: 'Data', items: ['PostgreSQL', 'MongoDB'] }
+  ],
+  safeswipe: [
+    { layer: 'Interface', items: ['Streamlit dashboard'] },
+    { layer: 'Service', items: ['FastAPI scoring API'] },
+    { layer: 'Model', items: ['XGBoost', 'Local Outlier Factor', 'Threshold tuning'] },
+    { layer: 'Data', items: ['Imbalanced transaction records'] }
+  ],
+  lecturelens: [
+    { layer: 'Output', items: ['Topic notes', 'Key formulas', 'Review questions'] },
+    { layer: 'Model', items: ['Generative summarisation'] },
+    { layer: 'Pipeline', items: ['Speech-to-text', 'Text chunking'] },
+    { layer: 'Input', items: ['Lecture audio'] }
+  ],
+  connectiq: [
+    { layer: 'Interface', items: ['Streamlit'] },
+    { layer: 'Model', items: ['Sentence Transformers embeddings', 'Cosine similarity scoring'] },
+    { layer: 'Data', items: ['Developer profiles', 'Project requirements'] }
+  ],
+  skilldrift: [
+    { layer: 'Interface', items: ['Streamlit gap reports'] },
+    { layer: 'Analysis', items: ['NLP skill extraction', 'Time-series analysis'] },
+    { layer: 'Data', items: ['100+ scraped job listings', 'Course syllabi'] }
+  ],
+  aignite: [
+    { layer: 'Service', items: ['FastAPI endpoints'] },
+    { layer: 'Model', items: ['Gemini Flash', 'LangChain RAG'] },
+    { layer: 'Data', items: ['Menu and order knowledge base'] }
+  ],
+  campushustle: [
+    { layer: 'Build', items: ['WebGL'] },
+    { layer: 'Engine', items: ['Unity', 'C#'] },
+    { layer: 'Systems', items: ['2D physics', 'Procedural obstacles', 'Health system'] }
+  ]
+};
+
+/** Venues drawn on the About globe. Online events are marked as such. */
+export const placesData = [
+  { id: 'kurnool', name: 'Kurnool', lat: 15.83, lon: 78.04, note: 'IIITDM Kurnool; AIgnite 2.0 finale at GPREC' },
+  { id: 'sricity', name: 'Sri City', lat: 13.56, lon: 80.03, note: 'Agentica 2.0 offline finale, IIIT Sricity' },
+  { id: 'goa', name: 'Goa', lat: 15.39, lon: 73.88, note: 'Devfest 5.0, BITS Goa (online event)' },
+  { id: 'bhopal', name: 'Bhopal', lat: 23.26, lon: 77.41, note: 'Hackxios 2K25, IIIT Bhopal (online event)' }
+];
+
 export const skillsData = {
   groups: [
     {
