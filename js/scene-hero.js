@@ -136,7 +136,9 @@ export function createHeroScene(root, opts = {}) {
   /* State */
   const orbit = createOrbit(root, { rotX: 0.18, rotY: -0.5, pitchClamp: 1.2 });
   const st = {
-    autoUntil: performance.now() + 6000,
+    autoUntil: 0,          /* the intro spin starts the first time the lattice is on screen */
+    seen: false,
+    docTop: 0, docHeight: 1, /* document position of the lattice, for the scroll coupling */
     scrollP: -1,
     pointerNdc: new THREE.Vector2(),
     pointerDirty: false,
@@ -258,7 +260,9 @@ export function createHeroScene(root, opts = {}) {
       sceneObj.dirty = true;
     }
 
-    const p = reducedMotion ? 0 : THREE.MathUtils.clamp(window.scrollY / Math.max(1, window.innerHeight), 0, 1);
+    /* 0 as the lattice enters from the bottom of the viewport, 1 as it leaves at the top */
+    const vh = Math.max(1, window.innerHeight);
+    const p = reducedMotion ? 0 : THREE.MathUtils.clamp((window.scrollY + vh - st.docTop) / (vh + st.docHeight), 0, 1);
     if (p !== st.scrollP) { st.scrollP = p; sceneObj.dirty = true; }
 
     group.rotation.set(orbit.rotX + 0.18 * p, orbit.rotY, 0);
@@ -284,9 +288,16 @@ export function createHeroScene(root, opts = {}) {
   }
 
   /* Sizing and visibility */
+  function measure() {
+    const r = root.getBoundingClientRect();
+    st.docTop = r.top + window.scrollY;
+    st.docHeight = Math.max(1, r.height);
+  }
+
   const sizeWatcher = createResizeWatcher(root, (w, h, changed) => {
     if (!changed) return;
     st.width = w; st.height = h;
+    measure();
     renderer.setSize(w, h, false);
     camera.aspect = w / h;
     camera.updateProjectionMatrix();
@@ -295,7 +306,11 @@ export function createHeroScene(root, opts = {}) {
   });
 
   const visibility = observeVisibility(root, {
-    onEnter: () => ticker.add(sceneObj),
+    onEnter: () => {
+      measure();
+      if (!st.seen) { st.seen = true; st.autoUntil = performance.now() + 6000; }
+      ticker.add(sceneObj);
+    },
     onLeave: () => ticker.remove(sceneObj)
   });
 

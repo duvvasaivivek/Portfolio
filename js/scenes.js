@@ -153,11 +153,11 @@ registerScene({
   module: './scene-skills.js', factory: 'createSkillsScene'
 });
 
-/* Motion is the only value of the background, so the Motion toggle turns it off entirely. */
+/* Global spine behind the page: carries section progress and links, so it stays on under reduced motion. */
 registerScene({
-  id: 'ambient', el: document.getElementById('ambientCanvas'), target: html, className: 'ambient', eager: true,
-  allowed: () => !reduced() && wide(1024),
-  module: './scene-ambient.js', factory: 'createAmbientScene'
+  id: 'spine', el: document.getElementById('spineCanvas'), target: html, className: 'spine', eager: true,
+  allowed: () => wide(1024),
+  module: './scene-spine.js', factory: 'createSpineScene'
 });
 
 registry.forEach(sync);
@@ -179,6 +179,7 @@ document.addEventListener('motionchange', () => {
 
 if (['localhost', '127.0.0.1'].includes(location.hostname)) {
   window.__scenes = () => registry.map((s) => ({
-    id: s.id, active: s.active, loaded: !!s.mod, live: !!s.instance, armed: !!s.observer, failed: s.failed
+    id: s.id, active: s.active, loaded: !!s.mod, live: !!s.instance, armed: !!s.observer, failed: s.failed,
+    probe: s.instance && s.instance.probe ? s.instance.probe() : undefined
   }));
 }

@@ -66,7 +66,8 @@
 
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <canvas class="ambient-canvas" id="ambientCanvas" aria-hidden="true"></canvas>
+  <canvas class="spine-canvas" id="spineCanvas" aria-hidden="true"></canvas>
+  <div class="spine-labels" id="spineLabels" aria-hidden="true"></div>
 
   <header class="site-header" id="siteHeader">
     <div class="container header-inner">
@@ -99,16 +100,16 @@
     <section class="hero" id="home">
       <div class="container hero-grid">
         <div class="hero-text">
-          <p class="eyebrow">IIITDM Kurnool · B.Tech, Artificial Intelligence &amp; Data Science · 2024–2028</p>
-          <h1 class="hero-name">Duvva Sai Vivek</h1>
-          <p class="hero-role">Artificial Intelligence and Data Science undergraduate building applied machine learning systems.</p>
-          <p class="hero-summary">
+          <p class="eyebrow reveal" style="--i: 0">IIITDM Kurnool · B.Tech, Artificial Intelligence &amp; Data Science · 2024–2028</p>
+          <h1 class="hero-name"><span class="line" style="--i: 1"><span>Duvva</span></span> <span class="line" style="--i: 2"><span>Sai Vivek</span></span></h1>
+          <p class="hero-role reveal" style="--i: 3">Artificial Intelligence and Data Science undergraduate building applied machine learning systems.</p>
+          <p class="hero-summary reveal" style="--i: 4">
             I build machine learning and generative AI systems end to end: data pipelines, model training and evaluation, and the web interfaces that put them in front of users. Recent work includes fraud detection on imbalanced transaction data, a multimodal toxicity classifier, and an adaptive learning platform. I am currently seeking an AI/ML internship.
           </p>
-          <p class="facts-line mono-label">
+          <p class="facts-line mono-label reveal" style="--i: 5">
             <span>3 internships</span><span>8 projects</span><span>5 hackathons</span><span>6th of 240+ teams, Agentica 2.0</span>
           </p>
-          <ul class="link-row">
+          <ul class="link-row reveal" style="--i: 6">
             <li><a href="./Resumes/Duvva_Sai_Vivek_Resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a></li>
             <li><a href="mailto:duvvasaivivek@gmail.com">Email</a></li>
             <li><a href="https://linkedin.com/in/duvvasaivivek" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
@@ -116,16 +117,29 @@
           </ul>
         </div>
 
-        <div class="hero-visual">
-          <div class="lattice" id="skillsLattice" aria-hidden="true">
-            <canvas class="lattice-canvas"></canvas>
-            <div class="lattice-label view-label" hidden>
-              <span class="lattice-label-name"></span>
-              <span class="lattice-label-group"></span>
-              <span class="lattice-label-projects"></span>
-            </div>
+        <figure class="hero-photo">
+          <picture>
+            <source type="image/webp" srcset="./Images/vivek-main-480.webp 480w, ./Images/vivek-main-800.webp 800w, ./Images/vivek-main-1200.webp 1200w" sizes="(min-width: 1024px) 400px, (min-width: 640px) 360px, 72vw">
+            <img src="./Images/vivek-main-800.jpg" srcset="./Images/vivek-main-480.jpg 480w, ./Images/vivek-main-800.jpg 800w, ./Images/vivek-main-1200.jpg 1200w" sizes="(min-width: 1024px) 400px, (min-width: 640px) 360px, 72vw" width="1856" height="2784" alt="Duvva Sai Vivek standing on a beach in a white shirt" fetchpriority="high" decoding="async">
+          </picture>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Skills lattice -->
+    <section class="lattice-band" id="lattice" aria-label="Skills graph">
+      <div class="container lattice-grid">
+        <div class="lattice" id="skillsLattice" aria-hidden="true">
+          <canvas class="lattice-canvas"></canvas>
+          <div class="lattice-label view-label" hidden>
+            <span class="lattice-label-name"></span>
+            <span class="lattice-label-group"></span>
+            <span class="lattice-label-projects"></span>
           </div>
-          <p class="lattice-hint view-hint mono-label">Skills graph: lines join skills used in the same project. Drag to rotate<span class="hint-hover">; hover a node</span>; select one for its projects.</p>
+        </div>
+        <div class="lattice-caption">
+          <p class="eyebrow">Skills graph</p>
+          <p class="lattice-hint view-hint mono-label">Lines join skills used in the same project. Drag to rotate<span class="hint-hover">; hover a node</span>; select one for its projects.</p>
         </div>
       </div>
     </section>
