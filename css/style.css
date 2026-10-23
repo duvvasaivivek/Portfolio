@@ -441,6 +441,10 @@ button {
 
 .lattice.is-touched + .lattice-hint { opacity: 0; }
 
+@media (hover: none) {
+  .hint-hover { display: none; }
+}
+
 html.no-webgl .hero-visual { display: none; }
 html.no-webgl .hero-grid { grid-template-columns: minmax(0, 44rem); }
 

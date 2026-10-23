@@ -192,7 +192,7 @@ export function createJourneyScene(section) {
   /* Keyboard: focusing a rail button travels to that marker; arrows move along the rail */
   function onFocusIn(e) {
     const btn = e.target.closest('.journey-btn');
-    if (!btn) return;
+    if (!btn || !btn.matches(':focus-visible')) return; // keyboard focus only; clicks open the drawer directly
     const i = buttons.indexOf(btn);
     if (i < 0 || i === st.active) return;
     window.scrollTo({ top: st.sectionTop + (i / (N - 1)) * st.travel, behavior: 'smooth' });

@@ -29,9 +29,14 @@ const journeyEl = document.getElementById('experience');
 /* ---------------- Hero lattice ---------------- */
 
 let heroScene = null;
+let heroLoading = false;
+
+/* The hero visual is hidden below 640px (see style.css), so phones never fetch Three.js. */
+const heroAllowed = () => WEBGL && !!latticeEl && window.innerWidth >= 640;
 
 function loadHero() {
-  if (!WEBGL || !latticeEl) return;
+  if (heroScene || heroLoading || !heroAllowed()) return;
+  heroLoading = true;
   import('./scene-hero.js')
     .then((m) => {
       heroScene = m.createHeroScene(latticeEl, { reducedMotion: reduced() });
@@ -39,10 +44,11 @@ function loadHero() {
     .catch((err) => {
       console.warn('[portfolio] hero scene unavailable', err);
       html.classList.add('no-webgl');
-    });
+    })
+    .finally(() => { heroLoading = false; });
 }
 
-if (WEBGL && latticeEl) {
+if (heroAllowed()) {
   const start = () => requestAnimationFrame(() => requestAnimationFrame(loadHero));
   if (document.readyState === 'complete') start();
   else window.addEventListener('load', start, { once: true });
@@ -103,7 +109,7 @@ syncJourneyMode();
 let resizeTimer = 0;
 window.addEventListener('resize', () => {
   clearTimeout(resizeTimer);
-  resizeTimer = window.setTimeout(syncJourneyMode, 150);
+  resizeTimer = window.setTimeout(() => { syncJourneyMode(); loadHero(); }, 150);
 }, { passive: true });
 
 document.addEventListener('motionchange', () => {
