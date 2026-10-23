@@ -1,573 +1,325 @@
 /**
- * DUVVA SAI VIVEK - PORTFOLIO INTERACTION CONTROLLER
- * Clean, lightweight, professional engineering portfolio logic
+ * DOM behaviour: navigation, dialogs, contact form, clipboard, toast, motion preference.
+ * No 3D code lives here; the page is fully usable if js/scenes.js never runs.
  */
 
-document.addEventListener('DOMContentLoaded', () => {
-  // 1. PROJECT DATA STORE
-  const projectsData = {
-    scholarium: {
-      title: "Scholarium — AI-Powered Adaptive Learning Platform",
-      category: "Full-Stack AI Platform",
-      metric: "Gemini 2.0 Flash + Claude Fallback",
-      tags: ["React 18", "Django REST Framework", "React Flow (DAG)", "PostgreSQL", "MongoDB", "JWT Auth"],
-      overview: "A full-stack adaptive education platform delivering personalized learning roadmaps structured as Directed Acyclic Graphs (DAGs) using prompt caching and hybrid database storage.",
-      highlights: [
-        "Architected personalized DAG-based learning roadmaps via LLM prompt engineering with Gemini 2.0 Flash, integrating Anthropic Claude as a reliable fallback.",
-        "Built a hybrid persistence layer: PostgreSQL for relational state management alongside MongoDB for LLM response caching and token telemetry.",
-        "Implemented MD5-hashed prompt caching to eliminate redundant API calls and reduce latency.",
-        "Engineered an assessment engine featuring binary-scored MCQs and session-level analytics to identify knowledge gaps.",
-        "Developed RESTful APIs with Django REST Framework & JWT, serving a React 18 SPA with React Flow visualizations."
-      ],
-      github: "https://github.com/duvvasaivivek/Scholarium"
-    },
-    civility: {
-      title: "Civility.ai — Multimodal AI Toxicity Moderation Platform",
-      category: "Multimodal AI Safety",
-      metric: "Top 6 / 240+ Finalist (Agentica 2.0)",
-      tags: ["PyTorch", "Multimodal Classifier", "FastAPI Inference", "Content Safety"],
-      overview: "An AI content moderation platform designed to classify and flag toxic text and multimedia in online environments, developed collaboratively with Team ByteBuilders at Agentica 2.0.",
-      highlights: [
-        "Co-developed Civility.ai during Agentica 2.0 at IIIT Sricity, reaching the offline Grand Finale and securing 6th place out of 240+ competing teams nationwide.",
-        "Worked in a fast-paced hackathon setting under Team ByteBuilders to architect the end-to-end toxicity moderation workflow.",
-        "Engineered data preprocessing and classification pipelines to process text and multimodal inputs.",
-        "Integrated the model inference API with the real-time demonstration dashboard for evaluation by technical judges."
-      ],
-      github: "https://github.com/duvvasaivivek"
-    },
-    connectiq: {
-      title: "Connect IQ — AI-Powered Professional Networking Platform",
-      category: "AI Matchmaking System",
-      metric: "Devfest 5.0 (BITS Goa)",
-      tags: ["Vector Embeddings", "Semantic Matchmaking", "Cosine Similarity", "Streamlit UI"],
-      overview: "An AI networking platform developed at Devfest 5.0 (BITS Goa) leveraging Large Language Models to compute professional compatibility and opportunity scores.",
-      highlights: [
-        "Architected vector and LLM-based profile analysis to match software engineers and researchers with open opportunities.",
-        "Created an automated Opportunity Scoring algorithm quantifying alignment between candidate profiles and project requirements.",
-        "Built an interactive interface for real-time recommendation updates."
-      ],
-      github: "https://github.com/duvvasaivivek/AI-Powered-Networking-System"
-    },
-    safeswipe: {
-      title: "SafeSwipe — Fraud Transaction Detection System",
-      category: "Machine Learning & Fraud Detection",
-      metric: "Elevate Labs Internship",
-      tags: ["XGBoost", "Scikit-Learn (LOF)", "Class-Imbalance Tuning", "Financial Risk Modeling"],
-      overview: "A production-grade fraud transaction identification system engineered at Elevate Labs to detect unauthorized financial transactions across highly imbalanced datasets.",
-      highlights: [
-        "Engineered a dual-model approach combining supervised classification (XGBoost) with unsupervised anomaly detection (Local Outlier Factor).",
-        "Handled extreme class imbalance with precision-focused metrics and threshold tuning to control false-positive rates.",
-        "Deployed an interactive Streamlit live dashboard for real-time transaction scoring."
-      ],
-      github: "https://github.com/duvvasaivivek/SafeSwipe-Fraud-Transaction-Detection-System"
-    },
-    lecturelens: {
-      title: "Lecture-Lens — Audio Lecture Voice-to-Notes Generator",
-      category: "Speech Processing & NLP",
-      metric: "IBM SkillsBuild Internship",
-      tags: ["Speech Recognition", "Chunked Audio Pipeline", "Structured Note Extraction", "Evaluation Benchmarks"],
-      overview: "An automated lecture processing pipeline developed during the IBM SkillsBuild internship to transform spoken lectures into structured, exam-ready study notes.",
-      highlights: [
-        "Constructed a multi-stage pipeline combining speech-to-text transcription, NLP text chunking, and Generative AI summarization.",
-        "Benchmarked and tuned 5+ parameters (chunk overlap, temperature, token limits) for transcription fidelity.",
-        "Generated instant topic breakdowns, key formulas, and review cheat sheets from raw audio."
-      ],
-      github: "https://github.com/duvvasaivivek/AI-Powered-Lecture-Voice-To-Notes-Generation-System"
-    },
-    skilldrift: {
-      title: "Skill Drift Monitor — Industry Skill Gap Analyzer",
-      category: "Data Science & NLP Analytics",
-      metric: "Hackxios 2K25 (IIIT Bhopal)",
-      tags: ["Job Market Web Scraping", "Curriculum Gap Scoring", "Time-Series Analysis", "Data Visualization"],
-      overview: "An NLP pipeline built during Hackxios 2K25 (IIIT Bhopal) analyzing real-world tech job postings against university syllabi.",
-      highlights: [
-        "Analyzed time-series NLP patterns across 100+ industry job postings and academic curricula.",
-        "Modeled temporal trends to quantify discrepancies between curriculum content and active market demands.",
-        "Delivered actionable insights through an interactive Streamlit interface."
-      ],
-      github: "https://github.com/duvvasaivivek/Skill-Drift-Monitor"
-    },
-    campushustle: {
-      title: "Campus Hustle — 2D Unity Action Game",
-      category: "Game Development & Physics",
-      metric: "GDG Open Source Hackathon",
-      tags: ["Unity Engine", "C# Scripting", "2D Physics Engine", "State-Driven Animation"],
-      overview: "A fast-paced 2D runner game built under hackathon time constraints for the GDG Open Source Hackathon at IIITDM Kurnool.",
-      highlights: [
-        "Engineered smooth physics-driven player controller, jump mechanics, dynamic obstacles, and multi-tier health systems.",
-        "Coordinated codebase integration via Git within a multi-member hackathon team."
-      ],
-      github: "https://github.com/duvvasaivivek/Campus-Hustle"
-    },
-    aignite: {
-      title: "AIgnite Order Assistant — Gemini Flash RAG Chatbot",
-      category: "Conversational AI & Workflows",
-      metric: "AIgnite 2.0 Grand Finale",
-      tags: ["Gemini Flash API", "RAG Knowledge Base", "Order Workflow Automation", "Conversation State Machine"],
-      overview: "A specialized conversational assistant developed during AIgnite 2.0 at GPREC to support food delivery order tracking workflows.",
-      highlights: [
-        "Integrated Gemini Flash with Retrieval-Augmented Generation (RAG) to provide contextual answers on order placement, preparation, and delivery progress.",
-        "Reduced repetitive inquiries through accurate and immediate conversational guidance."
-      ],
-      github: "https://github.com/duvvasaivivek/VAMY-Chatbot"
-    }
-  };
+import { projectsData, milestonesData, MILESTONE_COUNT } from './data.js';
 
-  // 2. HEADER SCROLL & NAVIGATION
-  const header = document.querySelector('.header');
-  const navLinks = document.querySelectorAll('.nav-link');
-  const sections = document.querySelectorAll('section[id]');
+const html = document.documentElement;
+const $ = (sel, root = document) => root.querySelector(sel);
+const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
 
-  function onScroll() {
-    if (window.scrollY > 30) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
-    }
+/* -------------------------------------------------------------------
+   Motion preference (footer toggle + system setting)
+   ------------------------------------------------------------------- */
 
-    let scrollY = window.pageYOffset;
-    sections.forEach(current => {
-      const sectionHeight = current.offsetHeight;
-      const sectionTop = current.offsetTop - 100;
-      const sectionId = current.getAttribute('id');
+const MOTION_KEY = 'portfolio_motion';
+const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+const motionToggle = $('#motionToggle');
 
-      if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-        navLinks.forEach(link => {
-          link.classList.remove('active');
-          if (link.getAttribute('href') === `#${sectionId}`) {
-            link.classList.add('active');
-          }
-        });
-      }
-    });
+function applyMotion(reduced, { persist = false, announce = false } = {}) {
+  html.classList.toggle('reduce-motion', reduced);
+  if (motionToggle) {
+    motionToggle.textContent = reduced ? 'Motion: off' : 'Motion: on';
+    motionToggle.setAttribute('aria-pressed', String(reduced));
   }
-
-  window.addEventListener('scroll', onScroll, { passive: true });
-
-  // 3. MOBILE MENU
-  const mobileToggle = document.querySelector('.mobile-nav-toggle');
-  const navMenu = document.querySelector('.nav-menu');
-
-  if (mobileToggle && navMenu) {
-    mobileToggle.addEventListener('click', () => {
-      navMenu.classList.toggle('open');
-    });
-
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        navMenu.classList.remove('open');
-      });
-    });
+  if (persist) {
+    try { localStorage.setItem(MOTION_KEY, reduced ? 'off' : 'on'); } catch (e) { /* storage unavailable */ }
   }
+  document.dispatchEvent(new CustomEvent('motionchange', { detail: { reduced } }));
+  if (announce) showToast(reduced ? 'Motion off' : 'Motion on');
+}
 
-  // 4. 2D / 3D MODE TOGGLE
-  const modeToggleBtn = document.getElementById('modeToggleBtn');
-  if (modeToggleBtn) {
-    modeToggleBtn.addEventListener('click', () => {
-      if (window.Portfolio3D) {
-        window.Portfolio3D.toggle();
-        const active = window.Portfolio3D.isActive();
-        showToast(active ? "3D Experience Enabled" : "2D Clean Mode Active");
-      }
-    });
-  }
-
-  // 5. CHRONOLOGICAL STREAM TIMELINE & SLIDE-OUT DETAIL DRAWER
-  const milestonesData = {
-    1: {
-      id: 1,
-      date: 'Late 2024',
-      category: 'hackathon',
-      catLabel: 'HACKATHON',
-      catClass: 'cat-hackathon-text',
-      title: 'GDG Open Source Hackathon',
-      subtitle: 'Team SpriteVRM • Campus Hustle',
-      org: 'GDG On Campus • Online',
-      img: './Images/hackathons/gdg.jpeg',
-      desc: 'Architected and programmed Campus Hustle, an endless 2D runner built in Unity and C#. Engineered dynamic procedural obstacle generation, responsive player physics, and high-performance WebGL browser compilation for cross-platform gameplay.',
-      impact: 'Tested and played by university students across campus during the GDG event with smooth 60 FPS in-browser execution.',
-      tags: ['Unity', 'C#', 'Game Dev', 'WebGL', 'Physics Engine'],
-      link: 'https://github.com/duvvasaivivek/Campus-Hustle',
-      linkText: 'View GitHub Repository'
-    },
-    2: {
-      id: 2,
-      date: 'Early 2025',
-      category: 'hackathon',
-      catLabel: 'GRAND FINALE',
-      catClass: 'cat-hackathon-text',
-      title: 'AIgnite 2.0: Grand Finale',
-      subtitle: 'Team ApexVAMY • Conversational Order Assistant',
-      org: 'GPREC Campus • Offline Stage',
-      img: null,
-      desc: 'Developed an intelligent conversational order assistant utilizing Gemini Flash and Retrieval-Augmented Generation (RAG). Built real-time order tracking, dynamic food menu query resolution, and live customer interaction via FastAPI endpoints.',
-      impact: 'Selected as offline grand finalists, demonstrating real-time low latency multimodal query handling on the live finale stage.',
-      tags: ['Gemini Flash', 'RAG', 'LangChain', 'FastAPI', 'Python'],
-      link: 'https://github.com/duvvasaivivek/AI-Powered-Automated-Food-Ordering-System',
-      linkText: 'View GitHub Repository'
-    },
-    3: {
-      id: 3,
-      date: 'Mid 2025',
-      category: 'hackathon',
-      catLabel: 'HACKATHON',
-      catClass: 'cat-hackathon-text',
-      title: 'Devfest 5.0: BITS Goa',
-      subtitle: 'Team Void Walkers • Connect IQ',
-      org: 'BITS Goa • Online',
-      img: './Images/projects/connectiq.jpeg',
-      desc: 'Engineered Connect IQ, a talent matchmaking platform that extracts developer skill vectors and compares them with active open-source and hackathon technical projects using Sentence Transformers and cosine similarity.',
-      impact: 'Automated compatibility scoring and opportunity discovery with an interactive Streamlit UI for real-time developer portfolio matching.',
-      tags: ['Sentence Transformers', 'Embeddings', 'Streamlit', 'Cosine Similarity', 'Python'],
-      link: 'https://github.com/duvvasaivivek/Connect-IQ',
-      linkText: 'View GitHub Repository'
-    },
-    4: {
-      id: 4,
-      date: 'Mid 2025',
-      category: 'hackathon',
-      catLabel: 'HACKATHON',
-      catClass: 'cat-hackathon-text',
-      title: 'Hackxios 2K25: IIIT Bhopal',
-      subtitle: 'Team Core Cube • Skill Drift Monitor',
-      org: 'IIIT Bhopal • Online',
-      img: './Images/hackathons/hackxios.jpeg',
-      desc: 'Built Skill Drift Monitor with Team Core Cube. The system automatically scrapes and parses 100+ live tech job listings across developer portals, compares them against college course syllabi, and identifies curriculum drift.',
-      impact: 'Generates structured gap reports and actionable skill-up pathways for engineering students seeking industry alignment.',
-      tags: ['NLP Extraction', 'Web Scraping', 'Skill Mining', 'Python', 'Streamlit'],
-      link: 'https://github.com/duvvasaivivek/Skill-Drift-Monitor',
-      linkText: 'View GitHub Repository'
-    },
-    5: {
-      id: 5,
-      date: 'Oct - Dec 2025',
-      category: 'internship',
-      catLabel: 'ML INTERNSHIP',
-      catClass: 'cat-internship-text',
-      title: 'Machine Learning Intern',
-      subtitle: 'Elevate Labs • SafeSwipe Fraud Detection',
-      org: 'Elevate Labs • Remote',
-      img: null,
-      desc: 'Constructed a dual-stage transaction risk evaluation system on imbalanced banking records, combining gradient-boosted decision trees (XGBoost) for supervised fraud scoring with density-based outlier detection (Local Outlier Factor) for zero-day attack vectors.',
-      impact: 'Achieved high precision-recall balance on severely imbalanced datasets with real-time risk classification API and interactive monitoring dashboard.',
-      tags: ['XGBoost', 'Local Outlier Factor', 'Imbalance Handling', 'Scikit-Learn', 'FastAPI'],
-      link: 'https://github.com/duvvasaivivek/SafeSwipe-Fraud-Transaction-Detection-System',
-      linkText: 'View GitHub Repository'
-    },
-    6: {
-      id: 6,
-      date: 'Nov 2025 - Jan 2026',
-      category: 'internship',
-      catLabel: 'AI INTERNSHIP',
-      catClass: 'cat-internship-text',
-      title: 'AI Intern: Literature Synthesizer',
-      subtitle: 'Infosys Springboard • Research Summarizer',
-      org: 'Infosys Springboard • Remote',
-      img: null,
-      desc: 'Engineered an automated research literature analysis pipeline to parse dense academic publications, extract core methodologies, formulas, and findings, and synthesize them into structured executive briefs.',
-      impact: 'Accelerated literature review workflows for academic researchers by ~60% with high citation accuracy.',
-      tags: ['Document Parsing', 'NLP Summaries', 'PDF Miner', 'Python', 'FastAPI'],
-      link: 'https://github.com/duvvasaivivek/AI-System-To-Automatically-Review-And-Summarize-Research-Papers',
-      linkText: 'View GitHub Repository'
-    },
-    7: {
-      id: 7,
-      date: 'Dec 2025 - Jan 2026',
-      category: 'internship',
-      catLabel: 'AI/ML INTERNSHIP',
-      catClass: 'cat-internship-text',
-      title: 'AI/ML Intern: Lecture-Lens',
-      subtitle: 'IBM SkillsBuild • Audio Intelligence & Study Assistant',
-      org: 'IBM SkillsBuild • Remote',
-      img: null,
-      desc: 'Developed an automated voice-to-notes processing engine that transcribes recorded lectures, isolates key mathematical formulas, and generates revision questions. Calibrated context windows and chunk overlaps to optimize factual fidelity.',
-      impact: 'Enabled students to generate comprehensive revision guides and self-assessment flashcards from 60-minute audio lectures in under 2 minutes.',
-      tags: ['Speech-to-Text', 'Prompt Engineering', 'Quiz Generation', 'Python', 'RAG'],
-      link: 'https://github.com/duvvasaivivek/AI-Powered-Lecture-Voice-To-Notes-Generation-System',
-      linkText: 'View GitHub Repository'
-    },
-    8: {
-      id: 8,
-      date: 'Jan 2026',
-      category: 'hackathon',
-      catLabel: '6TH PLACE NATIONAL',
-      catClass: 'cat-hackathon-text',
-      title: 'Agentica 2.0: 6th Place National',
-      subtitle: '6th Place out of 240+ Teams • Civility.ai',
-      org: 'IIIT Sricity • Offline Grand Finale',
-      img: './Images/hackathons/agentica.jpeg',
-      desc: 'Architected Civility.ai with Team ByteBuilders, an AI toxicity moderation platform for online gaming channels and web communities. Selected as one of the national finalist teams to pitch live on stage at the IIIT Sricity campus.',
-      impact: 'Podium finish (6th Place out of 240+ nationwide engineering teams), recognized for real-time sub-100ms inference on toxic streaming text.',
-      tags: ['PyTorch', 'HuggingFace', 'Toxicity ML', 'FastAPI', 'React'],
-      link: 'https://github.com/duvvasaivivek/Civility.ai',
-      linkText: 'View GitHub Repository'
-    }
-  };
-
-  let currentMilestoneId = 1;
-  const milestoneDrawer = document.getElementById('milestoneDrawer');
-  const drawerBackdrop = document.getElementById('drawerBackdrop');
-  const drawerCloseBtn = document.getElementById('drawerCloseBtn');
-  const drawerDate = document.getElementById('drawerDate');
-  const drawerCatBadge = document.getElementById('drawerCatBadge');
-  const drawerOrg = document.getElementById('drawerOrg');
-  const drawerTitle = document.getElementById('drawerTitle');
-  const drawerSubtitle = document.getElementById('drawerSubtitle');
-  const drawerDesc = document.getElementById('drawerDesc');
-  const drawerImpactBox = document.getElementById('drawerImpactBox');
-  const drawerTags = document.getElementById('drawerTags');
-  const drawerActionBtn = document.getElementById('drawerActionBtn');
-  const drawerPrevBtn = document.getElementById('drawerPrevBtn');
-  const drawerNextBtn = document.getElementById('drawerNextBtn');
-  const drawerCounter = document.getElementById('drawerCounter');
-  const drawerImg = document.getElementById('drawerImg');
-
-  window.openMilestoneDrawer = function (id) {
-    const data = milestonesData[id];
-    if (!data || !milestoneDrawer) return;
-
-    currentMilestoneId = Number(id);
-
-    if (drawerDate) drawerDate.textContent = data.date;
-    if (drawerCatBadge) {
-      drawerCatBadge.textContent = data.catLabel;
-      drawerCatBadge.className = 'drawer-cat-badge ' + (data.catClass || '');
-    }
-    if (drawerOrg) drawerOrg.textContent = data.org;
-    if (drawerTitle) drawerTitle.textContent = data.title;
-    if (drawerSubtitle) drawerSubtitle.textContent = data.subtitle;
-    if (drawerDesc) drawerDesc.textContent = data.desc;
-    if (drawerImpactBox) {
-      drawerImpactBox.innerHTML = `
-        <div class="drawer-impact-header">
-          VERIFIED OUTCOME &amp; IMPACT
-        </div>
-        <div class="drawer-impact-text">${data.impact}</div>
-      `;
-    }
-    if (drawerTags) {
-      drawerTags.innerHTML = data.tags.map(t => `<span class="tech-tag">${t}</span>`).join('');
-    }
-    if (drawerActionBtn) {
-      drawerActionBtn.href = data.link;
-      drawerActionBtn.textContent = (data.linkText || 'View Project') + ' →';
-    }
-    if (drawerCounter) {
-      drawerCounter.textContent = `${currentMilestoneId} of 8`;
-    }
-    if (drawerPrevBtn) {
-      drawerPrevBtn.disabled = currentMilestoneId <= 1;
-    }
-    if (drawerNextBtn) {
-      drawerNextBtn.disabled = currentMilestoneId >= 8;
-    }
-
-    if (drawerImg && drawerImg.parentElement) {
-      if (data.img) {
-        drawerImg.parentElement.style.display = 'block';
-        drawerImg.src = data.img;
-        drawerImg.alt = data.title;
-        drawerImg.onerror = function () {
-          if (!this.src.endsWith('.jpg')) {
-            this.src = data.img.replace('.jpeg', '.jpg');
-          } else {
-            drawerImg.parentElement.style.display = 'none';
-          }
-        };
-      } else {
-        drawerImg.parentElement.style.display = 'none';
-        drawerImg.removeAttribute('src');
-      }
-    }
-
-    milestoneDrawer.classList.add('open');
-    milestoneDrawer.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-  };
-
-  window.closeMilestoneDrawer = function () {
-    if (!milestoneDrawer) return;
-    milestoneDrawer.classList.remove('open');
-    milestoneDrawer.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-  };
-
-  if (drawerCloseBtn) {
-    drawerCloseBtn.addEventListener('click', window.closeMilestoneDrawer);
-  }
-  if (drawerBackdrop) {
-    drawerBackdrop.addEventListener('click', window.closeMilestoneDrawer);
-  }
-
-  if (drawerPrevBtn) {
-    drawerPrevBtn.addEventListener('click', () => {
-      if (currentMilestoneId > 1) {
-        window.openMilestoneDrawer(currentMilestoneId - 1);
-      }
-    });
-  }
-
-  if (drawerNextBtn) {
-    drawerNextBtn.addEventListener('click', () => {
-      if (currentMilestoneId < 8) {
-        window.openMilestoneDrawer(currentMilestoneId + 1);
-      }
-    });
-  }
-
-  // Node Click and Keyboard Listeners
-  document.querySelectorAll('.stream-node').forEach(node => {
-    node.addEventListener('click', () => {
-      const id = node.getAttribute('data-milestone-id');
-      if (id) window.openMilestoneDrawer(id);
-    });
-    node.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        const id = node.getAttribute('data-milestone-id');
-        if (id) window.openMilestoneDrawer(id);
-      }
-    });
+(function initMotion() {
+  let stored = null;
+  try { stored = localStorage.getItem(MOTION_KEY); } catch (e) { /* ignore */ }
+  const reduced = stored ? stored === 'off' : motionQuery.matches;
+  applyMotion(reduced);
+  motionQuery.addEventListener('change', (e) => {
+    let s = null;
+    try { s = localStorage.getItem(MOTION_KEY); } catch (err) { /* ignore */ }
+    if (!s) applyMotion(e.matches);
   });
+  if (motionToggle) {
+    motionToggle.addEventListener('click', () => {
+      applyMotion(!html.classList.contains('reduce-motion'), { persist: true, announce: true });
+    });
+  }
+})();
 
-  // ESC key to close drawer
-  window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      window.closeMilestoneDrawer();
+/* -------------------------------------------------------------------
+   Header: scrolled state and active section
+   ------------------------------------------------------------------- */
+
+const header = $('#siteHeader');
+const navLinks = $$('.site-nav a');
+
+function updateScrolled() {
+  header.classList.toggle('scrolled', window.scrollY > 8);
+}
+updateScrolled();
+window.addEventListener('scroll', updateScrolled, { passive: true });
+
+(function initActiveNav() {
+  const sections = $$('main section[id]');
+  if (!('IntersectionObserver' in window) || !sections.length) return;
+  const byId = new Map(navLinks.map((a) => [a.getAttribute('href').slice(1), a]));
+  const io = new IntersectionObserver((entries) => {
+    for (const entry of entries) {
+      if (!entry.isIntersecting) continue;
+      const id = entry.target.id;
+      navLinks.forEach((a) => a.classList.remove('is-active'));
+      const link = byId.get(id);
+      if (link) link.classList.add('is-active');
     }
+  }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
+  sections.forEach((s) => io.observe(s));
+})();
+
+/* -------------------------------------------------------------------
+   Mobile navigation
+   ------------------------------------------------------------------- */
+
+const navToggle = $('#navToggle');
+const navMenu = $('#navMenu');
+
+function setNavOpen(open) {
+  navMenu.classList.toggle('open', open);
+  navToggle.setAttribute('aria-expanded', String(open));
+}
+
+if (navToggle && navMenu) {
+  navToggle.addEventListener('click', () => {
+    const open = !navMenu.classList.contains('open');
+    setNavOpen(open);
+    if (open) navLinks[0]?.focus();
   });
-
-  // 6. PROJECT DETAILS MODAL
-  const projectModal = document.getElementById('projectModal');
-  const modalCloseBtn = document.getElementById('modalCloseBtn');
-  const modalBody = document.getElementById('modalBody');
-
-  window.openProjectModal = function (projectId) {
-    const data = projectsData[projectId];
-    if (!data || !projectModal || !modalBody) return;
-
-    modalBody.innerHTML = `
-      <div class="modal-project-meta">
-        <span class="project-category-tag">${data.category}</span>
-        <span class="project-metric-badge">${data.metric}</span>
-      </div>
-      <h2 class="modal-project-title">${data.title}</h2>
-      <p class="modal-project-overview">${data.overview}</p>
-      
-      <h4 class="modal-section-title">System Implementation Details</h4>
-      <ul class="modal-highlight-list">
-        ${data.highlights.map(h => `<li>${h}</li>`).join('')}
-      </ul>
-
-      <h4 class="modal-section-title tech-title">Tech Stack</h4>
-      <div class="project-tech-stack" style="margin-bottom: 26px;">
-        ${data.tags.map(t => `<span class="tech-tag">${t}</span>`).join('')}
-      </div>
-
-      <div class="modal-actions">
-        <a href="${data.github}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
-          GitHub Repository
-        </a>
-        <button type="button" class="btn btn-outline btn-sm" onclick="closeAllModals()">Close</button>
-      </div>
-    `;
-
-    projectModal.classList.add('active');
-    document.body.style.overflow = 'hidden';
-  };
-
-  window.closeAllModals = function () {
-    document.querySelectorAll('.modal-backdrop').forEach(m => m.classList.remove('active'));
-    document.body.style.overflow = '';
-  };
-
-  if (modalCloseBtn) {
-    modalCloseBtn.addEventListener('click', window.closeAllModals);
-  }
-
-  // 7. RESUME MODAL
-  const resumeModal = document.getElementById('resumeModal');
-  const previewResumeBtn = document.getElementById('previewResumeBtn');
-  const resumeModalCloseBtn = document.getElementById('resumeModalCloseBtn');
-
-  if (previewResumeBtn && resumeModal) {
-    previewResumeBtn.addEventListener('click', () => {
-      resumeModal.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    });
-  }
-
-  if (resumeModalCloseBtn && resumeModal) {
-    resumeModalCloseBtn.addEventListener('click', () => {
-      resumeModal.classList.remove('active');
-      document.body.style.overflow = '';
-    });
-  }
-
-  document.querySelectorAll('.modal-backdrop').forEach(m => {
-    m.addEventListener('click', e => {
-      if (e.target === m) window.closeAllModals();
-    });
+  navLinks.forEach((a) => a.addEventListener('click', () => setNavOpen(false)));
+  document.addEventListener('click', (e) => {
+    if (!navMenu.classList.contains('open')) return;
+    if (!header.contains(e.target)) setNavOpen(false);
   });
+}
 
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') window.closeAllModals();
+/* -------------------------------------------------------------------
+   Dialog helpers
+   ------------------------------------------------------------------- */
+
+const openers = new WeakMap();
+
+function openDialog(dialog) {
+  if (!dialog || dialog.open) return;
+  openers.set(dialog, document.activeElement);
+  dialog.showModal();
+}
+
+function wireDialog(dialog) {
+  if (!dialog) return;
+  dialog.addEventListener('click', (e) => {
+    if (e.target === dialog) dialog.close();
   });
+  dialog.addEventListener('close', () => {
+    const opener = openers.get(dialog);
+    if (opener && typeof opener.focus === 'function' && document.contains(opener)) opener.focus();
+  });
+}
 
-  // 8. CONTACT FORM
-  const contactForm = document.getElementById('contactForm');
-  if (contactForm) {
-    contactForm.addEventListener('submit', e => {
-      e.preventDefault();
-      const name = document.getElementById('senderName')?.value.trim();
-      const email = document.getElementById('senderEmail')?.value.trim();
-      const subject = document.getElementById('msgSubject')?.value.trim();
-      const message = document.getElementById('msgBody')?.value.trim();
+/* -------------------------------------------------------------------
+   Milestone drawer
+   ------------------------------------------------------------------- */
 
-      if (!name || !email || !message) {
-        showToast("Please fill in required fields.");
-        return;
-      }
+const drawer = $('#milestoneDrawer');
+const drawerEls = {
+  date: $('#drawerDate'),
+  cat: $('#drawerCat'),
+  title: $('#drawerTitle'),
+  org: $('#drawerOrg'),
+  media: $('#drawerMedia'),
+  img: $('#drawerImg'),
+  desc: $('#drawerDesc'),
+  impact: $('#drawerImpact'),
+  tags: $('#drawerTags'),
+  linkWrap: $('#drawerLinkWrap'),
+  link: $('#drawerLink'),
+  prev: $('#drawerPrevBtn'),
+  next: $('#drawerNextBtn'),
+  counter: $('#drawerCounter')
+};
+let currentMilestone = 1;
 
-      showToast("Opening email client to dispatch message...");
-      const mailto = `mailto:duvvasaivivek@gmail.com?subject=${encodeURIComponent(subject || 'Inquiry from ' + name)}&body=${encodeURIComponent('From: ' + name + ' (' + email + ')\n\n' + message)}`;
-      window.location.href = mailto;
-      contactForm.reset();
-    });
+function fillDrawer(id) {
+  const data = milestonesData[id];
+  if (!data) return false;
+  currentMilestone = Number(id);
+  drawerEls.date.textContent = data.date;
+  drawerEls.cat.textContent = data.category;
+  drawerEls.title.textContent = data.title;
+  drawerEls.org.textContent = `${data.org} · ${data.subtitle}`;
+  drawerEls.desc.textContent = data.desc;
+  drawerEls.impact.textContent = data.impact;
+  drawerEls.tags.textContent = data.tags.join(', ');
+  if (data.link) {
+    drawerEls.linkWrap.hidden = false;
+    drawerEls.link.href = data.link;
+  } else {
+    drawerEls.linkWrap.hidden = true;
+  }
+  if (data.img) {
+    drawerEls.media.hidden = false;
+    drawerEls.img.src = data.img;
+    drawerEls.img.alt = `Photograph from ${data.title}`;
+  } else {
+    drawerEls.media.hidden = true;
+    drawerEls.img.removeAttribute('src');
+    drawerEls.img.alt = '';
+  }
+  drawerEls.counter.textContent = `${currentMilestone} of ${MILESTONE_COUNT}`;
+  drawerEls.prev.disabled = currentMilestone <= 1;
+  drawerEls.next.disabled = currentMilestone >= MILESTONE_COUNT;
+  return true;
+}
+
+window.openMilestoneDrawer = function openMilestoneDrawer(id) {
+  if (!drawer || !fillDrawer(id)) return;
+  openDialog(drawer);
+  drawer.querySelector('.drawer-body').scrollTop = 0;
+};
+
+if (drawer) {
+  wireDialog(drawer);
+  drawerEls.img.addEventListener('error', () => { drawerEls.media.hidden = true; });
+  drawerEls.prev.addEventListener('click', () => { if (currentMilestone > 1) fillDrawer(currentMilestone - 1); });
+  drawerEls.next.addEventListener('click', () => { if (currentMilestone < MILESTONE_COUNT) fillDrawer(currentMilestone + 1); });
+}
+
+/* -------------------------------------------------------------------
+   Project dialog
+   ------------------------------------------------------------------- */
+
+const projectModal = $('#projectModal');
+const modalBody = $('#modalBody');
+
+function escapeHtml(s) {
+  return String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+}
+
+window.openProjectModal = function openProjectModal(projectId) {
+  const data = projectsData[projectId];
+  if (!data || !projectModal || !modalBody) return;
+  const repo = data.github
+    ? `<a href="${escapeHtml(data.github)}" target="_blank" rel="noopener noreferrer">Repository</a>`
+    : '<span class="case-meta">Repository not public</span>';
+  modalBody.innerHTML = `
+    <p class="eyebrow">${escapeHtml(data.category)}</p>
+    <h2 class="modal-title" id="modalTitle">${escapeHtml(data.title)}</h2>
+    <p class="case-meta">${escapeHtml(data.metric)}</p>
+    <p class="modal-sub">Overview</p>
+    <p>${escapeHtml(data.overview)}</p>
+    <p class="modal-sub">Implementation</p>
+    <ul>${data.highlights.map((h) => `<li>${escapeHtml(h)}</li>`).join('')}</ul>
+    <p class="modal-sub">Technologies</p>
+    <p>${data.tags.map(escapeHtml).join(', ')}</p>
+    <div class="modal-actions">${repo}<button type="button" class="text-link" data-close>Close</button></div>
+  `;
+  openDialog(projectModal);
+  modalBody.scrollTop = 0;
+};
+
+if (projectModal) wireDialog(projectModal);
+
+/* -------------------------------------------------------------------
+   Delegated clicks
+   ------------------------------------------------------------------- */
+
+document.addEventListener('click', (e) => {
+  const target = e.target instanceof Element ? e.target : null;
+  if (!target) return;
+
+  const closeBtn = target.closest('[data-close]');
+  if (closeBtn) {
+    closeBtn.closest('dialog')?.close();
+    return;
   }
 
-  // 9. COPY CLIPBOARD HELPER
-  window.copyText = function (text, label) {
-    if (navigator.clipboard) {
-      navigator.clipboard.writeText(text).then(() => {
-        showToast(`${label} copied to clipboard`);
-      });
-    }
-  };
+  const projectBtn = target.closest('[data-project]');
+  if (projectBtn) {
+    window.openProjectModal(projectBtn.getAttribute('data-project'));
+    return;
+  }
 
-  // 10. TOAST
-  let toastTimer;
-  window.showToast = function (msg) {
-    let toast = document.getElementById('siteToast');
-    if (!toast) {
-      toast = document.createElement('div');
-      toast.id = 'siteToast';
-      toast.className = 'toast-notice';
-      document.body.appendChild(toast);
-    }
-    toast.textContent = msg;
-    toast.classList.add('show');
-    clearTimeout(toastTimer);
-    toastTimer = setTimeout(() => {
-      toast.classList.remove('show');
-    }, 2800);
-  };
+  const milestoneBtn = target.closest('[data-milestone-id]');
+  if (milestoneBtn) {
+    window.openMilestoneDrawer(milestoneBtn.getAttribute('data-milestone-id'));
+    return;
+  }
 
-  // 11. BACK TO TOP
-  const backToTopBtn = document.getElementById('backToTopBtn');
-  if (backToTopBtn) {
-    backToTopBtn.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+  const copyBtn = target.closest('[data-copy]');
+  if (copyBtn) {
+    copyText(copyBtn.getAttribute('data-copy'), copyBtn.getAttribute('data-copy-label') || 'Text');
   }
 });
+
+/* -------------------------------------------------------------------
+   Contact form (mailto)
+   ------------------------------------------------------------------- */
+
+const contactForm = $('#contactForm');
+if (contactForm) {
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = $('#senderName').value.trim();
+    const email = $('#senderEmail').value.trim();
+    const subject = $('#msgSubject').value.trim();
+    const message = $('#msgBody').value.trim();
+    if (!name || !email || !message) {
+      showToast('Please complete the name, email, and message fields.');
+      return;
+    }
+    const body = `From: ${name} (${email})\n\n${message}`;
+    const mailto = `mailto:duvvasaivivek@gmail.com?subject=${encodeURIComponent(subject || `Message from ${name} via portfolio`)}&body=${encodeURIComponent(body)}`;
+    showToast('Opening your email client.');
+    window.location.href = mailto;
+  });
+}
+
+/* -------------------------------------------------------------------
+   Clipboard and toast
+   ------------------------------------------------------------------- */
+
+function copyText(text, label) {
+  if (!navigator.clipboard) {
+    showToast('Could not copy. Please select the text manually.');
+    return;
+  }
+  navigator.clipboard.writeText(text)
+    .then(() => showToast(`${label} copied.`))
+    .catch(() => showToast('Could not copy. Please select the text manually.'));
+}
+
+const toast = $('#siteToast');
+let toastTimer = 0;
+
+function showToast(msg) {
+  if (!toast) return;
+  toast.textContent = msg;
+  toast.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = window.setTimeout(() => toast.classList.remove('show'), 2800);
+}
+
+window.showToast = showToast;
+
+/* -------------------------------------------------------------------
+   Dev-only consistency check between markup and data
+   ------------------------------------------------------------------- */
+
+if (['localhost', '127.0.0.1'].includes(location.hostname)) {
+  $$('[data-project]').forEach((el) => {
+    const key = el.getAttribute('data-project');
+    if (!projectsData[key]) console.warn(`[portfolio] No projectsData entry for "${key}"`);
+  });
+  $$('.journey-btn[data-milestone-id]').forEach((el) => {
+    const key = el.getAttribute('data-milestone-id');
+    if (!milestonesData[key]) console.warn(`[portfolio] No milestonesData entry for "${key}"`);
+  });
+}
