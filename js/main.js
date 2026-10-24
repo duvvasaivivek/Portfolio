@@ -3,7 +3,7 @@
  * No 3D code lives here; the page is fully usable if js/scenes.js never runs.
  */
 
-import { projectsData, milestonesData, MILESTONE_COUNT, skillsData, architectureData, placesData } from './data.js';
+import { projectsData, milestonesData, MILESTONE_COUNT, skillsData, architectureData } from './data.js';
 
 const html = document.documentElement;
 const $ = (sel, root = document) => root.querySelector(sel);
@@ -330,8 +330,5 @@ if (['localhost', '127.0.0.1'].includes(location.hostname)) {
   Object.keys(projectsData).forEach((key) => {
     if (!architectureData[key]) console.warn(`[portfolio] No architectureData entry for "${key}"`);
     if (!document.getElementById(`project-${key}`)) console.warn(`[portfolio] No case row with id "project-${key}"`);
-  });
-  placesData.forEach((p) => {
-    if (!Number.isFinite(p.lat) || !Number.isFinite(p.lon)) console.warn(`[portfolio] Place "${p.id}" has no coordinates`);
   });
 }

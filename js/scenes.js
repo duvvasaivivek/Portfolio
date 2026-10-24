@@ -119,26 +119,11 @@ function sync(s) {
 
 /* ---------------- Scenes ---------------- */
 
-const latticeEl = document.getElementById('skillsLattice');
-
-/* Hero visual is hidden below 640px (see style.css), so phones never fetch Three.js. */
-registerScene({
-  id: 'hero', el: latticeEl, eager: true,
-  allowed: () => wide(640),
-  module: './scene-hero.js', factory: 'createHeroScene'
-});
-
 /* Scroll-driven camera: off under reduced motion, where the HTML list is the better experience. */
 registerScene({
   id: 'journey', el: document.getElementById('experience'), className: 'journey--stage',
   allowed: () => !reduced() && wide(1024),
   module: './scene-journey.js', factory: 'createJourneyScene'
-});
-
-registerScene({
-  id: 'about', el: document.getElementById('about'), className: 'about--view',
-  allowed: () => wide(1024),
-  module: './scene-about.js', factory: 'createAboutScene'
 });
 
 registerScene({

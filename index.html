@@ -30,7 +30,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"></noscript>
 
-  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/style.css?v=20261024b">
 
   <script type="importmap">
   {
@@ -78,6 +78,7 @@
         <a href="#experience">Journey</a>
         <a href="#portfolio">Projects</a>
         <a href="#skills">Skills</a>
+        <a href="#activities">Activities</a>
         <a href="#contact">Contact</a>
       </nav>
 
@@ -109,11 +110,31 @@
           <p class="facts-line mono-label reveal" style="--i: 5">
             <span>3 internships</span><span>8 projects</span><span>5 hackathons</span><span>6th of 240+ teams, Agentica 2.0</span>
           </p>
-          <ul class="link-row reveal" style="--i: 6">
-            <li><a href="./Resumes/Duvva_Sai_Vivek_Resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a></li>
-            <li><a href="mailto:duvvasaivivek@gmail.com">Email</a></li>
-            <li><a href="https://linkedin.com/in/duvvasaivivek" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-            <li><a href="https://github.com/duvvasaivivek" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+          <ul class="link-row reveal" style="--i: 6" aria-label="Links">
+            <li>
+              <a class="icon-link icon-link--resume" href="./Resumes/Duvva_Sai_Vivek_Resume.pdf" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8M8 17h8M8 9h2"/></svg>
+                <span>Resume (PDF)</span>
+              </a>
+            </li>
+            <li>
+              <a class="icon-link icon-link--mail" href="mailto:duvvasaivivek@gmail.com">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+                <span>Email</span>
+              </a>
+            </li>
+            <li>
+              <a class="icon-link icon-link--linkedin" href="https://linkedin.com/in/duvvasaivivek" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                <span>LinkedIn</span>
+              </a>
+            </li>
+            <li>
+              <a class="icon-link icon-link--github" href="https://github.com/duvvasaivivek" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                <span>GitHub</span>
+              </a>
+            </li>
           </ul>
         </div>
 
@@ -123,24 +144,6 @@
             <img src="./Images/vivek-main-800.jpg" srcset="./Images/vivek-main-480.jpg 480w, ./Images/vivek-main-800.jpg 800w, ./Images/vivek-main-1200.jpg 1200w" sizes="(min-width: 1024px) 400px, (min-width: 640px) 360px, 72vw" width="1856" height="2784" alt="Duvva Sai Vivek standing on a beach in a white shirt" fetchpriority="high" decoding="async">
           </picture>
         </figure>
-      </div>
-    </section>
-
-    <!-- Skills lattice -->
-    <section class="lattice-band" id="lattice" aria-label="Skills graph">
-      <div class="container lattice-grid">
-        <div class="lattice" id="skillsLattice" aria-hidden="true">
-          <canvas class="lattice-canvas"></canvas>
-          <div class="lattice-label view-label" hidden>
-            <span class="lattice-label-name"></span>
-            <span class="lattice-label-group"></span>
-            <span class="lattice-label-projects"></span>
-          </div>
-        </div>
-        <div class="lattice-caption">
-          <p class="eyebrow">Skills graph</p>
-          <p class="lattice-hint view-hint mono-label">Lines join skills used in the same project. Drag to rotate<span class="hint-hover">; hover a node</span>; select one for its projects.</p>
-        </div>
       </div>
     </section>
 
@@ -155,30 +158,18 @@
         </div>
 
         <div class="about-grid">
-          <div class="about-side">
-            <figure class="portrait">
-              <picture>
-                <source type="image/webp" srcset="./Images/vivek-about-480.webp 480w, ./Images/vivek-about-800.webp 800w" sizes="(min-width: 1024px) 320px, 80vw">
-                <img src="./Images/vivek-about-800.jpg" srcset="./Images/vivek-about-480.jpg 480w, ./Images/vivek-about-800.jpg 800w" sizes="(min-width: 1024px) 320px, 80vw" width="800" height="1000" alt="Portrait of Duvva Sai Vivek" loading="lazy" decoding="async">
-              </picture>
-              <figcaption>Kurnool, 2026</figcaption>
-            </figure>
-
-            <figure class="globe" aria-hidden="true">
-              <div class="globe-stage">
-                <canvas class="globe-canvas"></canvas>
-                <div class="globe-label view-label" hidden>
-                  <span class="view-label-name"></span>
-                  <span class="view-label-note"></span>
-                </div>
-              </div>
-              <figcaption class="view-hint">Where the work took place. Drag to rotate<span class="hint-hover">; hover a marker</span>.</figcaption>
-            </figure>
-          </div>
+          <figure class="portrait">
+            <picture>
+              <source type="image/webp" srcset="./Images/vivek-night-800.webp 800w, ./Images/vivek-night-1200.webp 1200w, ./Images/vivek-night-1600.webp 1600w" sizes="(min-width: 1024px) 400px, 80vw">
+              <img src="./Images/vivek-night-1200.jpg" srcset="./Images/vivek-night-800.jpg 800w, ./Images/vivek-night-1200.jpg 1200w, ./Images/vivek-night-1600.jpg 1600w" sizes="(min-width: 1024px) 400px, 80vw" width="1200" height="1600" alt="Portrait of Duvva Sai Vivek" loading="lazy" decoding="async">
+            </picture>
+            <figcaption>Kurnool, 2026</figcaption>
+          </figure>
 
           <div class="about-body">
             <p>I am a B.Tech student (2024–2028) in Artificial Intelligence and Data Science at the Indian Institute of Information Technology, Design and Manufacturing, Kurnool.</p>
             <p>Through internships at Elevate Labs, Infosys Springboard, and IBM SkillsBuild I have built a fraud-detection model on imbalanced transaction data, a research-paper summarisation pipeline, and a lecture-audio-to-notes system. I also compete in national hackathons; with Civility.ai, a multimodal toxicity classifier, my team placed 6th of 240+ at Agentica 2.0 (IIIT Sricity) in January 2026.</p>
+            <p>Outside coursework I am treasurer of the institute’s National Service Scheme unit and coordinator of Novella, its reading club. Both are described under <a href="#activities">Activities</a>.</p>
 
             <dl class="facts">
               <div><dt>Institution</dt><dd>Indian Institute of Information Technology, Design and Manufacturing, Kurnool</dd></div>
@@ -461,6 +452,56 @@
       </div>
     </section>
 
+    <!-- Activities -->
+    <section class="section" id="activities" aria-labelledby="activitiesHeading">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Activities</p>
+            <h2 id="activitiesHeading">Beyond coursework</h2>
+          </div>
+          <p class="section-intro">Two roles at IIITDM Kurnool, both held since 2025: the accounts of the National Service Scheme unit, and the institute’s reading club.</p>
+        </div>
+
+        <ol class="role-list">
+          <li class="role">
+            <figure class="role-photo">
+              <picture>
+                <source type="image/webp" srcset="./Images/activities/nss-visit-800.webp 800w, ./Images/activities/nss-visit-1280.webp 1280w" sizes="(min-width: 1024px) 400px, 80vw">
+                <img src="./Images/activities/nss-visit-1280.jpg" srcset="./Images/activities/nss-visit-800.jpg 800w, ./Images/activities/nss-visit-1280.jpg 1280w" sizes="(min-width: 1024px) 400px, 80vw" width="1280" height="960" alt="NSS volunteers and children posing together indoors during a community visit" loading="lazy" decoding="async">
+              </picture>
+              <figcaption>Community visit with the NSS unit</figcaption>
+            </figure>
+            <div class="role-body">
+              <span class="role-num" aria-hidden="true">01</span>
+              <h3 class="role-title">Treasurer, National Service Scheme</h3>
+              <p class="role-org">NSS unit, IIITDM Kurnool · 2025–present</p>
+              <p>I keep the unit’s accounts: planning the budget, allocating funds to each programme, and reporting expenses to the institute. The unit runs blood donation camps, cleanliness drives, and educational outreach to nearby schools, and I handle the budgeting and logistics behind them.</p>
+              <dl class="facts">
+                <div><dt>Organisation</dt><dd>National Service Scheme, IIITDM Kurnool unit</dd></div>
+                <div><dt>Responsibilities</dt><dd>Budget planning, fund allocation, expense accounting, event logistics</dd></div>
+                <div><dt>Scale</dt><dd>Funds allocated and audited across 15+ campus and community drives</dd></div>
+              </dl>
+            </div>
+          </li>
+
+          <li class="role role--no-photo">
+            <div class="role-body">
+              <span class="role-num" aria-hidden="true">02</span>
+              <h3 class="role-title">Coordinator, Novella</h3>
+              <p class="role-org">The reading club, IIITDM Kurnool · 2025–present</p>
+              <p>Novella is the institute’s reading club. I run its weekly reading circles and review sessions, curate the recommendation lists, and organise the reading marathons and themed gatherings that bring students from different batches together.</p>
+              <dl class="facts">
+                <div><dt>Organisation</dt><dd>Novella, the reading club at IIITDM Kurnool</dd></div>
+                <div><dt>Responsibilities</dt><dd>Weekly reading circles, literary reviews, curated recommendations, event planning</dd></div>
+                <div><dt>Format</dt><dd>Peer-led discussion roundtables, open to all batches</dd></div>
+              </dl>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
     <!-- Contact -->
     <section class="section" id="contact" aria-labelledby="contactHeading">
       <div class="container contact-grid">
@@ -534,7 +575,7 @@
         <h2 class="drawer-title" id="drawerTitle"></h2>
         <p class="drawer-org" id="drawerOrg"></p>
         <figure class="drawer-media" id="drawerMedia" hidden>
-          <img id="drawerImg" src="" alt="" width="1600" height="900" loading="lazy">
+          <img id="drawerImg" src="" alt="" loading="lazy">
         </figure>
         <h3 class="drawer-sub">Overview</h3>
         <p id="drawerDesc"></p>
@@ -562,7 +603,7 @@
 
   <div id="siteToast" class="toast" role="status" aria-live="polite"></div>
 
-  <script type="module" src="./js/main.js"></script>
-  <script type="module" src="./js/scenes.js"></script>
+  <script type="module" src="./js/main.js?v=20261024b"></script>
+  <script type="module" src="./js/scenes.js?v=20261024b"></script>
 </body>
 </html>

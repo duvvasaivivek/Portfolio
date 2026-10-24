@@ -431,46 +431,88 @@ html.reduce-motion .hero-photo img {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-  gap: var(--s-5);
+  gap: var(--s-3);
   font-size: 0.9375rem;
 }
 
-/* Skills lattice band under the opening */
-.lattice-band { padding: 0 0 var(--s-9); }
+.link-row li { max-width: none; }
 
-.lattice-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 280px;
-  gap: var(--s-8);
-  align-items: end;
+/* Opening links: official marks for GitHub and LinkedIn, icons for mail and resume.
+   Each chip lifts and takes its brand colour on hover and keyboard focus. */
+.icon-link {
+  --brand: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 9px 16px 9px 12px;
+  border: 1px solid var(--rule-strong);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink);
+  font-weight: 500;
+  line-height: 1;
+  text-decoration: none;
+  transition:
+    transform var(--dur-base) var(--ease),
+    color var(--dur-base) var(--ease),
+    border-color var(--dur-base) var(--ease),
+    background-color var(--dur-base) var(--ease),
+    box-shadow var(--dur-base) var(--ease);
 }
 
-.lattice-caption {
-  padding-bottom: var(--s-6);
+.icon-link svg {
+  width: 18px;
+  height: 18px;
+  flex: none;
+  color: var(--ink-secondary);
+  transition: color var(--dur-base) var(--ease), transform var(--dur-base) var(--ease);
 }
 
-.lattice-caption .section-label { margin-bottom: var(--s-3); }
+.icon-link span { position: relative; }
 
-.lattice {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 3 / 2;
-}
-
-.lattice-canvas {
+.icon-link span::after {
+  content: "";
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  display: block;
-  touch-action: pan-y;
-  cursor: grab;
-  opacity: 0;
-  transition: opacity var(--dur-slow) var(--ease);
+  left: 0;
+  right: 0;
+  bottom: -3px;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--dur-base) var(--ease);
 }
 
-.lattice.is-ready .lattice-canvas { opacity: 1; }
-.lattice.is-dragging .lattice-canvas { cursor: grabbing; }
+.icon-link:hover,
+.icon-link:focus-visible {
+  color: var(--brand);
+  border-color: var(--brand);
+  background: var(--paper-raised);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px -14px var(--brand);
+}
+
+.icon-link:hover svg,
+.icon-link:focus-visible svg {
+  color: var(--brand);
+  transform: scale(1.12);
+}
+
+.icon-link:hover span::after,
+.icon-link:focus-visible span::after { transform: scaleX(1); }
+
+.icon-link:active { transform: translateY(0); }
+
+.icon-link--linkedin { --brand: #0A66C2; }
+.icon-link--github { --brand: #181717; }
+.icon-link--mail { --brand: #C5221F; }
+
+html.reduce-motion .icon-link,
+html.reduce-motion .icon-link svg,
+html.reduce-motion .icon-link span::after { transition: none; }
+
+html.reduce-motion .icon-link:hover,
+html.reduce-motion .icon-link:hover svg { transform: none; }
 
 /* Labels positioned by the scenes over their canvases */
 .view-label {
@@ -488,78 +530,17 @@ html.reduce-motion .hero-photo img {
 
 .view-label.is-pinned { pointer-events: auto; }
 
-.lattice-label,
-.globe-label {
-  background: var(--paper-raised);
-  border: 1px solid var(--rule-strong);
-  border-radius: var(--radius);
-  padding: 6px 10px;
-  white-space: nowrap;
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  line-height: 1.4;
-  color: var(--ink);
-}
-
-.lattice-label-group,
-.view-label-note {
-  display: block;
-  font-size: 0.6875rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--ink-muted);
-}
-
-.view-label-note {
-  text-transform: none;
-  letter-spacing: 0;
-  font-family: var(--font-sans);
-  margin-top: 2px;
-}
-
-.lattice-label-projects {
-  display: block;
-  margin-top: 4px;
-  padding-top: 4px;
-  border-top: 1px solid var(--rule);
-  font-family: var(--font-sans);
-  font-size: 0.75rem;
-  color: var(--ink-secondary);
-  white-space: normal;
-  max-width: 260px;
-}
-
-.lattice-label-projects:empty { display: none; }
-
-.lattice-label-projects a {
-  color: var(--ink);
-  text-decoration-color: var(--rule-strong);
-}
-
-.lattice-label-projects a:hover { color: var(--accent); }
-
-.lattice-hint {
-  width: 100%;
-  max-width: 540px;
-}
-
-.lattice.is-touched ~ .lattice-caption .lattice-hint { opacity: 0; }
-
 .view-hint {
   margin: 0;
   transition: opacity var(--dur-slow) var(--ease);
 }
 
-.lattice.is-touched + .lattice-hint,
 .arch-view.is-touched .view-hint,
-.skills-view.is-touched .view-hint,
-.globe.is-touched figcaption { opacity: 0; }
+.skills-view.is-touched .view-hint { opacity: 0; }
 
 @media (hover: none) {
   .hint-hover { display: none; }
 }
-
-html.no-webgl .lattice-band { display: none; }
 
 /* ===================================================================
    Global spine (html.spine is added by scenes.js when allowed)
@@ -650,15 +631,15 @@ main,
 
 .about-grid {
   display: grid;
-  grid-template-columns: 320px minmax(0, 1fr);
+  grid-template-columns: 400px minmax(0, 1fr);
   gap: var(--s-8);
   align-items: start;
 }
 
+/* Portrait and role photos: shown whole at their own proportions, like the opening photo */
 .portrait img {
   width: 100%;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
+  height: auto;
   border-radius: var(--radius);
 }
 
@@ -673,23 +654,6 @@ main,
 
 .about-body p + p { margin-top: var(--s-4); }
 
-/* Globe under the portrait (about--view is added by scenes.js when allowed) */
-.about-side {
-  display: flex;
-  flex-direction: column;
-  gap: var(--s-7);
-}
-
-.globe { display: none; }
-.about--view .globe { display: block; }
-
-.globe-stage {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 1 / 1;
-}
-
-.globe-canvas,
 .arch-canvas,
 .skills-canvas {
   position: absolute;
@@ -703,27 +667,14 @@ main,
   transition: opacity var(--dur-slow) var(--ease);
 }
 
-.globe.is-ready .globe-canvas,
 .arch-view.is-ready .arch-canvas,
 .skills-view.is-ready .skills-canvas { opacity: 1; }
 
-.globe.is-dragging .globe-canvas,
 .arch-view.is-dragging .arch-canvas,
 .skills-view.is-dragging .skills-canvas { cursor: grabbing; }
 
-.globe-canvas.is-hover,
 .arch-canvas.is-hover,
 .skills-canvas.is-hover { cursor: pointer; }
-
-.globe figcaption {
-  margin-top: var(--s-3);
-  transition: opacity var(--dur-slow) var(--ease);
-  font-family: var(--font-mono);
-  font-size: var(--fs-label);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--ink-muted);
-}
 
 .facts,
 .contact-list {
@@ -1247,6 +1198,75 @@ main,
 }
 
 /* ===================================================================
+   Activities: campus roles, one photo column and one text column per role
+   =================================================================== */
+
+.role-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--rule-strong);
+}
+
+.role {
+  max-width: none;
+  display: grid;
+  grid-template-columns: 400px minmax(0, 1fr);
+  gap: var(--s-8);
+  align-items: start;
+  padding: var(--s-7) 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.role-photo { margin: 0; }
+
+.role-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+}
+
+.role-photo figcaption {
+  margin-top: var(--s-3);
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.role-num {
+  display: block;
+  margin-bottom: var(--s-3);
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: var(--ink-muted);
+}
+
+.role-title {
+  font-family: var(--font-serif);
+  font-size: var(--fs-h3);
+  font-weight: 500;
+  line-height: 1.2;
+  margin: 0 0 var(--s-2);
+}
+
+.role-org {
+  color: var(--ink-secondary);
+  margin-bottom: var(--s-4);
+}
+
+.role-body > p { max-width: var(--measure); }
+
+.role-body .facts { margin-top: var(--s-6); }
+
+/* A role without a photo yet keeps its text aligned with the others */
+.role--no-photo .role-body { grid-column: 2; }
+
+/* ===================================================================
    Contact
    =================================================================== */
 
@@ -1410,10 +1430,13 @@ body:has(dialog[open]) { overflow: hidden; }
 
 .drawer-media { margin-bottom: var(--s-5); }
 
+/* Whole photo, never cropped; tall phone shots are capped so the text stays in reach */
 .drawer-media img {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 60vh;
+  margin: 0 auto;
   border-radius: var(--radius);
 }
 
@@ -1538,17 +1561,17 @@ html.reduce-motion *::after {
 
   .hero-photo { justify-self: start; max-width: 360px; }
 
-  .lattice-grid { grid-template-columns: 1fr; }
-
-  .lattice { max-width: 560px; }
-
-  .lattice-caption { padding-bottom: 0; }
-
   .section-head { grid-template-columns: 1fr; }
 
   .about-grid { grid-template-columns: 1fr; }
 
-  .portrait { max-width: 320px; }
+  .role { grid-template-columns: 1fr; }
+
+  .role-photo { max-width: 400px; }
+
+  .role--no-photo .role-body { grid-column: auto; }
+
+  .portrait { max-width: 400px; }
 
   .case-row { grid-template-columns: 72px minmax(0, 1fr); }
 
@@ -1593,9 +1616,6 @@ html.reduce-motion *::after {
 }
 
 @media (max-width: 719px) {
-  .lattice,
-  .lattice-hint { max-width: 320px; }
-
   .case-row { grid-template-columns: 1fr; row-gap: var(--s-2); }
 
   .case-num {
@@ -1629,7 +1649,6 @@ html.reduce-motion *::after {
 }
 
 @media (max-width: 639px) {
-  .lattice-band { display: none; }
   .hero-grid { grid-template-columns: minmax(0, 44rem); }
   .hero-photo { max-width: 72vw; }
 }

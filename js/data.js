@@ -285,14 +285,6 @@ export const architectureData = {
   ]
 };
 
-/** Venues drawn on the About globe. Online events are marked as such. */
-export const placesData = [
-  { id: 'kurnool', name: 'Kurnool', lat: 15.83, lon: 78.04, note: 'IIITDM Kurnool; AIgnite 2.0 finale at GPREC' },
-  { id: 'sricity', name: 'Sri City', lat: 13.56, lon: 80.03, note: 'Agentica 2.0 offline finale, IIIT Sricity' },
-  { id: 'goa', name: 'Goa', lat: 15.39, lon: 73.88, note: 'Devfest 5.0, BITS Goa (online event)' },
-  { id: 'bhopal', name: 'Bhopal', lat: 23.26, lon: 77.41, note: 'Hackxios 2K25, IIIT Bhopal (online event)' }
-];
-
 export const skillsData = {
   groups: [
     {
