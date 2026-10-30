@@ -47,6 +47,8 @@ The script reads dates, contact details, and project links from the shared JavaS
 
 ## Publishing
 
+For Vercel, the checked-in `vercel.json` runs `npm run build` and publishes `dist/`. The build copies the generated pages and website assets into that directory; `dist/` is ignored by Git. Push the configuration and build script changes, then deploy the new commit. No manual Output Directory override is required.
+
 The existing canonical destination is `https://duvvasaivivek.github.io/Portfolio/`. For GitHub Pages, deploy the repository root with the generated HTML, CSS, JS, images, icons, and current resume. Run the build and checks before pushing through your existing deployment workflow. No new hosting service is needed.
 
 ## Verification

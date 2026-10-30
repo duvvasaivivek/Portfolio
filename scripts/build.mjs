@@ -1,4 +1,4 @@
-import { mkdir, writeFile } from 'node:fs/promises';
+import { cp, mkdir, rm, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { projectsData, milestonesData, projectOrder, architectureData, skillsData } from '../js/data.js';
 import { profile as p, featuredIds, projectStories } from '../js/profile.js';
@@ -49,4 +49,11 @@ for(const id of projectOrder) {
   const content=`<main id="main" class="container case-page"><a class="back-link" href="../index.html#project-${id}">← All projects</a><header class="case-heading"><p class="eyebrow">${h(d.category)}</p><h1>${h(d.title)}</h1><p class="case-headline">${h(s.headline)}</p><p class="case-context">${h(s.context)}${m?' · '+m.date:''}</p>${tags(d.tags)}<div class="project-actions">${d.github?ext(d.github,'View repository','btn'):''}<a class="text-link" href="mailto:${p.email}?subject=${encodeURIComponent(`Let's talk about ${d.title}`)}">Discuss this project ↗</a></div></header><div class="case-study-grid"><div class="case-story"><section><p class="eyebrow">The problem</p><h2>What it addresses</h2><p>${h(s.problem)}</p></section><section><p class="eyebrow">My contribution</p><h2>What I built</h2><p>${h(s.contribution)}</p><ul class="implementation-list">${d.highlights.filter(t=>!t.startsWith('Reached')).map(t=>`<li>${h(t)}</li>`).join('')}</ul></section><section><p class="eyebrow">The outcome</p><h2>${id==='civility'?'6th out of 240+ teams':'What the project delivers'}</h2><p>${h(s.outcome)}</p>${s.takeaway?`<p class="takeaway">${h(s.takeaway)}</p>`:''}</section></div><aside class="case-visuals" aria-label="Project visuals">${visual(id,'../')}${s.image?diagram(id):''}</aside></div><nav class="next-project" aria-label="More work"><a href="../index.html#portfolio">← Back to selected work</a><a href="${next}.html">${h(projectsData[next].title)} →</a></nav></main>`;
   await writeFile(caseLink(id),`${head(`${d.title} — ${p.name}`,s.summary,caseLink(id),'../')}<body>${header('../',false)}${content}${footer('../')}</body></html>\n`);
 }
-console.log('Built homepage and 8 shareable project pages from shared content.');
+// Keep root pages for local preview/GitHub Pages and package public assets for Vercel.
+const output = new URL('../dist/', import.meta.url);
+await rm(output, { recursive: true, force: true });
+await mkdir(output, { recursive: true });
+for (const entry of ['index.html', 'projects', 'css', 'js', 'Images', 'Resumes', 'favicon.svg', 'favicon-32.png', 'apple-touch-icon.png']) {
+  await cp(entry, new URL(entry, output), { recursive: true });
+}
+console.log('Built homepage and 8 shareable project pages from shared content; packaged site in dist/.');
