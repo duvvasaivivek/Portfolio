@@ -1,0 +1,10 @@
+{
+  "name": "duvva-sai-vivek-portfolio",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "check": "node scripts/check.mjs && node --test scripts/journey.test.mjs",
+    "dev": "node scripts/serve.mjs"
+  }
+}

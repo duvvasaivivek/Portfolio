@@ -1,7 +1,7 @@
 /**
  * Journey stage: a sticky viewport in which the camera travels along a path past eight
- * milestone markers as the user scrolls. Hover highlights a marker; click opens the
- * existing milestone drawer; the HTML rail stays the accessible equivalent.
+ * milestone markers as the user scrolls. Controls and marker picks share selection;
+ * the HTML rail and detail drawer stay usable without WebGL.
  */
 
 import * as THREE from 'three';
@@ -10,26 +10,21 @@ import { LineGeometry } from 'three/addons/lines/LineGeometry.js';
 import { LineSegments2 } from 'three/addons/lines/LineSegments2.js';
 import { LineSegmentsGeometry } from 'three/addons/lines/LineSegmentsGeometry.js';
 import { LineMaterial } from 'three/addons/lines/LineMaterial.js';
-import { milestonesData, MILESTONE_COUNT } from './data.js';
+import { milestonesData, journeyOrder } from './data.js';
+import { journeyState, routePosition } from './journey-state.js';
 import {
   createRenderer, ticker, observeVisibility, createDprGovernor, createResizeWatcher,
   attachPointer, createPicker, projectToScreen, isLowDetail, readToken, blendColor, onContextLost
 } from './scene-utils.js';
 
-const N = MILESTONE_COUNT;
+const N = journeyOrder.length;
 
-export function createJourneyScene(section) {
+export function createJourneyScene(section, {reducedMotion = false} = {}) {
   const track = section.querySelector('.journey-track');
   const stage = section.querySelector('.journey-stage');
   const canvas = section.querySelector('.journey-canvas');
-  const buttons = Array.from(section.querySelectorAll('.journey-btn'));
-  const list = section.querySelector('.journey-list');
-  const card = {
-    date: section.querySelector('#journeyActiveDate'),
-    title: section.querySelector('#journeyActiveTitle'),
-    org: section.querySelector('#journeyActiveOrg'),
-    btn: section.querySelector('#journeyActiveBtn')
-  };
+  let state = journeyState.snapshot();
+  section.classList.toggle('journey--still', reducedMotion);
   const yearEls = Array.from(section.querySelectorAll('.journey-years span'));
 
   const low = isLowDetail();
@@ -69,28 +64,32 @@ export function createJourneyScene(section) {
   gridGeom.setPositions(gridPositions);
   scene.add(new LineSegments2(gridGeom, gridMat));
 
-  const baselinePts = baseline.getPoints(240);
   const baselineGeom = new LineGeometry();
-  baselineGeom.setPositions(baselinePts.flatMap((p) => [p.x, p.y, p.z]));
+  baselineGeom.setPositions(baseline.getPoints(240).flatMap(p => [p.x, p.y, p.z]));
   scene.add(new Line2(baselineGeom, lineMat));
 
   /* Markers */
   const MARKER_Y = 0.6;
   const tops = base.map((p) => p.clone().add(new THREE.Vector3(0, MARKER_Y, 0)));
-  const stemPositions = [];
-  base.forEach((p, i) => stemPositions.push(p.x, p.y, p.z, tops[i].x, tops[i].y, tops[i].z));
   const stemGeom = new LineSegmentsGeometry();
-  stemGeom.setPositions(stemPositions);
+  function updateStems() {
+    const positions = state.ids.flatMap(id => {
+      const i = journeyOrder.indexOf(id), p = base[i], top = tops[i];
+      return [p.x,p.y,p.z,top.x,top.y,top.z];
+    });
+    stemGeom.setPositions(positions);
+  }
+  updateStems();
   scene.add(new LineSegments2(stemGeom, lineMat));
 
+  // Original board-pin proportions: a small matte head on a fine upright stem.
   const markerGeom = new THREE.SphereGeometry(0.075, 20, 14);
   const markerMat = new THREE.MeshBasicMaterial({ color: 0xffffff });
   const markers = new THREE.InstancedMesh(markerGeom, markerMat, N);
   const mat4 = new THREE.Matrix4();
-  const lift = new Float32Array(N);
   const scale = new Float32Array(N).fill(1);
   function writeMarker(i) {
-    mat4.makeScale(scale[i], scale[i], scale[i]).setPosition(tops[i].x, tops[i].y + lift[i], tops[i].z);
+    mat4.makeScale(scale[i], scale[i], scale[i]).setPosition(tops[i].x, tops[i].y, tops[i].z);
     markers.setMatrixAt(i, mat4);
   }
   for (let i = 0; i < N; i++) { writeMarker(i); markers.setColorAt(i, inkColor); }
@@ -99,18 +98,14 @@ export function createJourneyScene(section) {
   scene.add(markers);
 
   /* Year ticks and label anchors */
-  const tick1 = base[0].clone().lerp(base[1], 0.5);
-  const tick2 = base[N - 2].clone().lerp(base[N - 1], 0.5);
+  const yearStarts = journeyOrder.map((id, i) => i === 0 || milestonesData[id].year !== milestonesData[journeyOrder[i - 1]].year ? i : -1).filter(i => i >= 0);
+  const ticks = yearStarts.slice(1).map(i => base[i - 1].clone().lerp(base[i], 0.5));
   const tickGeom = new LineSegmentsGeometry();
-  tickGeom.setPositions([
-    tick1.x, -0.14, tick1.z, tick1.x, 0.14, tick1.z,
-    tick2.x, -0.14, tick2.z, tick2.x, 0.14, tick2.z
-  ]);
+  tickGeom.setPositions(ticks.flatMap(t => [t.x, -0.14, t.z, t.x, 0.14, t.z]));
   scene.add(new LineSegments2(tickGeom, lineMat));
   const yearAnchors = [
     base[0].clone().add(new THREE.Vector3(-1.0, 0.28, 0)),
-    tick1.clone().add(new THREE.Vector3(0, 0.3, 0)),
-    tick2.clone().add(new THREE.Vector3(0, 0.3, 0))
+    ...ticks.map(t => t.clone().add(new THREE.Vector3(0, 0.3, 0)))
   ];
 
   /* State */
@@ -123,6 +118,9 @@ export function createJourneyScene(section) {
     pointerDirty: false,
     animating: true
   };
+  let navigationTarget = null;
+  const parallax = new THREE.Vector2(), parallaxTarget = new THREE.Vector2();
+  let emphasis = 0;
   const sceneObj = { dirty: true, tick, render };
   const camPos = new THREE.Vector3();
   const lookPos = new THREE.Vector3();
@@ -137,25 +135,20 @@ export function createJourneyScene(section) {
   }
 
   function updateTarget() {
+    if (reducedMotion) {
+      st.target = state.index / Math.max(1, state.ids.length - 1);
+      sceneObj.dirty = true;
+      return;
+    }
     const t = (window.scrollY - st.sectionTop) / st.travel;
     st.target = THREE.MathUtils.clamp(t, 0, 1);
+    if (navigationTarget !== null && Math.abs(st.target - navigationTarget) < 0.001) navigationTarget = null;
     sceneObj.dirty = true;
   }
 
   function setActive(i) {
     if (i === st.active) return;
     st.active = i;
-    const data = milestonesData[i + 1];
-    if (data) {
-      card.date.textContent = data.date;
-      card.title.textContent = data.title;
-      card.org.textContent = data.org;
-      card.btn.setAttribute('data-milestone-id', String(i + 1));
-    }
-    buttons.forEach((b, idx) => {
-      if (idx === i) b.setAttribute('aria-current', 'step');
-      else b.removeAttribute('aria-current');
-    });
     st.animating = true;
   }
 
@@ -173,58 +166,76 @@ export function createJourneyScene(section) {
     onMove(e, ndc) {
       if (e.pointerType === 'touch') return;
       st.pointerNdc.copy(ndc);
+      if (!reducedMotion) parallaxTarget.set(ndc.x * 0.16, ndc.y * 0.09);
       st.pointerDirty = true;
       sceneObj.dirty = true;
     },
     onUp(e, ndc, s) {
       if (s.moved) return;
       const hit = picker.pick(ndc);
-      if (hit && hit.instanceId !== undefined && window.openMilestoneDrawer) {
-        window.openMilestoneDrawer(hit.instanceId + 1);
-      }
+      if (hit && hit.instanceId !== undefined) journeyState.select(journeyOrder[hit.instanceId]);
     },
     onLeave() {
       st.pointerDirty = false;
+      parallaxTarget.set(0, 0);
       setHover(-1);
     }
   });
 
-  /* Keyboard: focusing a rail button travels to that marker; arrows move along the rail */
-  function onFocusIn(e) {
-    const btn = e.target.closest('.journey-btn');
-    if (!btn || !btn.matches(':focus-visible')) return; // keyboard focus only; clicks open the drawer directly
-    const i = buttons.indexOf(btn);
-    if (i < 0 || i === st.active) return;
-    window.scrollTo({ top: st.sectionTop + (i / (N - 1)) * st.travel, behavior: 'smooth' });
+  function syncState(next, source) {
+    const filterChanged = state.filter !== next.filter;
+    state = next;
+    setActive(journeyOrder.indexOf(state.activeId));
+    st.animating = true;
+    sceneObj.dirty = true;
+    if (filterChanged) {
+      setHover(-1);
+      updateStems();
+    }
+    if (source === 'scroll') return;
+    readLayout();
+    if (reducedMotion) return;
+    navigationTarget = state.index / Math.max(1, state.ids.length - 1);
+    window.scrollTo({top:st.sectionTop + navigationTarget * st.travel, behavior:'smooth'});
   }
-  function onKeyDown(e) {
-    if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
-    const i = buttons.indexOf(document.activeElement);
-    if (i < 0) return;
-    e.preventDefault();
-    const next = e.key === 'ArrowRight' ? Math.min(N - 1, i + 1) : Math.max(0, i - 1);
-    buttons[next].focus();
+  const unsubscribe = journeyState.subscribe(syncState);
+  function cancelTravel(event) {
+    if (event.type === 'keydown' && (!['PageUp','PageDown','ArrowUp','ArrowDown','Home','End',' '].includes(event.key) || event.target.closest('button,select,input,textarea'))) return;
+    navigationTarget = null;
   }
-  list.addEventListener('focusin', onFocusIn);
-  list.addEventListener('keydown', onKeyDown);
+  window.addEventListener('wheel', cancelTravel, {passive:true});
+  window.addEventListener('touchstart', cancelTravel, {passive:true});
+  window.addEventListener('keydown', cancelTravel);
 
   /* Per-frame update */
   function tick(dt) {
-    const diff = st.target - st.progress;
+    const target = navigationTarget ?? st.target;
+    const diff = target - st.progress;
     if (Math.abs(diff) > 0.0005) {
-      st.progress += diff * (1 - Math.exp(-dt / 90));
+      st.progress += diff * (reducedMotion ? 1 : 1 - Math.exp(-dt / 160));
       sceneObj.dirty = true;
-    } else if (st.progress !== st.target) {
-      st.progress = st.target;
+    } else if (st.progress !== target) {
+      st.progress = target;
       sceneObj.dirty = true;
     }
 
-    cameraPath.getPointAt(st.progress, camPos);
-    lookPath.getPointAt(Math.min(1, st.progress + 0.05), lookPos);
+    const pathProgress = routePosition(st.progress, state.ids);
+    cameraPath.getPoint(pathProgress, camPos);
+    lookPath.getPoint(pathProgress, lookPos);
+    const kCamera = reducedMotion ? 1 : 1 - Math.exp(-dt / 220);
+    const targetEmphasis = state.activeId === 8 ? 0.7 : 0;
+    if (parallax.distanceTo(parallaxTarget) > 0.0001 || Math.abs(emphasis - targetEmphasis) > 0.0001) sceneObj.dirty = true;
+    parallax.lerp(parallaxTarget, kCamera);
+    emphasis += (targetEmphasis - emphasis) * kCamera;
+    camPos.x += parallax.x; camPos.y += parallax.y; camPos.z -= emphasis;
     camera.position.copy(camPos);
     camera.lookAt(lookPos);
 
-    setActive(Math.round(st.progress * (N - 1)));
+    // Keep the requested title stable while scrolling to a stop.
+    if (!reducedMotion && navigationTarget === null && Math.abs(st.progress - st.target) < 0.012) {
+      journeyState.select(state.ids[Math.round(st.progress * (state.ids.length - 1))], 'scroll');
+    }
+    setActive(journeyOrder.indexOf(state.activeId));
 
     if (st.pointerDirty) {
       st.pointerDirty = false;
@@ -235,24 +246,22 @@ export function createJourneyScene(section) {
 
     if (st.animating) {
       let still = true;
-      const k = 1 - Math.exp(-dt / 120);
+      const k = reducedMotion ? 1 : 1 - Math.exp(-dt / 120);
       for (let i = 0; i < N; i++) {
-        const tl = i === st.active ? 0.22 : 0;
-        const ts = i === st.active ? 1.45 : (i === st.hover ? 1.25 : 1);
-        const dl = tl - lift[i];
+        const ts = !state.ids.includes(journeyOrder[i]) ? 0 : i === st.active ? 1.45 : (i === st.hover ? 1.25 : 1);
         const ds = ts - scale[i];
-        if (Math.abs(dl) > 0.001 || Math.abs(ds) > 0.001) {
-          lift[i] += dl * k;
+        if (Math.abs(ds) > 0.001) {
           scale[i] += ds * k;
           still = false;
         } else {
-          lift[i] = tl; scale[i] = ts;
+          scale[i] = ts;
         }
         writeMarker(i);
         markers.setColorAt(i, i === st.active ? accentColor : inkColor);
       }
       markers.instanceMatrix.needsUpdate = true;
       markers.instanceColor.needsUpdate = true;
+      markers.computeBoundingSphere();
       sceneObj.dirty = true;
       if (still) st.animating = false;
     }
@@ -301,20 +310,25 @@ export function createJourneyScene(section) {
     }
   });
 
+  let destroyed = false;
   function destroy() {
+    if (destroyed) return;
+    destroyed = true;
     ticker.remove(sceneObj);
     visibility.disconnect();
     stageWatcher.disconnect();
     bodyWatcher.disconnect();
     pointer.destroy();
-    list.removeEventListener('focusin', onFocusIn);
-    list.removeEventListener('keydown', onKeyDown);
+    unsubscribe();
+    window.removeEventListener('wheel', cancelTravel);
+    window.removeEventListener('touchstart', cancelTravel);
+    window.removeEventListener('keydown', cancelTravel);
     if (scrollAttached) window.removeEventListener('scroll', onScroll);
-    buttons.forEach((b) => b.removeAttribute('aria-current'));
     yearEls.forEach((el) => el.classList.remove('is-visible'));
     canvas.classList.remove('is-hover');
     baselineGeom.dispose(); stemGeom.dispose(); tickGeom.dispose(); gridGeom.dispose();
     markerGeom.dispose(); markerMat.dispose(); lineMat.dispose(); gridMat.dispose();
+    section.classList.remove('journey--still');
     renderer.dispose();
   }
 

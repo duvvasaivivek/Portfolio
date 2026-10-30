@@ -88,6 +88,7 @@ ENV/
 .gemini/
 .agents/scratch/
 .system_generated/
+tmp/
 *.crdownload
 
 # Preserve placeholder directories in git

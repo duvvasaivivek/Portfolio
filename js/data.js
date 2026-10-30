@@ -1,7 +1,6 @@
 /**
- * Single source of truth for detail content used by the dialogs and the 3D scenes.
- * The summaries printed in index.html are canonical for the page; this file is
- * canonical for the drawer and dialog detail.
+ * Shared content for the generated homepage, project pages, resume and optional diagrams.
+ * Dates and current profile name confirmed by Vivek on 30 October 2026.
  */
 
 export const projectsData = {
@@ -37,7 +36,7 @@ export const projectsData = {
   safeswipe: {
     title: 'SafeSwipe',
     category: 'Machine learning and fraud detection',
-    metric: 'Machine Learning Intern, Elevate Labs · Oct–Dec 2025',
+    metric: 'Machine Learning Intern, Elevate Labs · Nov 2025',
     tags: ['XGBoost', 'Scikit-Learn', 'Local Outlier Factor', 'Streamlit', 'FastAPI'],
     overview: 'A fraud-detection system built at Elevate Labs to flag unauthorised transactions in highly imbalanced data.',
     highlights: [
@@ -50,7 +49,7 @@ export const projectsData = {
   lecturelens: {
     title: 'Lecture-Lens',
     category: 'Speech processing and NLP',
-    metric: 'AI/ML Intern, IBM SkillsBuild · Dec 2025–Jan 2026',
+    metric: 'AI/ML Intern, IBM SkillsBuild · Jan 2026',
     tags: ['Speech-to-text', 'Chunked audio pipeline', 'Generative summarisation', 'Python'],
     overview: 'A lecture processing pipeline developed during the IBM SkillsBuild internship to turn spoken lectures into structured study notes.',
     highlights: [
@@ -117,8 +116,8 @@ export const projectsData = {
 export const milestonesData = {
   1: {
     id: 1,
-    year: 2024,
-    date: 'Late 2024',
+    year: 2025,
+    date: 'Oct 2025',
     category: 'Hackathon',
     title: 'GDG Open Source Hackathon',
     subtitle: 'Team SpriteVRM · Campus Hustle',
@@ -131,8 +130,8 @@ export const milestonesData = {
   },
   2: {
     id: 2,
-    year: 2025,
-    date: 'Early 2025',
+    year: 2026,
+    date: 'Jan 2026',
     category: 'Hackathon finale',
     title: 'AIgnite 2.0 Grand Finale',
     subtitle: 'Team ApexVAMY · Conversational order assistant',
@@ -145,8 +144,8 @@ export const milestonesData = {
   },
   3: {
     id: 3,
-    year: 2025,
-    date: 'Mid 2025',
+    year: 2026,
+    date: 'Jan 2026',
     category: 'Hackathon',
     title: 'Devfest 5.0, BITS Goa',
     subtitle: 'Team Void Walkers · Connect IQ',
@@ -160,7 +159,7 @@ export const milestonesData = {
   4: {
     id: 4,
     year: 2025,
-    date: 'Mid 2025',
+    date: 'Dec 2025',
     category: 'Hackathon',
     title: 'Hackxios 2K25, IIIT Bhopal',
     subtitle: 'Team Core Cube · Skill Drift Monitor',
@@ -174,7 +173,7 @@ export const milestonesData = {
   5: {
     id: 5,
     year: 2025,
-    date: 'Oct–Dec 2025',
+    date: 'Nov 2025',
     category: 'Internship',
     title: 'Machine Learning Intern, Elevate Labs',
     subtitle: 'SafeSwipe fraud detection',
@@ -187,8 +186,8 @@ export const milestonesData = {
   },
   6: {
     id: 6,
-    year: 2025,
-    date: 'Nov 2025–Jan 2026',
+    year: 2026,
+    date: 'Jan 2026',
     category: 'Internship',
     title: 'AI Intern, Infosys Springboard',
     subtitle: 'Research literature synthesizer',
@@ -201,8 +200,8 @@ export const milestonesData = {
   },
   7: {
     id: 7,
-    year: 2025,
-    date: 'Dec 2025–Jan 2026',
+    year: 2026,
+    date: 'Jan 2026',
     category: 'Internship',
     title: 'AI/ML Intern, IBM SkillsBuild',
     subtitle: 'Lecture-Lens audio study assistant',
@@ -216,7 +215,7 @@ export const milestonesData = {
   8: {
     id: 8,
     year: 2026,
-    date: 'Jan 2026',
+    date: 'Mar 2026',
     category: 'Hackathon · 6th of 240+',
     title: 'Agentica 2.0, IIIT Sricity',
     subtitle: 'Team ByteBuilders · Civility.ai',
@@ -231,8 +230,11 @@ export const milestonesData = {
 
 export const MILESTONE_COUNT = 8;
 
+// Chronological positions are independent of stable milestone IDs.
+export const journeyOrder = [1, 5, 4, 2, 3, 6, 7, 8];
+
 /** Project ids in page order (order of significance), used by the 3D scenes. */
-export const projectOrder = ['civility', 'scholarium', 'safeswipe', 'lecturelens', 'connectiq', 'skilldrift', 'aignite', 'campushustle'];
+export const projectOrder = ['civility', 'safeswipe', 'scholarium', 'lecturelens', 'connectiq', 'skilldrift', 'aignite', 'campushustle'];
 
 /**
  * Architecture layers drawn by the Projects scene, top layer first. These are a regrouping
@@ -307,7 +309,7 @@ export const skillsData = {
         { id: 'sklearn', label: 'Scikit-Learn', projects: ['safeswipe'] },
         { id: 'xgboost', label: 'XGBoost', projects: ['safeswipe'] },
         { id: 'nlp', label: 'NLP and text processing', projects: ['lecturelens', 'skilldrift', 'connectiq'] },
-        { id: 'rag', label: 'RAG architectures', projects: ['aignite', 'scholarium'] },
+        { id: 'rag', label: 'Retrieval-augmented generation', projects: ['aignite'] },
         { id: 'anomaly', label: 'Anomaly detection', projects: ['safeswipe'] }
       ]
     },
@@ -315,6 +317,7 @@ export const skillsData = {
       id: 'web',
       label: 'Frameworks and web',
       items: [
+        { id: 'fastapi', label: 'FastAPI', projects: ['civility', 'safeswipe', 'aignite'] },
         { id: 'django', label: 'Django REST Framework', projects: ['scholarium'] },
         { id: 'react', label: 'React 18', projects: ['scholarium', 'civility'] },
         { id: 'streamlit', label: 'Streamlit', projects: ['safeswipe', 'connectiq', 'skilldrift'] },
