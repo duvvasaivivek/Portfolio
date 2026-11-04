@@ -39,7 +39,7 @@ function smoothstep(t) {
 
 export function createSpineScene(canvas, opts = {}) {
   const labelsEl = document.getElementById('spineLabels');
-  let reducedMotion = !!opts.reducedMotion;
+  const reducedMotion = !!opts.reducedMotion;
 
   const paperHex = readToken('--paper', '#F6F1E8');
   const inkHex = new THREE.Color(readToken('--lattice-node', '#17150F')).getHex();
@@ -380,11 +380,9 @@ export function createSpineScene(canvas, opts = {}) {
     }
   }
 
-  let ready = false;
   function render(dt) {
     renderer.render(scene, camera);
     governor.sample(dt);
-    if (!ready) { ready = true; canvas.classList.add('is-ready'); }
   }
 
   /* ---- Sizing ---- */
@@ -422,7 +420,6 @@ export function createSpineScene(canvas, opts = {}) {
     window.removeEventListener('scroll', onScroll);
     window.removeEventListener('resize', resize);
     labelsEl.replaceChildren();
-    canvas.classList.remove('is-ready');
     gridGeom.dispose(); gridMat.dispose(); dotGeom.dispose(); dotMat.dispose();
     if (spineGeom) spineGeom.dispose();
     spineMat.dispose(); knotGeom.dispose(); knotMat.dispose();
@@ -434,17 +431,5 @@ export function createSpineScene(canvas, opts = {}) {
     document.documentElement.classList.remove('spine');
   });
 
-  return {
-    destroy,
-    setReducedMotion(v) {
-      reducedMotion = !!v;
-      st.drawn = -1;
-      updateDrawTarget();
-      sceneObj.dirty = true;
-    },
-    /* Dev-only probe read by the verification script */
-    probe() {
-      return { points: count, drawn: spineGeom ? spineGeom.instanceCount : 0, knots: Array.from(knotShown) };
-    }
-  };
+  return { destroy };
 }

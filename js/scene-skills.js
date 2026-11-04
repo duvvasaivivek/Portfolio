@@ -24,7 +24,7 @@ export function createSkillsScene(section, opts = {}) {
   const terms = Array.from(section.querySelectorAll('.term[data-skill]'));
 
   const low = isLowDetail();
-  let reducedMotion = !!opts.reducedMotion;
+  const reducedMotion = !!opts.reducedMotion;
 
   /* Colors */
   const paperHex = readToken('--paper', '#F6F1E8');
@@ -274,11 +274,9 @@ export function createSkillsScene(section, opts = {}) {
     }
   }
 
-  let ready = false;
   function render(dt) {
     renderer.render(scene, camera);
     governor.sample(dt);
-    if (!ready) { ready = true; view.classList.add('is-ready'); }
   }
 
   /* Observers */
@@ -317,7 +315,7 @@ export function createSkillsScene(section, opts = {}) {
     });
     labelsEl.replaceChildren();
     canvas.classList.remove('is-hover');
-    view.classList.remove('is-ready', 'is-dragging');
+    view.classList.remove('is-dragging');
     edgeGeom.dispose(); edgeMat.dispose(); nodeGeom.dispose(); nodeMat.dispose();
     renderer.dispose();
   }
@@ -327,12 +325,5 @@ export function createSkillsScene(section, opts = {}) {
     section.classList.remove('skills--view');
   });
 
-  return {
-    destroy,
-    setReducedMotion(v) {
-      reducedMotion = !!v;
-      orbit.stop();
-      sceneObj.dirty = true;
-    }
-  };
+  return { destroy };
 }

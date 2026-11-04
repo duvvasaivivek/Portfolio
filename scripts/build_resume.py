@@ -18,9 +18,9 @@ from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, Tabl
 
 payload = subprocess.check_output([
     'node', '--input-type=module', '-e',
-    "import {profile,internshipIds,featuredIds,projectStories} from './js/profile.js'; "
-    "import {milestonesData,projectsData,skillsData} from './js/data.js'; "
-    "console.log(JSON.stringify({profile,internshipIds,featuredIds,projectStories,milestonesData,projectsData,skillsData}));"
+    "import {profile,internshipIds,featuredIds} from './js/profile.js'; "
+    "import {milestonesData,projectsData} from './js/data.js'; "
+    "console.log(JSON.stringify({profile,internshipIds,featuredIds,milestonesData,projectsData}));"
 ], cwd=ROOT, text=True, encoding='utf-8')
 data = json.loads(payload)
 p = data['profile']

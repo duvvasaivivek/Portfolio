@@ -53,7 +53,9 @@ for(const id of projectOrder) {
 const output = new URL('../dist/', import.meta.url);
 await rm(output, { recursive: true, force: true });
 await mkdir(output, { recursive: true });
-for (const entry of ['index.html', 'projects', 'css', 'js', 'Images', 'Resumes', 'favicon.svg', 'favicon-32.png', 'apple-touch-icon.png']) {
+for (const entry of ['index.html', 'projects', 'css', 'js', 'Images', 'favicon.svg', 'favicon-32.png', 'apple-touch-icon.png']) {
   await cp(entry, new URL(entry, output), { recursive: true });
 }
+await mkdir(new URL('./', new URL(p.resume, output)), { recursive: true });
+await cp(p.resume, new URL(p.resume, output));
 console.log('Built homepage and 8 shareable project pages from shared content; packaged site in dist/.');

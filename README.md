@@ -34,7 +34,7 @@ The Agentica stop reveals the existing event photograph, the 6th-of-240+ result,
 
 ## Resume
 
-The website links to `Resumes/Duvva_Sai_Vivek_Resume_2026.pdf`. Earlier PDFs are preserved as historical files and are not linked from the website.
+The website links to `Resumes/Duvva_Sai_Vivek_Resume_2026.pdf`. Earlier PDFs are preserved as historical files, are not linked from the website, and are excluded from the Vercel build output.
 
 To regenerate the one-page PDF, install ReportLab in your Python environment and run:
 

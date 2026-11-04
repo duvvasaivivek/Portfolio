@@ -7,9 +7,7 @@ export const projectsData = {
   civility: {
     title: 'Civility.ai',
     category: 'Multimodal AI safety',
-    metric: 'Agentica 2.0, IIIT Sricity · 6th of 240+ teams',
     tags: ['PyTorch', 'Hugging Face Transformers', 'FastAPI', 'React'],
-    overview: 'A content moderation platform that classifies and flags toxic text and images for online communities, developed with Team ByteBuilders at Agentica 2.0.',
     highlights: [
       'Reached the offline grand finale at IIIT Sricity and placed 6th of 240+ competing teams nationally.',
       'Designed the end-to-end moderation workflow from input preprocessing to classification and flag review.',
@@ -21,9 +19,7 @@ export const projectsData = {
   scholarium: {
     title: 'Scholarium',
     category: 'Full-stack AI platform',
-    metric: 'Independent project · Gemini 2.0 Flash with Claude fallback',
     tags: ['React 18', 'Django REST Framework', 'React Flow', 'PostgreSQL', 'MongoDB', 'JWT'],
-    overview: 'An adaptive education platform that delivers personalised learning roadmaps structured as directed acyclic graphs, with prompt caching and hybrid storage.',
     highlights: [
       'Generates DAG-based learning roadmaps through prompt engineering with Gemini 2.0 Flash, with Anthropic Claude as the fallback model.',
       'Uses PostgreSQL for relational state and MongoDB for LLM response caching and token telemetry.',
@@ -36,9 +32,7 @@ export const projectsData = {
   safeswipe: {
     title: 'SafeSwipe',
     category: 'Machine learning and fraud detection',
-    metric: 'Machine Learning Intern, Elevate Labs · Nov 2025',
     tags: ['XGBoost', 'Scikit-Learn', 'Local Outlier Factor', 'Streamlit', 'FastAPI'],
-    overview: 'A fraud-detection system built at Elevate Labs to flag unauthorised transactions in highly imbalanced data.',
     highlights: [
       'Combines supervised classification (XGBoost) with unsupervised anomaly detection (Local Outlier Factor).',
       'Handles extreme class imbalance with precision-focused metrics and decision-threshold tuning to control false positives.',
@@ -49,9 +43,7 @@ export const projectsData = {
   lecturelens: {
     title: 'Lecture-Lens',
     category: 'Speech processing and NLP',
-    metric: 'AI/ML Intern, IBM SkillsBuild · Jan 2026',
     tags: ['Speech-to-text', 'Chunked audio pipeline', 'Generative summarisation', 'Python'],
-    overview: 'A lecture processing pipeline developed during the IBM SkillsBuild internship to turn spoken lectures into structured study notes.',
     highlights: [
       'Multi-stage pipeline: speech-to-text transcription, text chunking, and generative summarisation.',
       'Tuned chunk overlap, temperature, and token limits against transcription fidelity.',
@@ -62,9 +54,7 @@ export const projectsData = {
   connectiq: {
     title: 'Connect IQ',
     category: 'Semantic matching',
-    metric: 'Devfest 5.0, BITS Goa',
     tags: ['Sentence Transformers', 'Embeddings', 'Cosine similarity', 'Streamlit'],
-    overview: 'A networking platform developed at Devfest 5.0 that scores compatibility between developer profiles and open opportunities.',
     highlights: [
       'Extracts skill vectors from profiles and compares them with project requirements using sentence embeddings.',
       'Computes an opportunity score that quantifies alignment between a candidate and a project.',
@@ -75,9 +65,7 @@ export const projectsData = {
   skilldrift: {
     title: 'Skill Drift Monitor',
     category: 'Data analysis and NLP',
-    metric: 'Hackxios 2K25, IIIT Bhopal',
     tags: ['Web scraping', 'NLP extraction', 'Time-series analysis', 'Streamlit'],
-    overview: 'An analysis tool built at Hackxios 2K25 that compares live technology job postings with university syllabi.',
     highlights: [
       'Scrapes and parses 100+ job listings and extracts the skills they require.',
       'Models how demand shifts over time and quantifies gaps against course content.',
@@ -88,9 +76,7 @@ export const projectsData = {
   aignite: {
     title: 'AIgnite Order Assistant',
     category: 'Conversational AI',
-    metric: 'AIgnite 2.0, GPREC · offline grand finale',
     tags: ['Gemini Flash', 'RAG', 'LangChain', 'FastAPI'],
-    overview: 'A conversational assistant developed at AIgnite 2.0 to answer questions about food orders and track their progress.',
     highlights: [
       'Combines Gemini Flash with retrieval-augmented generation over a menu and order knowledge base.',
       'Handles order placement, preparation, and delivery queries through FastAPI endpoints.',
@@ -101,9 +87,7 @@ export const projectsData = {
   campushustle: {
     title: 'Campus Hustle',
     category: 'Game development',
-    metric: 'GDG Open Source Hackathon, IIITDM Kurnool',
     tags: ['Unity', 'C#', '2D physics', 'WebGL'],
-    overview: 'A 2D runner game built under hackathon time constraints at the GDG Open Source Hackathon.',
     highlights: [
       'Physics-driven player controller, jump mechanics, procedural obstacles, and a multi-tier health system.',
       'Compiled to WebGL so it runs in the browser.',
@@ -227,8 +211,6 @@ export const milestonesData = {
     link: null
   }
 };
-
-export const MILESTONE_COUNT = 8;
 
 // Chronological positions are independent of stable milestone IDs.
 export const journeyOrder = [1, 5, 4, 2, 3, 6, 7, 8];

@@ -1,16 +1,11 @@
 /**
- * Shared runtime for the two Three.js scenes: renderer factory, one rAF ticker with
+ * Shared runtime for the Three.js scenes: renderer factory, one rAF ticker with
  * dirty-gating, DPR governor, visibility and resize observers, pointer and picking helpers.
  */
 
 import * as THREE from 'three';
 
 /* ---------------- Environment ---------------- */
-
-export function prefersReducedMotion() {
-  return document.documentElement.classList.contains('reduce-motion')
-    || window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-}
 
 export function isLowDetail() {
   const coarse = window.matchMedia('(pointer: coarse)').matches;
@@ -73,7 +68,6 @@ export function createDprGovernor(renderer, { steps = [2, 1.5, 1] } = {}) {
   const samples = new Float32Array(60);
   let count = 0;
   let level = -1;
-  let onChange = null;
 
   return {
     sample(dt) {
@@ -88,10 +82,8 @@ export function createDprGovernor(renderer, { steps = [2, 1.5, 1] } = {}) {
       if (mean > 20) {
         level++;
         renderer.setPixelRatio(ladder[level]);
-        if (onChange) onChange(ladder[level]);
       }
-    },
-    set onChange(fn) { onChange = fn; }
+    }
   };
 }
 
@@ -268,7 +260,7 @@ export function approach(current, target, dt, tau) {
 /**
  * Drag-to-rotate with inertia, shared by every scene that can be turned by hand.
  * Feed it pointer events from attachPointer; call tick(dt) each frame, which returns true
- * while inertia is still changing the rotation. Adds is-dragging / is-touched to `root`.
+ * while inertia is still changing the rotation. Adds is-dragging to `root`.
  */
 export function createOrbit(root, opts = {}) {
   const pitchClamp = opts.pitchClamp ?? 1.2;
@@ -291,7 +283,6 @@ export function createOrbit(root, opts = {}) {
       o.lastX = e.clientX; o.lastY = e.clientY;
       o.velX = 0; o.velY = 0;
       root.classList.add('is-dragging');
-      root.classList.add('is-touched');
     },
     onMove(e) {
       if (!o.dragging) return false;
@@ -320,8 +311,7 @@ export function createOrbit(root, opts = {}) {
       const d = Math.pow(damp, dt / 16.667);
       o.velX *= d; o.velY *= d;
       return true;
-    },
-    stop() { o.velX = 0; o.velY = 0; }
+    }
   };
   return o;
 }
@@ -355,24 +345,18 @@ const labelScratch = { x: 0, y: 0, visible: false };
 
 /**
  * Places an HTML label at the projection of `worldPos` inside a w x h canvas and toggles
- * its is-visible class. Modes: 'tip' sits below-right of the point and flips to the left
- * past 55% of the width (hero style); 'above' centres the label over the point; 'left' and
- * 'right' sit beside it, vertically centred. Returns whether the point is on screen.
+ * its is-visible class. 'left' and 'right' sit beside the point, vertically centred.
+ * Returns whether the point is on screen.
  */
-export function placeLabel(el, worldPos, camera, w, h, mode = 'tip', pad = 14) {
+export function placeLabel(el, worldPos, camera, w, h, mode = 'right', pad = 14) {
   projectToScreen(worldPos, camera, w, h, labelScratch);
   const x = Math.round(labelScratch.x);
   const y = Math.round(labelScratch.y);
   const visible = labelScratch.visible;
   el.classList.toggle('is-visible', visible);
   if (!visible) return false;
-  let t;
-  if (mode === 'above') t = `translate(${x}px, ${y}px) translate(-50%, -100%)`;
-  else if (mode === 'right') t = `translate(${x + pad}px, ${y}px) translate(0, -50%)`;
-  else if (mode === 'left') t = `translate(${x - pad}px, ${y}px) translate(-100%, -50%)`;
-  else t = x > w * 0.55 ? `translate(calc(${x - pad}px - 100%), ${y + pad}px)` : `translate(${x + pad}px, ${y + pad}px)`;
-  el.style.transform = t;
+  el.style.transform = mode === 'left'
+    ? `translate(${x - pad}px, ${y}px) translate(-100%, -50%)`
+    : `translate(${x + pad}px, ${y}px) translate(0, -50%)`;
   return true;
 }
-
-export { THREE };

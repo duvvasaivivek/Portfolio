@@ -32,7 +32,7 @@ export function createProjectsScene(section, opts = {}) {
   const rowIds = rows.map((r) => r.id.slice('project-'.length));
 
   const low = isLowDetail();
-  let reducedMotion = !!opts.reducedMotion;
+  const reducedMotion = !!opts.reducedMotion;
 
   /* Colors */
   const paperHex = readToken('--paper', '#F6F1E8');
@@ -295,11 +295,9 @@ export function createProjectsScene(section, opts = {}) {
     }
   }
 
-  let ready = false;
   function render(dt) {
     renderer.render(scene, camera);
     governor.sample(dt);
-    if (!ready) { ready = true; view.classList.add('is-ready'); }
   }
 
   /* Observers and listeners */
@@ -348,7 +346,7 @@ export function createProjectsScene(section, opts = {}) {
     labelsEl.classList.remove('is-switching');
     titleEl.textContent = '';
     canvas.classList.remove('is-hover');
-    view.classList.remove('is-ready', 'is-dragging');
+    view.classList.remove('is-dragging');
     plateGeom.dispose(); plateMat.dispose(); edgesSource.dispose(); outlineGeom.dispose();
     outlineMat.dispose(); outlineHotMat.dispose(); connGeom.dispose(); connMat.dispose();
     renderer.dispose();
@@ -359,13 +357,5 @@ export function createProjectsScene(section, opts = {}) {
     section.classList.remove('projects--view');
   });
 
-  return {
-    destroy,
-    setReducedMotion(v) {
-      reducedMotion = !!v;
-      orbit.stop();
-      st.animating = true;
-      sceneObj.dirty = true;
-    }
-  };
+  return { destroy };
 }

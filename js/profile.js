@@ -16,7 +16,6 @@ export const profile = {
 
 export const featuredIds = ['civility', 'safeswipe', 'scholarium'];
 export const internshipIds = [7, 6, 5];
-export const hackathonIds = [8, 3, 2, 4, 1];
 export const milestoneProject = { 1: 'campushustle', 2: 'aignite', 3: 'connectiq', 4: 'skilldrift', 5: 'safeswipe', 7: 'lecturelens', 8: 'civility' };
 
 export const projectStories = {
